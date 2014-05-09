@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name.
+ * RRandomizer.
  *
- * @package   Plugin_widget
+ * @package   RRandomizer_widget
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -19,14 +19,14 @@
  * @package Plugin_widget
  * @author  Your Name <email@example.com>
  */
-class Plugin_widget {
+class RRandomizer_widget extends WP_Widget{
 
     public function __construct() {
 	parent::__construct(
-		'', // @TODO Slug
-		'', // @TODO Name
+		'rrandomizer', // @TODO Slug
+		'RRandomizer', // @TODO Name
 		array(
-	    'description' => __('  ') /* @TODO Description */
+	    'description' => __('Randomize content') /* @TODO Description */
 		), array(
 		// @TODO Widget options
 	));

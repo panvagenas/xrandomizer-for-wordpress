@@ -21,7 +21,7 @@
  * @package RRandomizer_Admin
  * @author  Your Name <email@example.com>
  */
-class RRandomizer_Admin {
+class RRandomizerAdmin {
 
 	/**
 	 * Instance of this class.
@@ -76,6 +76,9 @@ class RRandomizer_Admin {
 		 */
 		$plugin = RRandomizer::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
+
+		// Activate plugin when new blog is added
+		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
 		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -187,8 +190,8 @@ class RRandomizer_Admin {
 		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Page Title', $this->plugin_slug ),
-			__( 'Menu Text', $this->plugin_slug ),
+			__( 'RRandomizer', $this->plugin_slug ),
+			__( 'RRandomizer', $this->plugin_slug ),
 			'manage_options',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )
@@ -354,6 +357,35 @@ class RRandomizer_Admin {
 	 */
 	private static function single_deactivate() {
 		// @TODO: Define deactivation functionality here
+	}
+	
+	/**
+	 * Adds once weekly to the existing schedules
+         * TODO Remove crons if not to be used
+	 *
+	 * @param array $schedules
+	 * @return array
+	 * @author Vagenas Panagiotis <pan.vagenas@gmail.com>
+	 * @since 1.0.0
+	 */
+	public static function addCron( $schedules ) {
+		// @TODO Adjust this to your needs
+		$schedules [ 'weekly' ] = array (
+				'interval' => 604800,
+				'display' => __( 'Once Weekly' )
+		);
+		return $schedules;
+	}
+	
+	/**
+	 * Cron job actions
+         * TODO Remove crons if not to be used
+	 *
+	 * @author Vagenas Panagiotis <pan.vagenas@gmail.com>
+	 * @since 1.0.0
+	 */
+	public static function cronJobAction( ) {
+		// @TODO Define cron job actions
 	}
 
 	/**

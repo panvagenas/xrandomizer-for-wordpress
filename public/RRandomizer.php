@@ -67,9 +67,6 @@ class RRandomizer {
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		// Activate plugin when new blog is added
-		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
-
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -141,33 +138,6 @@ class RRandomizer {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
-	}
-	
-	/**
-	 * Adds once weekly to the existing schedules
-	 *
-	 * @param array $schedules
-	 * @return array
-	 * @author Vagenas Panagiotis <pan.vagenas@gmail.com>
-	 * @since 1.0.0
-	 */
-	public static function addCron( $schedules ) {
-		// @TODO Adjust this to your needs
-		$schedules [ 'weekly' ] = array (
-				'interval' => 604800,
-				'display' => __( 'Once Weekly' )
-		);
-		return $schedules;
-	}
-	
-	/**
-	 * Cron job actions
-	 *
-	 * @author Vagenas Panagiotis <pan.vagenas@gmail.com>
-	 * @since 1.0.0
-	 */
-	public static function cronJobAction( ) {
-		// @TODO Define cron job actions
 	}
 
 	/**
