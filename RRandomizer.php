@@ -5,20 +5,20 @@
  * A foundation off of which to build well-documented WordPress plugins that
  * also follow WordPress Coding Standards and PHP best practices.
  *
- * @package   Plugin_Name
+ * @package   RRandomizer
  * @author    Your Name <email@example.com>
  * @license   GPL-2.0+
  * @link      http://example.com
  * @copyright 2014 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name:       @TODO
+ * Plugin Name:       RRandomizer
  * Plugin URI:        @TODO
  * Description:       @TODO
  * Version:           1.0.0
- * Author:            @TODO
+ * Author:            Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Author URI:        @TODO
- * Text Domain:       plugin-name-locale
+ * Text Domain:       rrandomizer-en_us
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages

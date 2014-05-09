@@ -21,7 +21,7 @@
  * @package Plugin_Name
  * @author  Your Name <email@example.com>
  */
-class Plugin_Name {
+class RRandomizer {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -33,7 +33,6 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
-	 * @TODO - Rename "plugin-name" to the name your your plugin
 	 *
 	 * Unique identifier for your plugin.
 	 *
@@ -46,7 +45,7 @@ class Plugin_Name {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'plugin-name';
+	protected $plugin_slug = 'rrandomizer';
 
 	/**
 	 * Instance of this class.
