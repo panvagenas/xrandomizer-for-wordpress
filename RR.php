@@ -38,24 +38,18 @@ if (!defined('RRANDOMIZER_MAIN_OPTS_ARRAY_NAME')) {
 }
 
 /* ----------------------------------------------------------------------------*
+ * Core classes
+ * ---------------------------------------------------------------------------- */
+require_once( plugin_dir_path(__FILE__) . 'core/RPaths.php' );
+RPaths::requireOnce(RPaths::$RDefaults);
+
+/* ----------------------------------------------------------------------------*
  * Public-Facing Functionality
  * ---------------------------------------------------------------------------- */
 
-/*
- * @TODO:
- *
- * - replace `class-plugin-name.php` with the name of the plugin's class file
- *
- */
-require_once( plugin_dir_path(__FILE__) . 'public/RRandomizer.php' );
-/*
- * @TODO:
- *
- * - replace `class-plugin-widget.php` with the name of the plugin's 
- * widget class file
- *
- */
-require_once( plugin_dir_path(__FILE__) . 'admin/RRandomizer_widget.php' );
+RPaths::requireOnce(RPaths::$RRandomizer);
+
+RPaths::requireOnce(RPaths::$RRandomizer_widget);
 
 /*
  * @TODO:
@@ -96,7 +90,8 @@ add_action('widgets_init', function () {
  */
 if (is_admin() && (!defined('DOING_AJAX') || !DOING_AJAX )) {
 
-    require_once( plugin_dir_path(__FILE__) . 'admin/RRandomizerAdmin.php' );
+    RPaths::requireOnce(RPaths::$RRandomizerAdmin);
+    
     add_action('plugins_loaded', array('RRandomizerAdmin', 'get_instance'));
 
 
@@ -112,6 +107,33 @@ if (is_admin() && (!defined('DOING_AJAX') || !DOING_AJAX )) {
     register_activation_hook(__FILE__, array('RRandomizerAdmin', 'activate'));
     register_deactivation_hook(__FILE__, array('RRandomizerAdmin', 'deactivate'));
 }
+
+/**
+ * Shortcode function
+ *
+ * @param array $attrs
+ * @return string
+ * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since 1.0.0
+ */
+function RRandomizerShortcode($attrs) {
+
+    // If no profile is set return empty string
+    if (!isset($attrs['profile'])) {
+        return '';
+    }
+
+    global $post;
+    if($post == null){
+        return '';
+    }
+    RPaths::requireOnce(RPaths::$RShortCode);
+//TODO
+//    $sc = new erpPROShortcode($attrs['profile']);
+//    return $sc->display($post->ID);
+}
+
+add_shortcode('randomizer', 'RRandomizerShortcode');
 
 /**
  * Define cron job actions

@@ -16,17 +16,20 @@
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  */
 class RPaths {
-    private static $RRandomizer_widget = 'admin/RRandomizer_widget.php';
-    private static $RRandomizerAdmin = 'admin/RRandomizerAdmin.php';
+    public static $RRandomizer_widget = 'admin/RRandomizer_widget.php';
+    public static $RRandomizerAdmin = 'admin/RRandomizerAdmin.php';
     
-    private static $RDefaults = 'core/RDefaults.php';
-    private static $RMainOptions = 'core/RMainOptions.php';
-    private static $ROptions = 'core/ROptions.php';
-    private static $RRandomizeIt = 'core/RRandomizeIt.php';
-    private static $RRShortcodeOptions = 'core/RShortcodeOptions.php';
-    private static $RThemes = 'core/RThemes.php';
-    private static $RViewer = 'core/RViewer.php';
-    private static $RWidgetOptions = 'core/RWidgetOptions.php';
+    public static $RDefaults = 'core/RDefaults.php';
+    public static $RMainOptions = 'core/RMainOptions.php';
+    public static $ROptions = 'core/ROptions.php';
+    public static $RRandomizeIt = 'core/RRandomizeIt.php';
+    public static $RRShortcodeOptions = 'core/RShortcodeOptions.php';
+    public static $RThemes = 'core/RThemes.php';
+    public static $RViewer = 'core/RViewer.php';
+    public static $RWidgetOptions = 'core/RWidgetOptions.php';
+    
+    public static $RShortCode = 'public/RShortCode.php';
+    public static $RRandomizer = 'public/RRandomizer.php';
 
     public static function requireOnce($path) {
         require_once RRANDOMIZER_BASE_PATH . $path;

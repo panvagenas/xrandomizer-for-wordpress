@@ -357,6 +357,7 @@ class RRandomizerAdmin {
 	 */
 	private static function single_deactivate() {
 		// @TODO: Define deactivation functionality here
+            wp_clear_scheduled_hook('RRandomizerAdmin_weekly_event_hook');
 	}
 	
 	/**
