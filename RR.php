@@ -134,10 +134,3 @@ function RRandomizerShortcode($attrs) {
 }
 
 add_shortcode('randomizer', 'RRandomizerShortcode');
-
-/**
- * Define cron job actions
- * TODO Remove crons if not to be used
- */
-add_filter('cron_schedules', array('RRandomizerAdmin', 'addCron'));
-add_action('RRandomizerAdmin_weekly_event_hook', array('RRandomizerAdmin', 'cronJobAction'));
