@@ -40,7 +40,7 @@ if (!defined('RRANDOMIZER_MAIN_OPTS_ARRAY_NAME')) {
 /* ----------------------------------------------------------------------------*
  * Core classes
  * ---------------------------------------------------------------------------- */
-require_once( plugin_dir_path(__FILE__) . 'core/RPaths.php' );
+require_once( plugin_dir_path(__FILE__) . 'core'.DIRECTORY_SEPARATOR.'RPaths.php' );
 RPaths::requireOnce(RPaths::$RDefaults);
 
 /* ----------------------------------------------------------------------------*

@@ -22,6 +22,7 @@ class RPaths {
     public static $RDefaults = 'core/RDefaults.php';
     public static $RMainOptions = 'core/RMainOptions.php';
     public static $ROptions = 'core/ROptions.php';
+    public static $RProfile = 'core/RProfile.php';
     public static $RRandomizeIt = 'core/RRandomizeIt.php';
     public static $RRShortcodeOptions = 'core/RShortcodeOptions.php';
     public static $RThemes = 'core/RThemes.php';
@@ -33,6 +34,9 @@ class RPaths {
     public static $RRandomizer = 'public/RRandomizer.php';
 
     public static function requireOnce($path) {
+        if(DIRECTORY_SEPARATOR != '/'){
+            str_replace('/', DIRECTORY_SEPARATOR, $path);
+        }
         require_once RRANDOMIZER_BASE_PATH . $path;
     }
 }
