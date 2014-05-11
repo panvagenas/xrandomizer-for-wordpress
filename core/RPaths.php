@@ -27,6 +27,7 @@ class RPaths {
     public static $RThemes = 'core/RThemes.php';
     public static $RViewer = 'core/RViewer.php';
     public static $RWidgetOptions = 'core/RWidgetOptions.php';
+    public static $ROptValidator = 'core/ROptValidator.php';
     
     public static $RShortCode = 'public/RShortCode.php';
     public static $RRandomizer = 'public/RRandomizer.php';

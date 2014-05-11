@@ -16,5 +16,24 @@
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  */
 class RShortcodeOptions extends ROptions{
-    //put your code here
+    public function __construct() {
+        $this->optionsArrayName = 'RandomizerShortCodeOptions';
+        parent::__construct();
+    }
+    
+    public function deleteOption($optName){
+        
+    }
+    
+    public function updateOption($optName, $newValue){
+        
+    }
+    
+    public function updateOptions($newValues){
+        
+    }
+    
+    public function validateOptions($newOptions){
+        
+    }
 }

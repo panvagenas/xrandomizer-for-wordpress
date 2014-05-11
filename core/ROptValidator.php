@@ -16,72 +16,52 @@
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  */
 class ROptValidator {
+    const int = 'int';
+    const float = 'float';
+    const string = 'string';
+    const arr = 'array';
+    const bool = 'bool';
+    const url = 'url';
 
-    /**
-     * Instance of this class.
-     *
-     * @since    1.0.0
-     *
-     * @var      ROptValidator
-     */
-    protected static $instance = null;
-
-    /**
-     * Initialize the plugin by setting localization and loading public scripts
-     * and styles.
-     *
-     * @since     1.0.0
-     */
-    private function __construct() {
-        
-    }
-
-    /**
-     * Return an instance of this class.
-     *
-     * @since     1.0.0
-     *
-     * @return    ROptValidator    A single instance of this class.
-     */
-    public static function get_instance() {
-
-        // If the single instance hasn't been set, set it now.
-        if (null == self::$instance) {
-            self::$instance = new self;
-        }
-
-        return self::$instance;
-    }
-
-    public function string($input, $stripTags){
+    public function string($input, $stripTags = true){
         return filter_var($input, $stripTags ? FILTER_SANITIZE_STRING : FILTER_SANITIZE_SPECIAL_CHARS);
     }
     
-    public function url($input, $local = true) {
+    public static function url($input, $local = true) {
         $filtered = filter_var($input, FILTER_SANITIZE_URL);
         if($local){
             $s = preg_replace('(https?://)', '', $value);
             $u = preg_replace('(https?://)', '', get_site_url());
             if (strpos($s, $u) === false) {
-                return null;
+                return false;
             }
         } 
         return $filtered;
     }
     
-    public function bool($input) {
+    public static function bool($input) {
         return filter_var($input, FILTER_VALIDATE_BOOLEAN);
     }
     
-    public function ar($input) {
-        // TODO
+    public static function arr($input, $specialExplodeChar = null) {
+        if(is_string($input)){
+            if(!empty($specialExplodeChar)){
+                $exploded = explode($specialExplodeChar, $input);
+                return is_array($exploded) ? $exploded : FALSE;
+            }
+            $userial = unserialize($input);
+            if(is_array($userial)){
+                return $userial;
+            }
+        }
+        return is_array($input) ? $input : FALSE;
     }
     
-    public function float($input) {
+    public static function float($input) {
         return filter_var($input, FILTER_VALIDATE_FLOAT);
     }
     
-    public function int($input) {
+    public static function int($input) {
         return filter_var($input, FILTER_VALIDATE_INT);
     }
 }

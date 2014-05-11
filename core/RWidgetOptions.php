@@ -16,5 +16,25 @@
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  */
 class RWidgetOptions extends ROptions{
-    //put your code here
+    public function __construct($instance) {
+        $this->optionsArrayName = 'widget_rrandomizer';
+        parent::__construct();
+        $this->options = $instance;
+    }
+    
+    public function deleteOption($optName){
+        
+    }
+    
+    public function updateOption($optName, $newValue){
+        
+    }
+    
+    public function updateOptions($newValues){
+        
+    }
+    
+    public function validateOptions($newOptions){
+        
+    }
 }
