@@ -29,11 +29,12 @@ abstract class ROptions {
         }
     }
     
-    public abstract function deleteOption($optName);
-    
-    public abstract function updateOption($optName, $newValue);
-    
-    public abstract function updateOptions($newValues);
+    public function deleteOptions(){
+        if(isset($this->optionsArrayName)){
+            return delete_option($this->optionsArrayName);
+        }
+        return false;
+    }
     
     public abstract function validateOptions($newOptions);
 
@@ -96,5 +97,12 @@ abstract class ROptions {
      */
     public function getOptions() {
         return $this->options;
+    }
+    
+    public function saveOptions($newOpts) {
+        if(isset($this->optionsArrayName)){
+            return update_option($this->optionsArrayName, $this->validateOptions($newOpts));
+        }
+        return $this->validateOptions($newOpts);
     }
 }

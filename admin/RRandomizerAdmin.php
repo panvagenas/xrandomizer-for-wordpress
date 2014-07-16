@@ -100,6 +100,35 @@ class RRandomizerAdmin {
         add_action('@TODO', array($this, 'action_method_name'));
         add_filter('@TODO', array($this, 'filter_method_name'));
     }
+    
+    public function createProfile() {
+        if(!isset($_POST['profileName']) || !isset($_POST['profileData'])){
+            $this->echoJsonError('There was an error proccessing the request');
+        }
+        echo json_encode($data);
+        die();
+    }
+    
+    public function deleteProfile() {
+        
+        echo json_encode($data);
+        die();
+    }
+    
+    public function updateProfile() {
+        
+        echo json_encode($data);
+        die();
+    }
+    
+    private function echoJsonError($message){
+        $data = array(
+            'error' => true,
+            'message' => $message
+        );
+        echo json_encode($data);
+        die();
+    }
 
     /**
      * Return an instance of this class.
@@ -109,17 +138,6 @@ class RRandomizerAdmin {
      * @return    object    A single instance of this class.
      */
     public static function get_instance() {
-
-        /*
-         * @TODO :
-         *
-         * - Uncomment following lines if the admin class should only be available for super admins
-         */
-        /* if( ! is_super_admin() ) {
-          return;
-          } */
-
-        // If the single instance hasn't been set, set it now.
         if (null == self::$instance) {
             self::$instance = new self;
         }
