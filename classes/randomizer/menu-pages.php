@@ -43,6 +43,7 @@ namespace randomizer {
 //                $this->instance->plugin_slug,
 //                array($this, '©settings.display')
 //            );
+
             $this->add($this->default_menu_pages());
         }
 
@@ -70,18 +71,18 @@ namespace randomizer {
          */
         public function default_menu_pages()
         {
+
             $main_page_slug // A standard in the core.
                 = $this->instance->plugin_root_ns_stub_with_dashes;
             // We want the menu page slug to come out the same in all versions.
-
             return array(
                 $main_page_slug     => array(
                     'menu_title' => $this->instance->plugin_name,
                     'icon'       => $this->©url->to_template_dir_file('/client-side/images/icon-16x16.png')
                 ),
-                '-'.$main_page_slug => array(
+                'banner_sets'   => array(
                     'is_under_slug' => $main_page_slug,
-                    'menu_title'    => $this->__($this->instance->plugin_name . ' Settings'),
+                    'menu_title'    => $this->__('Banner Sets'),
                 ),
             );
         }
