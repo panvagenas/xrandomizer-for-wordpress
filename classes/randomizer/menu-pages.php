@@ -33,17 +33,6 @@ namespace randomizer {
          */
         public function admin_menu()
         {
-            /**
-             * Admin settings
-             */
-//            $this->plugin_screen_hook_suffix = add_options_page(
-//                $this->__($this->instance->plugin_name),
-//                $this->__($this->instance->plugin_name),
-//                $this->instance->plugin_cap,
-//                $this->instance->plugin_slug,
-//                array($this, '©settings.display')
-//            );
-
             $this->add($this->default_menu_pages());
         }
 
@@ -59,6 +48,9 @@ namespace randomizer {
          */
         public function network_admin_menu()
         {
+            /**
+             * No global preferences so display admin menu
+             */
             $this->admin_menu();
         }
 
@@ -78,11 +70,11 @@ namespace randomizer {
             return array(
                 $main_page_slug     => array(
                     'menu_title' => $this->instance->plugin_name,
-                    'icon'       => $this->©url->to_template_dir_file('/client-side/images/icon-16x16.png')
+                    'icon'       => $this-> ©url->to_template_dir_file('/client-side/images/icon-16x16.png')
                 ),
-                'banner_sets'   => array(
+                'random_sets'   => array(
                     'is_under_slug' => $main_page_slug,
-                    'menu_title'    => $this->__('Banner Sets'),
+                    'menu_title'    => $this->__('Random Sets'),
                 ),
             );
         }

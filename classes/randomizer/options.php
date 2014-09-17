@@ -10,8 +10,9 @@
 
 namespace randomizer {
 
+	use wsc_v000000_dev\exception;
 
-    if (!defined('WPINC')) {
+	if (!defined('WPINC')) {
         die;
     }
 
@@ -62,11 +63,11 @@ namespace randomizer {
                 'menu_pages.panels.news_kb.feed_url'         => '',
                 'menu_pages.panels.videos.yt_playlist'       => '',
 
-                'banner.sets'                               => array(),
+                'random.sets'                               => array(),
             );
 
             $randomizerDefaultsValidators = array(
-                'banner.sets'              => array('array'),
+                'random.sets'              => array('array'),
             );
 
             $defaults = array_merge($defaults, $randomizerDefaults);

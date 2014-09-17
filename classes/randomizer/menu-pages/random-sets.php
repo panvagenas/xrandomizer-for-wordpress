@@ -1,15 +1,15 @@
 <?php
 /**
- * Menu Page.
+ * User: vagenas
+ * Date: 9/14/14
+ * Time: 11:11 PM
  *
- * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
- *
- * @author JasWSInc
- * @package WebSharks\Core
- * @since 140523
+ * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @copyright 9/14/14 XDaRk.eu <xdark.eu@gmail.com>
+ * @link http://xdark.eu
  */
 namespace randomizer\menu_pages {
+
 
 	if ( ! defined( 'WPINC' ) ) {
 		exit( 'Do NOT access this file directly: ' . basename( __FILE__ ) );
@@ -18,12 +18,12 @@ namespace randomizer\menu_pages {
 	/**
 	 * Menu Page.
 	 *
-	 * @package WebSharks\Core
+	 * @package randomizer\menu_pages
 	 * @since 140914
 	 *
 	 * @assert ($GLOBALS[__NAMESPACE__])
 	 */
-	class main_page extends menu_page{
+	class random_sets extends menu_page{
 		public $updates_options = TRUE;
 
 		/**
@@ -36,15 +36,15 @@ namespace randomizer\menu_pages {
 		public function __construct( $instance ) {
 			parent::__construct( $instance );
 
-			$this->heading_title           = $this->__( 'Main settings' );
-			$this->sub_heading_description = sprintf( $this->__( '%1$s main settings ' ), esc_html( $this->instance->plugin_name ) );
+			$this->heading_title           = $this->__( 'Random Sets' );
+			$this->sub_heading_description = sprintf( $this->__( 'Configure random sets for %1$s' ), esc_html( $this->instance->plugin_name ) );
 		}
 
 		/**
 		 * Displays HTML markup producing content panels for this menu page.
 		 */
 		public function display_content_panels() {
-			$this->add_content_panel( $this->©menu_pages__panels__main_settings( $this ), TRUE );
+			$this->add_content_panel( $this->©menu_pages__panels__random_settings( $this ), TRUE );
 
 			$this->display_content_panels_in_order();
 		}

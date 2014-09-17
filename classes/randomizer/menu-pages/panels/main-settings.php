@@ -19,7 +19,7 @@ namespace randomizer\menu_pages\panels {
 
     /**
      *
-     * @package randomizer\menu_pages\panel
+     * @package randomizer\menu_pages\panels
      * @author pan.vagenas <pan.vagenas@gmail.com>
      */
     class main_settings extends panel{
