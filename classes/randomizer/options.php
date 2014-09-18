@@ -63,11 +63,11 @@ namespace randomizer {
                 'menu_pages.panels.news_kb.feed_url'         => '',
                 'menu_pages.panels.videos.yt_playlist'       => '',
 
-                'random.sets'                               => array(),
+                'sets'                       => array(),
             );
 
             $randomizerDefaultsValidators = array(
-                'random.sets'              => array('array'),
+                'sets'              => array('array'),
             );
 
             $defaults = array_merge($defaults, $randomizerDefaults);
@@ -76,6 +76,15 @@ namespace randomizer {
             $this->_setup($defaults, $validators);
         }
 
+        public function ®update_them($new_options = array()){
+            var_dump($new_options);
+            die;
+        }
 
+        public function ®update($new_options = array()){
+//            var_dump($new_options);
+//            die;
+            parent::®update($new_options);
+        }
     }
 }
