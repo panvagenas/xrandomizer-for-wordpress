@@ -12,36 +12,89 @@
 
 namespace randomizer {
 
-    if (!defined('WPINC')) {
-        die;
-    }
+	if ( ! defined( 'WPINC' ) ) {
+		die;
+	}
 
-    require_once dirname(dirname(dirname(__FILE__))).'/core/stub.php';
+	require_once dirname( dirname( dirname( __FILE__ ) ) ) . '/core/stub.php';
 
-    class framework extends \wsc__framework
-    {
-        /**
-         * var string Plugin slug
-         */
-        protected $plugin_slug;
+	class framework extends \wsc__framework {
+		# --------------------------------------------------------------------------------------------------------------
+		# XDaRk Core framework class definition.
+		# --------------------------------------------------------------------------------------------------------------
+		/**
+		 * @property \randomizer\initializer                                        $©initializer
+		 * @method \randomizer\initializer                                          ©initializer()
+		 *
+		 * @property \randomizer\installer                                          $©installer
+		 * @method \randomizer\installer                                            ©installer()
+		 *
+		 * @property \randomizer\menu_pages                                         $©menu_pages
+		 * @property \randomizer\menu_pages                                         $©menu_page
+		 * @method \randomizer\menu_pages                                           ©menu_pages()
+		 * @method \randomizer\menu_pages                                           ©menu_page()
+		 *
+		 * @property \randomizer\menu_pages\menu_page                               $©menu_pages__menu_page
+		 * @method \randomizer\menu_pages\menu_page                                 ©menu_pages__menu_page()
+		 *
+		 * @property \randomizer\menu_pages\main_page                               $©menu_pages__main_page
+		 * @method \randomizer\menu_pages\main_page                                 ©menu_pages__main_page()
+		 *
+		 * @property \randomizer\menu_pages\panels\donations                        $©menu_pages__panels__donations
+		 * @method \randomizer\menu_pages\panels\donations                          ©menu_pages__panels__donations()
+		 *
+		 * @property \randomizer\menu_pages\panels\main_settings                    $©menu_pages__panels__main_settings
+		 * @method \randomizer\menu_pages\panels\main_settings                      ©menu_pages__panels__main_settings()
+		 *
+		 * @property \randomizer\menu_pages\panels\other_plugins                    $©menu_pages__panels__other_plugins
+		 * @method \randomizer\menu_pages\panels\other_plugins                      ©menu_pages__panels__other_plugins()
+		 *
+		 * @property \randomizer\menu_pages\panels\random_set                       $©menu_pages__panels__random_set
+		 * @method \randomizer\menu_pages\panels\random_set                         ©menu_pages__panels__random_set()
+		 *
+		 * @property \randomizer\options                                            $©options
+		 * @property \randomizer\options                                            $©option
+		 * @method \randomizer\options                                              ©options()
+		 * @method \randomizer\options                                              ©option()
+		 *
+		 * @property \randomizer\views                                              $©views
+		 * @method \randomizer\views                                                ©views()
+		 *
+		 * @property \randomizer\dirs                                               $©dirs
+		 * @property \randomizer\dirs                                               $©dir
+		 * @method \randomizer\dirs                                                 ©dirs()
+		 * @method \randomizer\dirs                                                 ©dir()
+		 */
 
-        public function __construct($instance){
-            parent::__construct($instance);
-            $this->plugin_slug = $this->instance->plugin_root_ns_stub_with_dashes;
-        }
-    }
+		/**
+		 * var string Plugin slug
+		 */
+		protected $plugin_slug;
 
-    $GLOBALS[__NAMESPACE__] = new framework(
-        array(
-            'plugin_root_ns' => __NAMESPACE__, // The root namespace
-            'plugin_var_ns'  => 'rz', // A shorter namespace alias (or the same as `plugin_root_ns` if you like).
-            'plugin_cap'     => 'manage_options', // The WordPress capability (or role) required to manage plugin options.
-            'plugin_name'    => 'Randomizer', //
-            'plugin_version' => '140914', // The current version of plugin (must be in `YYMMDD` format).
-            'plugin_site'    => 'http://xdark.eu', // TODO URL to site about your plugin.
+		public function __construct( $instance ) {
+			parent::__construct( $instance );
+			$this->plugin_slug = $this->instance->plugin_root_ns_stub_with_dashes;
+		}
+	}
 
-            'plugin_dir'     => dirname(dirname(dirname(__FILE__))) // Your plugin directory.
+	$GLOBALS[ __NAMESPACE__ ] = new framework(
+		array(
+			'plugin_root_ns' => __NAMESPACE__,
+			// The root namespace
+			'plugin_var_ns'  => 'rz',
+			// A shorter namespace alias (or the same as `plugin_root_ns` if you like).
+			'plugin_cap'     => 'manage_options',
+			// The WordPress capability (or role) required to manage plugin options.
+			'plugin_name'    => 'Randomizer',
+			//
+			'plugin_version' => '140914',
+			// The current version of plugin (must be in `YYMMDD` format).
+			'plugin_site'    => 'http://xdark.eu',
+			// TODO URL to site about your plugin.
 
-        )
-    );
+			'plugin_dir'     => dirname( dirname( dirname( __FILE__ ) ) )
+			// Your plugin directory.
+
+		)
+	);
 }

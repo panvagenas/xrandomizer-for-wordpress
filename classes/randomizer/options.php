@@ -63,11 +63,18 @@ namespace randomizer {
                 'menu_pages.panels.news_kb.feed_url'         => '',
                 'menu_pages.panels.videos.yt_playlist'       => '',
 
-                'sets'                       => array(),
+                'sets'                       => array(
+                    array(
+                        'name'              => 'Default',
+                        'randomPolicy'      => 'random',
+                        'elements'           => array(),
+                        'numOfElmsToDspl'   => 1
+                    )
+                ),
             );
 
             $randomizerDefaultsValidators = array(
-                'sets'              => array('array'),
+                'sets'              => array('array:!empty'),
             );
 
             $defaults = array_merge($defaults, $randomizerDefaults);
@@ -82,8 +89,8 @@ namespace randomizer {
         }
 
         public function ®update($new_options = array()){
-//            var_dump($new_options);
-//            die;
+            var_dump($new_options);
+            die;
             parent::®update($new_options);
         }
     }
