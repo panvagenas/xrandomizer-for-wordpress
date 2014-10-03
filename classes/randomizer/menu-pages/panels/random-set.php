@@ -53,6 +53,8 @@ namespace randomizer\menu_pages\panels {
 		 */
 		protected $setOptions = array();
 
+		protected $isDefault = true;
+
 		/**
 		 * @var array Default options
 		 */
@@ -70,6 +72,11 @@ namespace randomizer\menu_pages\panels {
 			$this->setOptions     = $options;
 			$this->defaultOptions = $this->©options->get( 'sets', true );
 			$this->heading_title .= ' <strong>' . $this->getOption( 'name' ) . '</strong>';
+//var_dump($options);
+//			var_dump($this->©options->get( 'sets', true )[0]);
+			$dif = array_diff_assoc($options, $this->©options->get( 'sets', true )[0]);
+			$this->isDefault = empty($dif);
+
 			/**
 			 * Prefix in order to assemble sets array
 			 */
@@ -93,7 +100,7 @@ namespace randomizer\menu_pages\panels {
 			// Name
 			$name           = $this->getOption( 'name' );
 			$nameFieldProps = array(
-				'required'    => true,
+				'required'    => !$this->isDefault,
 				'type'        => 'text',
 				'name'        => '[name]',
 				'title'       => $this->__( 'Name' ),
@@ -103,6 +110,15 @@ namespace randomizer\menu_pages\panels {
 				'id'          => 'name-' . $this->setIdx
 			);
 			$out = '<div class="form-horizontal">';
+
+			$out .= $this->menu_page->option_form_fields->markup( $this->menu_page->option_form_fields->value( $this->isDefault ), array(
+				'type'        => 'hidden',
+				'name'        => '[isDefault]',
+				'name_prefix' => $this->fieldNamePrefix,
+				'classes'     => 'form-control',
+				'id'          => 'isDefault-' . $this->setIdx
+			) );
+
 			$out .= '<p class="bg-info text-center row">' . $this->__( 'Set Options' ) . '</p>
 			        <div class="form-group row">
 			            <label class="control-label col-sm-3" for="name-' . $this->setIdx . '">' . $this->__( 'Name' ) . '</label>
@@ -114,7 +130,7 @@ namespace randomizer\menu_pages\panels {
 			// Randomize policy
 			$randomPolicy     = $this->getOption( 'randomPolicy' );
 			$policyFieldProps = array(
-				'required'    => true,
+				'required'    => !$this->isDefault,
 				'type'        => 'select',
 				'name'        => '[randomPolicy]',
 				'title'       => $this->__( 'Randomize policy' ),
@@ -145,7 +161,7 @@ namespace randomizer\menu_pages\panels {
 			// Element to display
 			$numOfElmsToDspl = $this->getOption( 'numOfElmsToDspl' );
 			$numOfElmsFieldOpts = array(
-				'required'    => true,
+				'required'    => !$this->isDefault,
 				'type'        => 'number',
 				'name'        => '[numOfElmsToDspl]',
 				'title'       => $this->__( 'Choose the number of elements you want to display (this should <= of total elements and bigger that zero' ),
@@ -169,7 +185,7 @@ namespace randomizer\menu_pages\panels {
 
 		protected function main() {
 			// Elements
-			$out = '<p class="bg-info text-center row">' . $this->__( 'Elements' ) . '</p>';
+			$out = '<p class="bg-info text-center row">' . $this->__( 'Set Elements' ) . '</p>';
 			$out .= '<div class="form-horizontal">';
 			foreach ( $this->getOption( 'elements' ) as $k => $v ) {
 				$out .= $this->element( $k, $v );
@@ -184,25 +200,31 @@ namespace randomizer\menu_pages\panels {
 
 		protected function footer() {
 			// Set related actions
-			$out = '<p class="bg-info text-center row">' . $this->__( 'Actions' ) . '</p>
-			       <div class="text-right row-fluid">
-				       <button type="button" class="btn btn-danger col-sm-3 col-sm-offset-5">' . $this->__( 'Delete Set' ) . '</button>
-				       <button type="button" class="btn btn-success col-sm-3 col-sm-offset-1">' . $this->__( 'Add New Set' ) . '</button>
-			       </div>';
+			$firstSet = $this->setIdx == 0;
+			if($firstSet){
+				return '';
+			}
+			$out = '<p class="bg-info text-center row">' . $this->__( 'Set Actions' ) . '</p>
+			       <div class="text-right row-fluid">';
+			if ( !$firstSet ) {
+				$out .= '<button type="button" class="btn btn-danger col-sm-3 col-sm-offset-9 set-delete" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Delete Set' ) . '</button>';
+			}
+//			$out .= '<button type="button" class="btn btn-success col-sm-3 set-add '.($firstSet ? 'col-sm-offset-9' : 'col-sm-offset-1').'" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Add New Set' ) . '</button>';
+			$out .= '</div>';
 
 			return $out;
 		}
 
 		protected function element( $index, $content ) {
 			$elementFieldProps = array(
-				'required'    => true,
+				'required'    => !$this->isDefault,
 				'type'        => 'textarea',
 				'name'        => '[elements][' . $index . ']',
 				'title'       => $this->__( 'Add some text or HTML markup to this element' ),
 				'placeholder' => $this->__( 'Add some text or HTML markup to this element' ),
 				'name_prefix' => $this->fieldNamePrefix,
 				'classes'     => 'text-area form-control',
-				'id'          => 'elements-' . $index,
+				'id'          => 'elements-' . $this->setIdx . '-' . $index,
 			);
 
 			$out = '<div id="element-row-' . $this->slug . '-' . $index . '" class="form-group" data-index="' . $index . '">';

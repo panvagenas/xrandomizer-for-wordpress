@@ -57,7 +57,6 @@ namespace randomizer\menu_pages {
                 $this->add_content_panel( $this->©menu_pages__panels__random_set( $this, $k, $v ), TRUE );
             }
 
-
 			$this->display_content_panels_in_order();
 		}
 

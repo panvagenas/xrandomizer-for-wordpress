@@ -12,86 +12,106 @@ namespace randomizer {
 
 	use wsc_v000000_dev\exception;
 
-	if (!defined('WPINC')) {
-        die;
-    }
+	if ( ! defined( 'WPINC' ) ) {
+		die;
+	}
 
-    /**
-     *
-     * @package randomizer
-     * @author pan.vagenas <pan.vagenas@gmail.com>
-     */
-    class options extends \wsc_v000000_dev\options{
+	/**
+	 *
+	 * @package randomizer
+	 * @author pan.vagenas <pan.vagenas@gmail.com>
+	 */
+	class options extends \wsc_v000000_dev\options {
 
-        /**
-         * Sets up default options and validators.
-         *
-         * @extenders Can be overridden by class extenders (i.e. to override the defaults/validators);
-         *    or to add additional default options and their associated validators.
-         *
-         * @param array $defaults An associative array of default options.
-         * @param array $validators An array of validators (can be a combination of numeric/associative keys).
-         *
-         * @return array The current array of options.
-         *
-         * @throws exception If invalid types are passed through arguments list.
-         * @throws exception If `count($defaults) !== count($validators)`.
-         */
-        public function setup($defaults, $validators)
-        {
-            // TODO Set defaults
-            $randomizerDefaults   = array(
-                'encryption.key'                             => 'jkiabOKBNJO89347KJBKJBasfd',
+		/**
+		 * Sets up default options and validators.
+		 *
+		 * @extenders Can be overridden by class extenders (i.e. to override the defaults/validators);
+		 *    or to add additional default options and their associated validators.
+		 *
+		 * @param array $defaults An associative array of default options.
+		 * @param array $validators An array of validators (can be a combination of numeric/associative keys).
+		 *
+		 * @return array The current array of options.
+		 *
+		 * @throws exception If invalid types are passed through arguments list.
+		 * @throws exception If `count($defaults) !== count($validators)`.
+		 */
+		public function setup( $defaults, $validators ) {
+			// TODO Set defaults
+			$randomizerDefaults = array(
+				'encryption.key'                             => 'jkiabOKBNJO89347KJBKJBasfd',
+				'support.url'                                => 'xdark.eu/support',
+				'styles.front_side.theme'                    => 'yeti',
+				'crons.config'                               => array(),
+				'menu_pages.theme'                           => 'yeti',
+				'captchas.google.public_key'                 => '6LeCANsSAAAAAIIrlB3FrXe42mr0OSSZpT0pkpFK',
+				'captchas.google.private_key'                => '6LeCANsSAAAAAGBXMIKAirv6G4PmaGa-ORxdD-oZ',
+				'url_shortener.default_built_in_api'         => 'goo_gl',
+				'url_shortener.custom_url_api'               => '',
+				'url_shortener.api_keys.goo_gl'              => '',
+				'menu_pages.panels.email_updates.action_url' => '',
+				'menu_pages.panels.community_forum.feed_url' => '',
+				'menu_pages.panels.news_kb.feed_url'         => '',
+				'menu_pages.panels.videos.yt_playlist'       => '',
+				'sets'                                       => array(
+					array(
+						'name'            => 'Default',
+						'randomPolicy'    => 'random',
+						'elements'        => array(),
+						'numOfElmsToDspl' => 1
+					)
+				),
+			);
 
-                'support.url'                                => 'xdark.eu/support',
+			$randomizerDefaultsValidators = array(
+				'sets' => array( 'array:!empty' ),
+			);
 
-                'styles.front_side.theme'                    => 'yeti',
+			$defaults   = array_merge( $defaults, $randomizerDefaults );
+			$validators = array_merge( $validators, $randomizerDefaultsValidators );
 
-                'crons.config'                               => array(),
+			$this->_setup( $defaults, $validators );
+		}
 
-                'menu_pages.theme'                           => 'yeti',
+		public function ®update_them( $new_options = array() ) {
+			var_dump( $new_options );
+			die;
+		}
 
-                'captchas.google.public_key'                 => '6LeCANsSAAAAAIIrlB3FrXe42mr0OSSZpT0pkpFK',
-                'captchas.google.private_key'                => '6LeCANsSAAAAAGBXMIKAirv6G4PmaGa-ORxdD-oZ',
+		public function ®update( $new_options = array() ) {
+			if ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__random_sets->slug ) ) {
+				$options = $this->validateRandomSetsOptions($new_options);
+			} else {
+				$options = $this->validateMainSettingsOptions($new_options);
+			}
+			parent::®update( $options );
+		}
 
-                'url_shortener.default_built_in_api'         => 'goo_gl',
-                'url_shortener.custom_url_api'               => '',
-                'url_shortener.api_keys.goo_gl'              => '',
+		protected function validateRandomSetsOptions( $newOptions = array() ) {
+			/**
+			 * Unset any default set and validate others
+			 */
+			foreach ( $newOptions as $key => $set ) {
+				$allEmpty = true;
+				foreach ( $set["elements"] as $k => $element ) {
+					$allEmpty &= empty( $element );
+					if ( empty( $element ) ) {
+						unset( $newOptions[ $key ]["elements"][ $k ] );
+					}
+				}
+				if ( $allEmpty ) {
+					unset( $newOptions[ $key ] );
+				}
+			}
 
-                'menu_pages.panels.email_updates.action_url' => '',
-                'menu_pages.panels.community_forum.feed_url' => '',
-                'menu_pages.panels.news_kb.feed_url'         => '',
-                'menu_pages.panels.videos.yt_playlist'       => '',
+			array_push( $newOptions, $this->get( 'sets', true )[0] );
 
-                'sets'                       => array(
-                    array(
-                        'name'              => 'Default',
-                        'randomPolicy'      => 'random',
-                        'elements'           => array(),
-                        'numOfElmsToDspl'   => 1
-                    )
-                ),
-            );
+			return array( 'sets' => $newOptions );
+		}
 
-            $randomizerDefaultsValidators = array(
-                'sets'              => array('array:!empty'),
-            );
-
-            $defaults = array_merge($defaults, $randomizerDefaults);
-            $validators = array_merge($validators, $randomizerDefaultsValidators);
-
-            $this->_setup($defaults, $validators);
-        }
-
-        public function ®update_them($new_options = array()){
-            var_dump($new_options);
-            die;
-        }
-
-        public function ®update($new_options = array()){
-            var_dump($new_options);
-            die;
-            parent::®update($new_options);
-        }
-    }
+		protected function validateMainSettingsOptions($newOptions = array()) {
+			return $newOptions;
+		}
+	}
 }

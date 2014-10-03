@@ -40,5 +40,44 @@ namespace randomizer\menu_pages\panels {
          * @extenders Can be overridden by class extenders.
          */
         public $documentation = '';
+
+	    /**
+	     * @var array Default options
+	     */
+	    protected $defaultOptions = array();
+
+	    public function __construct( $instance, $menu_page ) {
+		    parent::__construct( $instance, $menu_page );
+
+		    /**
+		     * TODO Set default options
+		     */
+		    $this->defaultOptions = array();// $this->©options->get( 'sets', true );
+
+		    /**
+		     * Add the content
+		     */
+		    $this->content_body .= $this->header();
+		    $this->content_body .= $this->main();
+		    $this->content_body .= $this->footer();
+	    }
+
+	    protected function header(){
+		    $out = '';
+
+		    return $out;
+	    }
+
+	    protected function main(){
+		    $out = '';
+
+		    return $out;
+	    }
+
+	    protected function footer(){
+		    $out = '';
+
+		    return $out;
+	    }
     }
 }
