@@ -34,10 +34,18 @@ namespace randomizer {
 			$this->init();
 
 			$randomized = $this->randomizeArray();
+			$before = $this->©options->get('before_element');
+			$after = $this->©options->get('after_element');
+			$css = $this->©options->get('custom_css');
 			$out = '';
 			foreach ( $randomized as $element ) {
-				$out .= $element;
+				$out .= $before . $element . $after;
 			}
+
+			if(!empty($css)){
+				$out .= '<style type="text/css">' . $css . '</style>';
+			}
+
 			return $out;
 		}
 

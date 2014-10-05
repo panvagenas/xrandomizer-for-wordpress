@@ -70,10 +70,9 @@ namespace randomizer\menu_pages\panels {
 			$this->setIdx         = $setId;
 			$this->setOptions     = $options;
 			$this->defaultOptions = $this->©options->get( 'sets', true );
-			$this->heading_title .= ' <strong>' . $this->getOption( 'name' ) . '</strong>';
+			$this->heading_title .= '<strong>' . $this->getOption( 'name' ) . '</strong>';
 
-			// TODO Throws a notice
-			$dif = array_diff_assoc($options, $this->©options->get( 'sets', true )[0]);
+			$dif = $this->©arrays->array_dif_assoc_deep($options, $this->©options->get( 'sets', true )[0]);// array_diff_assoc($options, $this->©options->get( 'sets', true )[0]);
 			$this->isDefault = empty($dif);
 
 			/**
@@ -199,16 +198,15 @@ namespace randomizer\menu_pages\panels {
 
 		protected function footer() {
 			// Set related actions
-			$firstSet = $this->setIdx == 0;
-			if($firstSet){
+			if($this->isDefault){
 				return '';
 			}
 			$out = '<p class="bg-info text-center row">' . $this->__( 'Set Actions' ) . '</p>
 			       <div class="text-right row-fluid">';
-			if ( !$firstSet ) {
+			if ( !$this->isDefault ) {
 				$out .= '<button type="button" class="btn btn-danger btn-sm col-sm-3 col-sm-offset-9 set-delete" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Delete Set' ) . '</button>';
 			}
-//			$out .= '<button type="button" class="btn btn-success btn-sm col-sm-3 set-add '.($firstSet ? 'col-sm-offset-9' : 'col-sm-offset-1').'" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Add New Set' ) . '</button>';
+//			$out .= '<button type="button" class="btn btn-success btn-sm col-sm-3 set-add '.($this->isDefault ? 'col-sm-offset-9' : 'col-sm-offset-1').'" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Add New Set' ) . '</button>';
 			$out .= '</div>';
 
 			return $out;

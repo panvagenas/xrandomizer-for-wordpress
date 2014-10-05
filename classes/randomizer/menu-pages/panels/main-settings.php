@@ -33,7 +33,7 @@ namespace randomizer\menu_pages\panels {
          * @var string Content/body for this panel.
          * @extenders Should be overridden by class extenders.
          */
-        public $content_body = '<h4>Content body</h4>';
+        public $content_body = '';
 
         /**
          * @var string Additional documentation for this panel.
@@ -41,18 +41,8 @@ namespace randomizer\menu_pages\panels {
          */
         public $documentation = '';
 
-	    /**
-	     * @var array Default options
-	     */
-	    protected $defaultOptions = array();
-
 	    public function __construct( $instance, $menu_page ) {
 		    parent::__construct( $instance, $menu_page );
-
-		    /**
-		     * TODO Set default options
-		     */
-		    $this->defaultOptions = array();// $this->©options->get( 'sets', true );
 
 		    /**
 		     * Add the content
@@ -70,6 +60,63 @@ namespace randomizer\menu_pages\panels {
 
 	    protected function main(){
 		    $out = '';
+
+		    $before_element = $this->©options->get( 'before_element' );
+		    $before_elementFieldProps = array(
+			    'required'    => false,
+			    'type'        => 'text',
+			    'name'        => '[before_element]',
+			    'title'       => $this->__( 'Before elements:' ),
+			    'placeholder' => $this->__( 'Enter everything you may want to appear before each element' ),
+			    'classes'     => 'form-control',
+			    'id'          => 'before-element'
+		    );
+		    $out = '<div class="form-horizontal">';
+
+		    $out .= '<div class="form-group">
+			            <label class="control-label col-sm-3" for="before-element">' . $this->__( 'Before elements:' ) . '</label>
+			            <div class="col-sm-9">'
+		            . $this->menu_page->option_form_fields->markup( $this->menu_page->option_form_fields->value( $before_element ), $before_elementFieldProps ) . '
+			            </div>
+		            </div>';
+
+		    $after_element = $this->©options->get( 'after_element' );
+		    $after_elementFieldProps = array(
+			    'required'    => false,
+			    'type'        => 'text',
+			    'name'        => '[after_element]',
+			    'title'       => $this->__( 'After elements:' ),
+			    'placeholder' => $this->__( 'Enter everything you may want to appear after each element' ),
+			    'classes'     => 'form-control',
+			    'id'          => 'after-element'
+		    );
+
+		    $out .= '<div class="form-group">
+			            <label class="control-label col-sm-3" for="after-element">' . $this->__( 'After elements:' ) . '</label>
+			            <div class="col-sm-9">'
+		            . $this->menu_page->option_form_fields->markup( $this->menu_page->option_form_fields->value( $after_element ), $after_elementFieldProps ) . '
+			            </div>
+		            </div>';
+
+		    $customCSSFieldProps = array(
+			    'required'    => false,
+			    'type'        => 'textarea',
+			    'name'        => '[custom_css]',
+			    'title'       => $this->__( 'Custom CSS to be applied to elements' ),
+			    'placeholder' => $this->__( 'Custom CSS to be applied to elements' ),
+			    'classes'     => 'text-area form-control',
+			    'id'          => 'custom-css',
+		        'rows'        => 10
+		    );
+
+		    $customCSS = $this->©options->get('custom_css');
+		    $out .= '<div class="form-group">';
+		    $out .= '<label class="control-label col-sm-3" for="custom-css">' . $this->__( 'Custom CSS to be applied to elements:' ) . '</label>';
+		    $out .= '<div class="col-sm-9 text-area-wrapper">';
+		    $out .= $this->menu_page->option_form_fields->markup( $this->menu_page->option_form_fields->value( $customCSS ),$customCSSFieldProps);
+		    $out .= '</div>';
+		    $out .= '</div>';
+		    $out .= '</div>';
 
 		    return $out;
 	    }

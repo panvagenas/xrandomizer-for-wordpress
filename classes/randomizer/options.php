@@ -10,6 +10,7 @@
 
 namespace randomizer {
 
+	use wsc_v000000_dev\arrays;
 	use wsc_v000000_dev\exception;
 
 	if ( ! defined( 'WPINC' ) ) {
@@ -56,27 +57,33 @@ namespace randomizer {
 				'menu_pages.panels.videos.yt_playlist'       => '',
 				'sets'                                       => array(
 					array(
-						'name'              => 'Default',
-						'id'                => 'default',
-						'randomPolicy'      => 'random',
-						'elements'          => array(),
-						'numOfElmsToDspl'   => 0
+						'name'            => 'Default',
+						'id'              => 'default',
+						'randomPolicy'    => 'random',
+						'elements'        => array(),
+						'numOfElmsToDspl' => 0
 					)
 				),
-				'widget'                                    => array(
-					'name'                  => 'Randomizer',
-					'set'                   => 'Default'
+				'custom_css'                                 => '',
+				'before_element'                            => '',
+				'after_element'                             => '',
+				'widget'                                     => array(
+					'name' => 'Randomizer',
+					'set'  => 'Default'
 				),
-				'shortcode'                                 => array(
-					'name'                  => 'Randomizer',
-					'set'                   => 'Default'
+				'shortcode'                                  => array(
+					'name' => 'Randomizer',
+					'set'  => 'Default'
 				),
 			);
 
 			$randomizerDefaultsValidators = array(
-				'sets' => array( 'array:!empty' ),
-				'widget' => array( 'array:!empty' ),
-				'shortcode' => array( 'array:!empty' ),
+				'sets'            => array( 'array:!empty' ),
+				'widget'          => array( 'array:!empty' ),
+				'shortcode'       => array( 'array:!empty' ),
+				'custom_css'      => array('string'),
+				'before_element' => array('string'),
+				'after_element'  => array('string'),
 			);
 
 			$defaults   = array_merge( $defaults, $randomizerDefaults );
@@ -88,13 +95,14 @@ namespace randomizer {
 		/**
 		 * Fires when new options are saved. Then based on plugin page we use the appropriate method.
 		 * Always call the parent at the end.
+		 *
 		 * @param array $new_options
 		 */
 		public function ®update( $new_options = array() ) {
 			if ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__random_sets->slug ) ) {
-				$options = $this->validateRandomSetsOptions($new_options);
-			} elseif($this->©menu_pages->is_plugin_page( $this->©menu_pages__main_page->slug )) {
-				$options = $this->validateMainSettingsOptions($new_options);
+				$options = $this->validateRandomSetsOptions( $new_options );
+			} elseif ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__main_page->slug ) ) {
+				$options = $this->validateMainSettingsOptions( $new_options );
 			} else {
 				$options = $new_options;
 			}
@@ -103,6 +111,7 @@ namespace randomizer {
 
 		/**
 		 * Validates Random Sets Options
+		 *
 		 * @param array $newOptions
 		 *
 		 * @return array
@@ -113,8 +122,8 @@ namespace randomizer {
 			 * Unset any default set and validate others
 			 */
 			foreach ( $newOptions as $key => $set ) {
-				if(!($this->©string->is($set['name']) && $this->©string->is($set['randomPolicy'])) || $set['name'] == 'Default'){
-					unset ($newOptions[$key]);
+				if ( ! ( $this->©string->is( $set['name'] ) && $this->©string->is( $set['randomPolicy'] ) ) || $set['name'] == 'Default' ) {
+					unset ( $newOptions[ $key ] );
 					continue;
 				}
 				$allEmpty = true;
@@ -127,7 +136,7 @@ namespace randomizer {
 				if ( $allEmpty ) {
 					unset( $newOptions[ $key ] );
 				} else {
-					$newOptions[ $key ]['id'] = $this->©string->with_underscores($set['name']);
+					$newOptions[ $key ]['id'] = $this->©string->with_underscores( $set['name'] );
 				}
 			}
 
@@ -143,7 +152,7 @@ namespace randomizer {
 		 *
 		 * @return array
 		 */
-		protected function validateMainSettingsOptions($newOptions = array()) {
+		protected function validateMainSettingsOptions( $newOptions = array() ) {
 			return $newOptions;
 		}
 	}
