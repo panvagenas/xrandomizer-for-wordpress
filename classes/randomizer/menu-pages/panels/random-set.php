@@ -10,7 +10,6 @@
 
 namespace randomizer\menu_pages\panels {
 
-	use randomizer\framework;
 	use wsc_v000000_dev\menu_pages\panels\panel;
 
 	if ( ! defined( 'WPINC' ) ) {
@@ -72,8 +71,8 @@ namespace randomizer\menu_pages\panels {
 			$this->setOptions     = $options;
 			$this->defaultOptions = $this->©options->get( 'sets', true );
 			$this->heading_title .= ' <strong>' . $this->getOption( 'name' ) . '</strong>';
-//var_dump($options);
-//			var_dump($this->©options->get( 'sets', true )[0]);
+
+			// TODO Throws a notice
 			$dif = array_diff_assoc($options, $this->©options->get( 'sets', true )[0]);
 			$this->isDefault = empty($dif);
 
@@ -164,16 +163,16 @@ namespace randomizer\menu_pages\panels {
 				'required'    => !$this->isDefault,
 				'type'        => 'number',
 				'name'        => '[numOfElmsToDspl]',
-				'title'       => $this->__( 'Choose the number of elements you want to display (this should <= of total elements and bigger that zero' ),
-				'placeholder' => $this->__( 'Number of elements to display' ),
+				'title'       => $this->__( 'Choose the number of elements you want to display (this should be <= of total elements and >= zero. Set to 0 to display all elements' ),
+				'placeholder' => $this->__( 'Number of elements to display <i>(zero to display all)</i>' ),
 				'name_prefix' => $this->fieldNamePrefix,
 				'classes'       => 'form-control',
 				'id'          => 'numOfElmsToDspl-' . $this->setIdx,
-				'attrs'       => ' min="1" '
+				'attrs'       => ' min="0" '
 			);
 
 			$out .= '<div class="form-group">
-						<label class="control-label col-sm-3" for="numOfElmsToDspl-' . $this->setIdx . '">' . $this->__( 'Number of elements to display' ) . '</label>
+						<label class="control-label col-sm-3" for="numOfElmsToDspl-' . $this->setIdx . '">' . $this->__( 'Number of elements to display <br><small>(zero to display all)</small>' ) . '</label>
 			            <div class="col-sm-9">'
 			                . $this->menu_page->option_form_fields->markup( $this->menu_page->option_form_fields->value( $numOfElmsToDspl ), $numOfElmsFieldOpts)
 			            .'</div>
@@ -207,9 +206,9 @@ namespace randomizer\menu_pages\panels {
 			$out = '<p class="bg-info text-center row">' . $this->__( 'Set Actions' ) . '</p>
 			       <div class="text-right row-fluid">';
 			if ( !$firstSet ) {
-				$out .= '<button type="button" class="btn btn-danger col-sm-3 col-sm-offset-9 set-delete" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Delete Set' ) . '</button>';
+				$out .= '<button type="button" class="btn btn-danger btn-sm col-sm-3 col-sm-offset-9 set-delete" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Delete Set' ) . '</button>';
 			}
-//			$out .= '<button type="button" class="btn btn-success col-sm-3 set-add '.($firstSet ? 'col-sm-offset-9' : 'col-sm-offset-1').'" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Add New Set' ) . '</button>';
+//			$out .= '<button type="button" class="btn btn-success btn-sm col-sm-3 set-add '.($firstSet ? 'col-sm-offset-9' : 'col-sm-offset-1').'" data-setidx="'.$this->setIdx.'" data-setselector="panel--'.$this->slug.'">' . $this->__( 'Add New Set' ) . '</button>';
 			$out .= '</div>';
 
 			return $out;

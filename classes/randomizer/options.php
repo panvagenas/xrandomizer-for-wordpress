@@ -56,16 +56,27 @@ namespace randomizer {
 				'menu_pages.panels.videos.yt_playlist'       => '',
 				'sets'                                       => array(
 					array(
-						'name'            => 'Default',
-						'randomPolicy'    => 'random',
-						'elements'        => array(),
-						'numOfElmsToDspl' => 1
+						'name'              => 'Default',
+						'id'                => 'default',
+						'randomPolicy'      => 'random',
+						'elements'          => array(),
+						'numOfElmsToDspl'   => 0
 					)
+				),
+				'widget'                                    => array(
+					'name'                  => 'Randomizer',
+					'set'                   => 'Default'
+				),
+				'shortcode'                                 => array(
+					'name'                  => 'Randomizer',
+					'set'                   => 'Default'
 				),
 			);
 
 			$randomizerDefaultsValidators = array(
 				'sets' => array( 'array:!empty' ),
+				'widget' => array( 'array:!empty' ),
+				'shortcode' => array( 'array:!empty' ),
 			);
 
 			$defaults   = array_merge( $defaults, $randomizerDefaults );
@@ -74,25 +85,38 @@ namespace randomizer {
 			$this->_setup( $defaults, $validators );
 		}
 
-		public function ®update_them( $new_options = array() ) {
-			var_dump( $new_options );
-			die;
-		}
-
+		/**
+		 * Fires when new options are saved. Then based on plugin page we use the appropriate method.
+		 * Always call the parent at the end.
+		 * @param array $new_options
+		 */
 		public function ®update( $new_options = array() ) {
 			if ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__random_sets->slug ) ) {
 				$options = $this->validateRandomSetsOptions($new_options);
-			} else {
+			} elseif($this->©menu_pages->is_plugin_page( $this->©menu_pages__main_page->slug )) {
 				$options = $this->validateMainSettingsOptions($new_options);
+			} else {
+				$options = $new_options;
 			}
 			parent::®update( $options );
 		}
 
+		/**
+		 * Validates Random Sets Options
+		 * @param array $newOptions
+		 *
+		 * @return array
+		 * @throws exception
+		 */
 		protected function validateRandomSetsOptions( $newOptions = array() ) {
 			/**
 			 * Unset any default set and validate others
 			 */
 			foreach ( $newOptions as $key => $set ) {
+				if(!($this->©string->is($set['name']) && $this->©string->is($set['randomPolicy'])) || $set['name'] == 'Default'){
+					unset ($newOptions[$key]);
+					continue;
+				}
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {
 					$allEmpty &= empty( $element );
@@ -102,6 +126,8 @@ namespace randomizer {
 				}
 				if ( $allEmpty ) {
 					unset( $newOptions[ $key ] );
+				} else {
+					$newOptions[ $key ]['id'] = $this->©string->with_underscores($set['name']);
 				}
 			}
 
@@ -110,6 +136,13 @@ namespace randomizer {
 			return array( 'sets' => $newOptions );
 		}
 
+		/**
+		 * Validates Main Options
+		 *
+		 * @param array $newOptions
+		 *
+		 * @return array
+		 */
 		protected function validateMainSettingsOptions($newOptions = array()) {
 			return $newOptions;
 		}

@@ -70,7 +70,7 @@ namespace randomizer {
             return array(
                 $main_page_slug     => array(
                     'menu_title' => $this->instance->plugin_name,
-                    'icon'       => $this-> ©url->to_template_dir_file('/client-side/images/icon-16x16.png')
+                    'icon'       => $this->©url->to_template_dir_file('/client-side/images/icon-16x16.png')
                 ),
                 'random_sets'   => array(
                     'is_under_slug' => $main_page_slug,
