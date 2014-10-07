@@ -89,11 +89,11 @@ class menu_page extends \wsc_v000000_dev\menu_pages\menu_page {
      */
     public function display_sidebar_panels()
     {
-        if(!$this->©plugin->has_pro_active())
-            $this->add_sidebar_panel($this->©menu_pages__panels__pro_upgrade($this), TRUE);
+//        if(!$this->©plugin->has_pro_active())
+//            $this->add_sidebar_panel($this->©menu_pages__panels__pro_upgrade($this), TRUE);
 
 	    $this->add_sidebar_panel( $this->©menu_pages__panels__donations( $this ) );
-	    $this->add_sidebar_panel( $this->©menu_pages__panels__other_plugins( $this ) );
+//	    $this->add_sidebar_panel( $this->©menu_pages__panels__other_plugins( $this ) );
 
         $this->display_sidebar_panels_in_order();
     }

@@ -48,72 +48,85 @@ namespace randomizer\menu_pages\panels
 			$this->content_body = // Donations (form field selection).
 
 				'<form'.
-				' method="get"'.
+				' method="post"'.
 				' target="_blank"'.
-				' action="'.esc_attr($this->©url->to_plugin_site_uri('/donate/')).'"'.
+				' action="https://www.paypal.com/cgi-bin/webscr"'.
 				'>'.
 
+                $form_fields->markup($form_fields->¤value('_s-xclick'),array(
+                    'type' => 'hidden',
+                    'name' => 'cmd'
+                )).
+                $form_fields->markup($form_fields->¤value('WLGJ8L3ZJTFQQ'),array(
+                    'type' => 'hidden',
+                    'name' => 'hosted_button_id'
+                )).
+                $form_fields->markup($form_fields->¤value('Your site URL'),array(
+                    'type' => 'hidden',
+                    'name' => 'on1'
+                )).
+                '<div class="form-group">'.
+                '<div class="input-group select-input-group">'.
+                '<span class="input-group-addon"><i class="fa fa-location-arrow fa-fw"></i></span>'.
+                $form_fields->markup($form_fields->¤value($this->©urls->to_wp_home_uri()),array(
+                    'type' => 'text',
+                    'name' => 'os1'
+                )).
+                '</div>'.
+                '</div>'.
+                $form_fields->markup($form_fields->¤value('EUR'),array(
+                    'type' => 'hidden',
+                    'name' => 'currency_code'
+                )).
 				'<div class="form-group">'.
 				'<div class="input-group select-input-group">'.
 				'<span class="input-group-addon"><i class="fa fa-heart fa-fw"></i></span>'.
 				$form_fields->markup(
-					$form_fields->¤value(NULL),
+					$form_fields->¤value(5),
 					array(
 						'required' => TRUE,
 						'type'     => 'select',
-						'name'     => 'amount',
+						'name'     => 'os0',
 						'options'  => array(
 							array(
-								'label' => $this->__('$5.00 USD'),
-								'value' => '5.00'
+								'label' => $this->__('€2.00 EUR'),
+								'value' => '2'
 							),
 							array(
-								'label' => $this->__('$10.00 USD'),
-								'value' => '10.00'
+								'label' => $this->__('€5.00 EUR'),
+								'value' => '5'
 							),
 							array(
-								'label' => $this->__('$15.00 USD'),
-								'value' => '15.00'
+								'label' => $this->__('€8.00 EUR'),
+								'value' => '8'
 							),
 							array(
-								'label' => $this->__('$20.00 USD'),
-								'value' => '20.00'
+								'label' => $this->__('€10.00 EUR'),
+								'value' => '10'
 							),
 							array(
-								'label' => $this->__('$25.00 USD'),
-								'value' => '25.00'
+								'label' => $this->__('€15.00 EUR'),
+								'value' => '15'
 							),
 							array(
-								'label' => $this->__('$50.00 USD'),
-								'value' => '50.00'
+								'label' => $this->__('€20.00 EUR'),
+								'value' => '20'
 							),
 							array(
-								'label' => $this->__('$75.00 USD'),
-								'value' => '75.00'
+								'label' => $this->__('€30.00 EUR'),
+								'value' => '30'
 							),
 							array(
-								'label' => $this->__('$100.00 USD'),
-								'value' => '100.00'
+								'label' => $this->__('€40.00 EUR'),
+								'value' => '40'
 							),
 							array(
-								'label' => $this->__('$150.00 USD'),
-								'value' => '150.00'
+								'label' => $this->__('€60.00 EUR'),
+								'value' => '60'
 							),
 							array(
-								'label' => $this->__('$250.00 USD'),
-								'value' => '250.00'
-							),
-							array(
-								'label' => $this->__('$500.00 USD'),
-								'value' => '500.00'
-							),
-							array(
-								'label' => $this->__('$1000.00 USD'),
-								'value' => '1000.00'
-							),
-							array(
-								'label' => $this->__('$2000.00 USD'),
-								'value' => '2000.00'
+								'label' => $this->__('€100.00 EUR'),
+								'value' => '100'
 							)
 						)
 					)
@@ -126,7 +139,7 @@ namespace randomizer\menu_pages\panels
 					'<i class="fa fa-gift"></i> '.$this->__('Donate').' <i class="fa fa-external-link"></i>',
 					array(
 						'type' => 'submit',
-						'name' => 'donate'
+						'name' => 'submit'
 					)
 				).
 				'</div>'.
