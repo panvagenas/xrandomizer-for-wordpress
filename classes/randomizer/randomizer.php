@@ -74,11 +74,22 @@ namespace randomizer {
 			$isCyclic = $this->setOptions['randomPolicy'] == 'cyclic';
 
 			if($isCyclic){
-				return array(); // TODO Give cyclic
+                $cookieName = 'rzCyclicIndex'.$this->setOptions['id'];
+                $cookie = \WP_Session::get_instance();
+
+                $index = isset($cookie[$cookieName]) && !empty($cookie[$cookieName]) ? (int)$cookie[$cookieName] : 0;
+
+                $index %= count($this->setOptions['elements']);
+
+                $cookie[$cookieName] = $index+1;
+
+                while($index-- >= 0){
+                    array_push($this->randomized, array_shift($this->randomized));
+                }
 			} else {
 				$this->randomized = shuffle($this->randomized) ? $this->randomized : $this->original;
-				return array_slice($this->randomized, 0, $this->setOptions['numOfElmsToDspl'] > 0 ? $this->setOptions['numOfElmsToDspl'] : null);
 			}
+            return array_slice($this->randomized, 0, $this->setOptions['numOfElmsToDspl'] > 0 ? $this->setOptions['numOfElmsToDspl'] : null);
 		}
 
 		/**

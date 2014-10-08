@@ -48,5 +48,23 @@ namespace randomizer {
         die;
     }
 
+    /* ----------------------------------------------------------------------------*
+     * Session functionality
+     * ---------------------------------------------------------------------------- */
+    if (!defined('WP_SESSION_COOKIE')) {
+        define('WP_SESSION_COOKIE', 'wp_session');
+    }
+
+    if (!class_exists('Recursive_ArrayAccess')) {
+        require_once ( plugin_dir_path(__FILE__) . 'includes/session_manager/class-recursive-arrayaccess.php' );
+    }
+
+    // Only include the functionality if it's not pre-defined.
+    if (!class_exists('WP_Session')) {
+        require_once ( plugin_dir_path(__FILE__) . 'includes/session_manager/class-wp-session.php' );
+        require_once ( plugin_dir_path(__FILE__) . 'includes/session_manager/wp-session.php' );
+    }
+
+    // Start plugin
     require_once dirname(__FILE__) . '/classes/randomizer/framework.php';
 }
