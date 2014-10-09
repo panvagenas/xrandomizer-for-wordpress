@@ -11,6 +11,11 @@
 
 (function ($) // Begin extension closure.
 {
+    /*******************************************************
+     *
+     * RandomElement Class
+     *
+     ******************************************************/
     /**
      * Random element manager
      * @param elementIndex
@@ -29,13 +34,9 @@
         this.oldElement.$wrapper.textAreaWrapper = this.oldElement.$wrapper.children('.text-area-wrapper');
         this.oldElement.$wrapper.textArea = this.oldElement.$wrapper.textAreaWrapper.children('.text-area');
         this.oldElement.$wrapper.elementControls = this.oldElement.$wrapper.children('.element-control');
-        this.oldElement.$wrapper.elementControls.addButton = this.oldElement.$wrapper.elementControls.children('.element-add');
-        this.oldElement.$wrapper.elementControls.deleteButton = this.oldElement.$wrapper.elementControls.children('.element-delete');
 
         this.newElement = {
             elementIndex: parseInt(elementIndex) + 1,
-            closeButtonHtml: '<button type="button" data-setid="' + this.elementSetId.toString() + '" data-set="' + elementSet + '" data-index="' + (this.oldElement.elementIndex + 1).toString() + '" style="font-weight: bold; width: 35px; margin-bottom:5px;" class="btn btn-danger col-sm-12 element-delete" title="Delete element">-</button>',
-            openButtonHtml: '<button data-setid="' + this.elementSetId.toString() + '" data-set="' + elementSet + '" data-index="' + (this.oldElement.elementIndex + 1).toString() + '"  style="font-weight: bold; width: 35px;" type="button" class="btn btn-success col-sm-12 element-add" title="Add new element">+</button>',
             $wrapper: null
         };
     }
@@ -57,19 +58,17 @@
         this.newElement.$wrapper.attr('id', 'element-row-' + this.elementSet + '-' + this.newElement.elementIndex);
 
         this.newElement.$wrapper.textArea.attr('id', 'elements-' + this.newElement.elementIndex);
-        this.newElement.$wrapper.textArea.attr('name', 'rz[a][a][0][' + this.elementSetId + '][elements][]');
+        this.newElement.$wrapper.textArea.attr('name', 'rz[a][a][0][' + this.elementSetId + '][elements][' + this.newElement.elementIndex + '][content]');
         this.newElement.$wrapper.textArea.val(textAreaContent);
 
-        this.newElement.$wrapper.elementControls.html(this.newElement.closeButtonHtml + this.newElement.openButtonHtml);
-
-        this.newElement.$wrapper.elementControls.addButton = this.newElement.$wrapper.elementControls.children('.element-add');
-        this.newElement.$wrapper.elementControls.deleteButton = this.newElement.$wrapper.elementControls.children('.element-delete');
-
-        this.bindClickEvent();
+        this.newElement.$wrapper.elementControls.remove();
+        this.newElement.$wrapper.append(this.getElementActionsMarkUp(this.elementSetId, this.elementSet, this.newElement.elementIndex));
     };
 
     RandomElement.prototype.addAfterOld = function () {
+        this.newElement.$wrapper.hide();
         this.oldElement.$wrapper.after(this.newElement.$wrapper);
+        this.newElement.$wrapper.slideDown('fast');
         this.newElement.$wrapper.textArea.focus();
     };
 
@@ -93,13 +92,36 @@
             var elemSetId = $(this).attr('data-setid');
 
             var el = new RandomElement(index, elemSet, elemSetId);
-            el.oldElement.$wrapper.remove();
+            el.oldElement.$wrapper.slideUp('fast',function(){$(this).remove()});
+        });
+
+        $('.element-pin').unbind('click').click(function () {
+            var setId = $(this).attr('data-setid');
+            var index = $(this).attr('data-index');
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active').blur();
+                $('#pined-'+setId+'-'+index).val(0);
+            } else {
+                $(this).addClass('active').blur();
+                $('#pined-'+setId+'-'+index).val(1);
+            }
+        });
+
+        $('.element-disable').unbind('click').click(function () {
+            var setId = $(this).attr('data-setid');
+            var index = $(this).attr('data-index');
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active').blur();
+                $('#disabled-'+setId+'-'+index).val(0);
+            } else {
+                $(this).addClass('active').blur();
+                $('#disabled-'+setId+'-'+index).val(1);
+            }
         });
     };
 
     RandomElement.prototype.updateNextElements = function () {
         var that = this;
-        var length = this.newElement.$wrapper.nextAll('.form-group').length;
 
         this.newElement.$wrapper.nextAll('.form-group').each(function (idx) {
 
@@ -110,8 +132,6 @@
             $wrapper.textAreaWrapper = $wrapper.children('.text-area-wrapper');
             $wrapper.textArea = $wrapper.textAreaWrapper.children('.text-area');
             $wrapper.elementControls = $wrapper.children('.element-control');
-            $wrapper.elementControls.addButton = $wrapper.elementControls.children('.element-add');
-            $wrapper.elementControls.deleteButton = $wrapper.elementControls.children('.element-delete');
 
             $wrapper.attr('data-index', curElemIndex);
             $wrapper.attr('id', 'element-row-' + that.elementSet + '-' + curElemIndex.toString());
@@ -119,21 +139,61 @@
             $wrapper.textArea.attr('id', 'elements-' + curElemIndex.toString());
             $wrapper.textArea.attr('name', 'rz[a][a][0][' + that.elementSetId + '][elements][]');
 
-            $wrapper.elementControls.addButton.attr('data-index', curElemIndex);
-            $wrapper.elementControls.deleteButton.attr('data-index', curElemIndex);
-
+            $wrapper.elementControls.remove();
+            $wrapper.append(that.getElementActionsMarkUp(that.elementSetId, that.elementSet, curElemIndex));
         });
-        //this.bindClickEvent();
     };
 
-    RandomElement.prototype.bindClickEvent();
+    RandomElement.prototype.getElementActionsMarkUp = function (setIdx, slug, index) {
+        var btnCtrlAttr = ' data-setid="'+setIdx+'" data-set="'+slug+'" data-index="'+index+'" ';
+
+        var out = '<div class="col-sm-2 text-center element-control">';
+        out +=      '<div class="row b-margin-sm">';
+        out +=         '<div class="col-sm-6">';
+        out +=             '<button type="button"'+btnCtrlAttr+'style="font-size: 1em;" class="btn btn-success element-pin" title="Pin element">';
+        out +=                 '<i class="fa fa-unlock"></i>';
+                            +'</button>';
+        out +=         '</div>';
+        out +=         '<div class="col-sm-6">';
+        out +=             '<button type="button"'+btnCtrlAttr+'style="font-size: 1em; " class="btn btn-success element-add" title="Add new element">'
+                                +'<i class="fa fa-plus"></i>'
+                            +'</button>';
+        out +=         '</div>';
+        out +=     '</div>';
+
+        out +=     '<div class="row">';
+        if (index != 0) {
+            out +=     '<div class="col-sm-6">';
+            out +=         '<button type="button"'+btnCtrlAttr+'style="font-size: 1em;" class="btn btn-warning element-disable" title="Disable element">'
+                                +'<i class="fa fa-power-off"></i>'
+                                    +'</button>';
+            out +=     '</div>'; // col-sm-6
+            out +=     '<div class="col-sm-6">';
+            out +=         '<button type="button"'+btnCtrlAttr+'style="font-size: 1em;" class="btn btn-danger element-delete" title="Delete element">'
+                                +'<i class="fa fa-trash-o"></i>'
+                                    +'</button>';
+            out +=     '</div>';// col-sm-6
+        }
+        out +=     '</div>';// row
+        out +=     '<input id="pined-'+setIdx+'-'+index+'" type="hidden" data-initial-value="" value="0" name="rz[a][a][0]['+setIdx+'][elements]['+index+'][pined]">'
+                   +'<input id="disabled-'+setIdx+'-'+index+'" type="hidden" data-initial-value="" value="0" name="rz[a][a][0]['+setIdx+'][elements]['+index+'][disabled]">';
+        out += '</div>'; //element-control
+
+        return out;
+    };
+
+    /*******************************************************
+     *
+     * Set Manager
+     *
+     ******************************************************/
 
     /**
      * Set Manager
      * @param setIdx
      * @constructor
      */
-    function SetManager(setIdx, $selector){
+    function SetManager(setIdx, $selector) {
         this.setIdx = setIdx;
         this.$selector = $selector;
     }
@@ -146,51 +206,55 @@
             0: true
         },
 
-        bindDeleteEvent: function(){
+        bindDeleteEvent: function () {
             $('.set-delete').unbind('click').click(function () {
                 var setIdx = parseInt($(this).attr('data-setidx'));
-                var selector = $('#'+$(this).attr('data-setselector'));
+                var selector = $('#' + $(this).attr('data-setselector'));
                 var newSet = new SetManager(setIdx, selector);
                 newSet.deleteSet();
             });
         },
 
-        bindAddEvent: function(){
+        bindAddEvent: function () {
             $('.set-add').unbind('click').click(function () {
                 var setIdx = parseInt($(this).attr('data-setidx'));
-                var selector = $('#'+$(this).attr('data-setselector'));
+                var selector = $('#' + $(this).attr('data-setselector'));
                 var newSet = new SetManager(setIdx, selector);
                 newSet.addNewSet();
             });
         },
 
-        addNewSet: function(){
-            console.log(this.$selector);
+        addNewSet: function () {
             //this.$selector.after(this.$selector.clone());
             // In the end
             SetManager.prototype.bindAddEvent();
             SetManager.prototype.bindDeleteEvent();
         },
 
-        deleteSet: function(){
-            console.log(2)
+        deleteSet: function () {
             // In the end
             this.$selector.remove();
             SetManager.prototype.bindAddEvent();
             SetManager.prototype.bindDeleteEvent();
         },
 
-        getAnIdForNewSet: function(){
+        getAnIdForNewSet: function () {
             return SetManager.prototype.sets.length + 1;
         },
 
-        setsStashId: function(id){
+        setsStashId: function (id) {
             id = parseInt(id);
             SetManager.prototype.sets[id] = true;
         }
     };
 
-    SetManager.prototype.bindAddEvent();
+    /********************************************
+     * Initialize
+     *******************************************/
+
+    SetManager.prototype.bindAddEvent(); // Add event no used at the moment
     SetManager.prototype.bindDeleteEvent();
+
+    RandomElement.prototype.bindClickEvent();
 
 })(jQuery); // End extension closure.

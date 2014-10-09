@@ -60,7 +60,13 @@ namespace randomizer {
 						'name'            => 'Default',
 						'id'              => 'default',
 						'randomPolicy'    => 'random',
-						'elements'        => array(),
+						'elements'        => array(
+                            array(
+                                'content'   => '',
+                                'pined'     => false,
+                                'disabled'  => false
+                            )
+                        ),
 						'numOfElmsToDspl' => 0
 					)
 				),
@@ -128,10 +134,13 @@ namespace randomizer {
 				}
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {
-					$allEmpty &= empty( $element );
-					if ( empty( $element ) ) {
+					$allEmpty &= empty( $element['content'] );
+					if ( empty( $element['content'] ) ) {
 						unset( $newOptions[ $key ]["elements"][ $k ] );
-					}
+					} else {
+                        $newOptions[ $key ]["elements"][ $k ]['pined'] = isset($newOptions[ $key ]["elements"][ $k ]['pined']) && (bool)$newOptions[ $key ]["elements"][ $k ]['pined'];
+                        $newOptions[ $key ]["elements"][ $k ]['disabled'] = isset($newOptions[ $key ]["elements"][ $k ]['disabled']) && (bool)$newOptions[ $key ]["elements"][ $k ]['disabled'];
+                    }
 				}
 				if ( $allEmpty ) {
 					unset( $newOptions[ $key ] );

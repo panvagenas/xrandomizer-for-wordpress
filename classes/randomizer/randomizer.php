@@ -83,7 +83,7 @@ namespace randomizer {
 
                 $cookie[$cookieName] = $index+1;
 
-                while($index-- >= 0){
+                while($index-- > 0){
                     array_push($this->randomized, array_shift($this->randomized));
                 }
 			} else {
