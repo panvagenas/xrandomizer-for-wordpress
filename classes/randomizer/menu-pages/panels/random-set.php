@@ -241,12 +241,13 @@ namespace randomizer\menu_pages\panels {
 
             $pinedActive = $pined ? 'active' : '';
             $disabledActive = $disabled ? 'active' : '';
+            $pinedClass = $pined ? 'fa-lock' : 'fa-unlock';
 
             $out .= '<div class="col-sm-2 text-center element-control">
                         <div class="row b-margin-sm">';
 			$out .=         '<div class="col-sm-6">';
             $out .=             '<button type="button"'.$btnCtrlAttr.'style="font-size: 1em;" value="1" name="pin" class="btn btn-success element-pin '.$pinedActive.'" title="Pin element">
-                                    <i class="fa fa-unlock"></i>
+                                    <i class="fa '.$pinedClass.'"></i>
                                 </button>';
             $out .=         '</div>';
             $out .=         '<div class="col-sm-6">';

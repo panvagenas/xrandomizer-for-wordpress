@@ -1,12 +1,12 @@
-/**
- * Menu Pages Extension
+/*!
+ * Random sets pages script
  *
- * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * Copyright: © 2014
+ * {@link http://TODO WebSharks™}
  *
- * @author JasWSInc
- * @package WebSharks\Core
- * @since 120318
+ * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @package Randomizer
+ * @since 140914
  */
 
 (function ($) // Begin extension closure.
@@ -57,7 +57,7 @@
         this.newElement.$wrapper.attr('data-index', this.newElement.elementIndex);
         this.newElement.$wrapper.attr('id', 'element-row-' + this.elementSet + '-' + this.newElement.elementIndex);
 
-        this.newElement.$wrapper.textArea.attr('id', 'elements-' + this.newElement.elementIndex);
+        this.newElement.$wrapper.textArea.attr('id', 'elements-' + this.elementSetId + '-' + this.newElement.elementIndex);
         this.newElement.$wrapper.textArea.attr('name', 'rz[a][a][0][' + this.elementSetId + '][elements][' + this.newElement.elementIndex + '][content]');
         this.newElement.$wrapper.textArea.val(textAreaContent);
 
@@ -91,6 +91,13 @@
             var elemSet = $(this).attr('data-set');
             var elemSetId = $(this).attr('data-setid');
 
+            if($('#elements-'+elemSetId+'-'+index).val().length > 0) {
+                var r = confirm("Are you sure you want to delete this element?");
+                if (r != true) {
+                    return r;
+                }
+            }
+
             var el = new RandomElement(index, elemSet, elemSetId);
             el.oldElement.$wrapper.slideUp('fast',function(){$(this).remove()});
         });
@@ -101,9 +108,13 @@
             if ($(this).hasClass('active')) {
                 $(this).removeClass('active').blur();
                 $('#pined-'+setId+'-'+index).val(0);
+                $(this).children('i').removeClass('fa-lock');
+                $(this).children('i').addClass('fa-unlock');
             } else {
                 $(this).addClass('active').blur();
                 $('#pined-'+setId+'-'+index).val(1);
+                $(this).children('i').removeClass('fa-unlock');
+                $(this).children('i').addClass('fa-lock');
             }
         });
 
@@ -137,7 +148,7 @@
             $wrapper.attr('id', 'element-row-' + that.elementSet + '-' + curElemIndex.toString());
 
             $wrapper.textArea.attr('id', 'elements-' + curElemIndex.toString());
-            $wrapper.textArea.attr('name', 'rz[a][a][0][' + that.elementSetId + '][elements][]');
+            $wrapper.textArea.attr('name', 'rz[a][a][0][' + that.elementSetId + '][elements]['+curElemIndex+'][content]');
 
             $wrapper.elementControls.remove();
             $wrapper.append(that.getElementActionsMarkUp(that.elementSetId, that.elementSet, curElemIndex));
@@ -208,6 +219,10 @@
 
         bindDeleteEvent: function () {
             $('.set-delete').unbind('click').click(function () {
+                var r = confirm("Are you sure you want to delete this set?");
+                if (r != true) {
+                    return r;
+                }
                 var setIdx = parseInt($(this).attr('data-setidx'));
                 var selector = $('#' + $(this).attr('data-setselector'));
                 var newSet = new SetManager(setIdx, selector);

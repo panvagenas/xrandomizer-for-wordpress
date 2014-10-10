@@ -41,7 +41,7 @@ namespace randomizer\menu_pages {
 
 			$scripts_to_register[$this->instance->ns_class_with_dashes] = array(
 				'deps' => array('jquery'),
-				'url'  => $this->©url->to_plugin_dir_file('/client-side/menu-pages/random-sets.js'),
+				'url'  => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/random-sets.min.js'),
 				'ver'  => $this->instance->plugin_version_with_dashes
 			);
 

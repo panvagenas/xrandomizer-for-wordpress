@@ -78,7 +78,6 @@
 				                            });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_content_panels_state',
 				              _.___private_type, [panels_active, panels_inactive]);
-				       console.log('Updating content panels state.');
 			       };
 			       $content_panels.find('> .panel-collapse')
 				       .on('shown.' + _.core('-bs') + '.collapse', update_content_panels_state)
@@ -100,7 +99,6 @@
 				                            });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_sidebar_panels_state',
 				              _.___private_type, [panels_active, panels_inactive]);
-				       console.log('Updating sidebar panels state.');
 			       };
 			       $sidebar_panels.find('> .panel-collapse')
 				       .on('shown.' + _.core('-bs') + '.collapse', update_sidebar_panels_state)
@@ -118,7 +116,6 @@
 					             });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_content_panels_order',
 				              _.___private_type, [panels_order]);
-				       console.log('Updating content panels order.');
 			       };
 			       $menu_page.find('.content-panels')
 				       [_.core('->sortable')]({
@@ -141,7 +138,6 @@
 					             });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_sidebar_panels_order',
 				              _.___private_type, [panels_order]);
-				       console.log('Updating sidebar panels order.');
 			       };
 			       $menu_page.find('.sidebar-panels')
 				       [_.core('->sortable')]({
