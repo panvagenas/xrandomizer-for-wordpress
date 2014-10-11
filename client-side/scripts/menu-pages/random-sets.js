@@ -72,10 +72,6 @@
         this.newElement.$wrapper.textArea.focus();
     };
 
-    RandomElement.prototype.getNewRandomElement = function (element, oldIndex, newIndex, setId, setName) {
-
-    };
-
     RandomElement.prototype.bindClickEvent = function () {
         $('.element-add').unbind('click').click(function () {
             var index = $(this).attr('data-index');
@@ -91,7 +87,8 @@
             var elemSet = $(this).attr('data-set');
             var elemSetId = $(this).attr('data-setid');
 
-            if ($('#elements-' + elemSetId + '-' + index).val().length > 0) {
+            var container = $('#elements-' + elemSetId + '-' + index);
+            if ((container != undefined && container.val().length > 0) || container == undefined) {
                 var r = confirm("Are you sure you want to delete this element?");
                 if (r != true) {
                     return r;
@@ -149,7 +146,7 @@
             $wrapper.attr('data-index', curElemIndex);
             $wrapper.attr('id', 'element-row-' + that.elementSet + '-' + curElemIndex.toString());
 
-            $wrapper.textArea.attr('id', 'elements-' + curElemIndex.toString());
+            $wrapper.textArea.attr('id', 'elements-' + that.elementSetId + '-' + curElemIndex.toString());
             $wrapper.textArea.attr('name', 'rz[a][a][0][' + that.elementSetId + '][elements][' + curElemIndex + '][content]');
 
             var pined = parseInt($(this).find('input:regex(id, .*pined.*)').val()) == 1;
