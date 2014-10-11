@@ -28,6 +28,7 @@ namespace randomizer {
          */
         public function after_setup_theme_hooks(){
             $this->add_action('widgets_init', '©initializer.register_widgets');
+            $this->addShortCode('rz', array($this, '©shortcodes__shortcode.display'));
         }
 
         /**
@@ -37,6 +38,10 @@ namespace randomizer {
          */
         public function register_widgets(){
             register_widget('\randomizer\widget');
+        }
+
+        protected function addShortCode($tag, $func){
+            add_shortcode($tag, $func);
         }
     }
 }

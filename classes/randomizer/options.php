@@ -145,7 +145,7 @@ namespace randomizer {
 				if ( $allEmpty ) {
 					unset( $newOptions[ $key ] );
 				} else {
-					$newOptions[ $key ]['id'] = $this->©string->with_underscores( $set['name'] );
+					$newOptions[ $key ]['id'] = $this->getSetIdFromSetName( $set['name'] );
 				}
 			}
 
@@ -164,5 +164,9 @@ namespace randomizer {
 		protected function validateMainSettingsOptions( $newOptions = array() ) {
 			return $newOptions;
 		}
+
+        public function getSetIdFromSetName($setName){
+            return $this->©string->with_underscores( $setName );
+        }
 	}
 }

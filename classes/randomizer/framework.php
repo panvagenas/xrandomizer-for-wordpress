@@ -66,14 +66,8 @@ namespace randomizer {
 		 * @method \randomizer\dirs                                                 ©dir()
 		 */
 
-		/**
-		 * var string Plugin slug
-		 */
-		protected $plugin_slug;
-
 		public function __construct( $instance ) {
 			parent::__construct( $instance );
-			$this->plugin_slug = $this->instance->plugin_root_ns_stub_with_dashes;
 		}
 	}
 
