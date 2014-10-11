@@ -275,7 +275,7 @@ namespace randomizer\menu_pages\panels {
                 'type' => 'hidden',
                 'name' => '[elements][' . $index . '][pined]',
                 'name_prefix' => $this->fieldNamePrefix,
-                'classes' => 'form-control',
+                'classes' => 'form-control pined',
                 'id' => 'pined-' . $this->setIdx . '-' . $index
             ));
 
@@ -283,7 +283,7 @@ namespace randomizer\menu_pages\panels {
                 'type' => 'hidden',
                 'name' => '[elements][' . $index . '][disabled]',
                 'name_prefix' => $this->fieldNamePrefix,
-                'classes' => 'form-control',
+                'classes' => 'form-control pined',
                 'id' => 'disabled-' . $this->setIdx . '-' . $index
             ));
 			$out .= '</div>';

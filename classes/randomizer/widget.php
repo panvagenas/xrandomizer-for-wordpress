@@ -83,8 +83,6 @@ namespace randomizer {
 		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 		 */
 		public function widget( $args, $instance ) {
-            $this->addScripts();
-
 			$instance = (array)$instance + (array)$this->framework->©options->get('widget', true);
 
 			echo $args ['before_widget'];
@@ -145,22 +143,5 @@ namespace randomizer {
 
 			return $newInstance;
 		}
-
-        // Todo styles should be registered somewhere else
-        protected function addScripts(){
-            $scripts_to_register['front-side'] = array(
-                'deps' => array('jquery', 'stand-alone'),
-                'url'  => $this->framework->©url->to_plugin_dir_file('templates/client-side/scripts/front-side.min.js'),
-                'ver'  => $this->framework->instance->plugin_version_with_dashes
-            );
-            $scripts_to_register['stand-alone'] = array(
-                'deps' => array('jquery'),
-                'url'  => $this->framework->©url->to_plugin_dir_file('templates/client-side/scripts/stand-alone.min.js'),
-                'ver'  => $this->framework->instance->plugin_version_with_dashes
-            );
-
-            $this->framework->©scripts->register($scripts_to_register);
-            $this->framework->©scripts->enqueue(array('front-side','stand-alone'));
-        }
 	}
 }

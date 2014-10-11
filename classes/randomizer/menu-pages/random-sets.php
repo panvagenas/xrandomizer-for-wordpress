@@ -38,15 +38,6 @@ namespace randomizer\menu_pages {
 
 			$this->heading_title           = $this->__( 'Random Sets' );
 			$this->sub_heading_description = sprintf( $this->__( 'Configure random sets for %1$s' ), esc_html( $this->instance->plugin_name ) );
-
-			$scripts_to_register[$this->instance->ns_class_with_dashes] = array(
-				'deps' => array('jquery'),
-				'url'  => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/random-sets.min.js'),
-				'ver'  => $this->instance->plugin_version_with_dashes
-			);
-
-			$this->©scripts->register($scripts_to_register);
-			$this->©scripts->enqueue($this->instance->ns_class_with_dashes);
 		}
 
 		/**

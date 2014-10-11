@@ -43,8 +43,8 @@
 
     RandomElement.prototype.addNewElementAfterOld = function () {
         this.formNewElement('');
-        this.addAfterOld();
         this.updateNextElements();
+        this.addAfterOld();
         this.bindClickEvent();
     };
 
@@ -91,7 +91,7 @@
             var elemSet = $(this).attr('data-set');
             var elemSetId = $(this).attr('data-setid');
 
-            if($('#elements-'+elemSetId+'-'+index).val().length > 0) {
+            if ($('#elements-' + elemSetId + '-' + index).val().length > 0) {
                 var r = confirm("Are you sure you want to delete this element?");
                 if (r != true) {
                     return r;
@@ -99,7 +99,9 @@
             }
 
             var el = new RandomElement(index, elemSet, elemSetId);
-            el.oldElement.$wrapper.slideUp('fast',function(){$(this).remove()});
+            el.oldElement.$wrapper.slideUp('fast', function () {
+                $(this).remove()
+            });
         });
 
         $('.element-pin').unbind('click').click(function () {
@@ -107,12 +109,12 @@
             var index = $(this).attr('data-index');
             if ($(this).hasClass('active')) {
                 $(this).removeClass('active').blur();
-                $('#pined-'+setId+'-'+index).val(0);
+                $('#pined-' + setId + '-' + index).val(0);
                 $(this).children('i').removeClass('fa-lock');
                 $(this).children('i').addClass('fa-unlock');
             } else {
                 $(this).addClass('active').blur();
-                $('#pined-'+setId+'-'+index).val(1);
+                $('#pined-' + setId + '-' + index).val(1);
                 $(this).children('i').removeClass('fa-unlock');
                 $(this).children('i').addClass('fa-lock');
             }
@@ -123,10 +125,10 @@
             var index = $(this).attr('data-index');
             if ($(this).hasClass('active')) {
                 $(this).removeClass('active').blur();
-                $('#disabled-'+setId+'-'+index).val(0);
+                $('#disabled-' + setId + '-' + index).val(0);
             } else {
                 $(this).addClass('active').blur();
-                $('#disabled-'+setId+'-'+index).val(1);
+                $('#disabled-' + setId + '-' + index).val(1);
             }
         });
     };
@@ -134,7 +136,7 @@
     RandomElement.prototype.updateNextElements = function () {
         var that = this;
 
-        this.newElement.$wrapper.nextAll('.form-group').each(function (idx) {
+        this.oldElement.$wrapper.nextAll('.form-group').each(function (idx) {
 
             var prevElemIndex = that.newElement.elementIndex + idx;
             var curElemIndex = prevElemIndex + 1;
@@ -148,46 +150,64 @@
             $wrapper.attr('id', 'element-row-' + that.elementSet + '-' + curElemIndex.toString());
 
             $wrapper.textArea.attr('id', 'elements-' + curElemIndex.toString());
-            $wrapper.textArea.attr('name', 'rz[a][a][0][' + that.elementSetId + '][elements]['+curElemIndex+'][content]');
+            $wrapper.textArea.attr('name', 'rz[a][a][0][' + that.elementSetId + '][elements][' + curElemIndex + '][content]');
+
+            var pined = parseInt($(this).find('input:regex(id, .*pined.*)').val()) == 1;
+            var disabled = parseInt($(this).find('input:regex(id, .*disabled.*)').val()) == 1;
 
             $wrapper.elementControls.remove();
-            $wrapper.append(that.getElementActionsMarkUp(that.elementSetId, that.elementSet, curElemIndex));
+            $wrapper.append(that.getElementActionsMarkUp(
+                    that.elementSetId,
+                    that.elementSet,
+                    curElemIndex,
+                    pined,
+                    disabled
+                )
+            );
         });
     };
 
-    RandomElement.prototype.getElementActionsMarkUp = function (setIdx, slug, index) {
-        var btnCtrlAttr = ' data-setid="'+setIdx+'" data-set="'+slug+'" data-index="'+index+'" ';
+    RandomElement.prototype.getElementActionsMarkUp = function (setIdx, slug, index, pined, disabled) {
+        pined = pined == undefined ? false : pined;
+        disabled = disabled == undefined ? false : disabled;
+
+        var pinedFaClass = pined ? ' fa-lock ' : ' fa-unlock ';
+        var pinedActiveClass = pined ? ' active ' : '';
+
+        var disabledActiveClass = disabled ? ' active ' : '';
+
+        var btnCtrlAttr = ' data-setid="' + setIdx + '" data-set="' + slug + '" data-index="' + index + '" ';
 
         var out = '<div class="col-sm-2 text-center element-control">';
-        out +=      '<div class="row b-margin-sm">';
-        out +=         '<div class="col-sm-6">';
-        out +=             '<button type="button"'+btnCtrlAttr+'style="font-size: 1em;" class="btn btn-success element-pin" title="Pin element">';
-        out +=                 '<i class="fa fa-unlock"></i>';
-                            +'</button>';
-        out +=         '</div>';
-        out +=         '<div class="col-sm-6">';
-        out +=             '<button type="button"'+btnCtrlAttr+'style="font-size: 1em; " class="btn btn-success element-add" title="Add new element">'
-                                +'<i class="fa fa-plus"></i>'
-                            +'</button>';
-        out +=         '</div>';
-        out +=     '</div>';
+        out += '<div class="row b-margin-sm">';
+        out += '<div class="col-sm-6">';
+        out += '<button type="button"' + btnCtrlAttr + 'style="font-size: 1em;" class="btn btn-success element-pin' + pinedActiveClass + '" title="Pin element">';
+        out += '<i class="fa ' + pinedFaClass + '"></i>'
+        + '</button>';
+        out += '</div>';
+        out += '<div class="col-sm-6">';
+        out += '<button type="button"' + btnCtrlAttr + 'style="font-size: 1em; " class="btn btn-success element-add" title="Add new element">'
+        + '<i class="fa fa-plus"></i>'
+        + '</button>';
+        out += '</div>';
+        out += '</div>';
 
-        out +=     '<div class="row">';
+        out += '<div class="row">';
         if (index != 0) {
-            out +=     '<div class="col-sm-6">';
-            out +=         '<button type="button"'+btnCtrlAttr+'style="font-size: 1em;" class="btn btn-warning element-disable" title="Disable element">'
-                                +'<i class="fa fa-power-off"></i>'
-                                    +'</button>';
-            out +=     '</div>'; // col-sm-6
-            out +=     '<div class="col-sm-6">';
-            out +=         '<button type="button"'+btnCtrlAttr+'style="font-size: 1em;" class="btn btn-danger element-delete" title="Delete element">'
-                                +'<i class="fa fa-trash-o"></i>'
-                                    +'</button>';
-            out +=     '</div>';// col-sm-6
+            out += '<div class="col-sm-6">';
+            out += '<button type="button"' + btnCtrlAttr + 'style="font-size: 1em;" class="btn btn-warning element-disable' + disabledActiveClass + '" title="Disable element">'
+            + '<i class="fa fa-power-off"></i>'
+            + '</button>';
+            out += '</div>'; // col-sm-6
+            out += '<div class="col-sm-6">';
+            out += '<button type="button"' + btnCtrlAttr + 'style="font-size: 1em;" class="btn btn-danger element-delete" title="Delete element">'
+            + '<i class="fa fa-trash-o"></i>'
+            + '</button>';
+            out += '</div>';// col-sm-6
         }
-        out +=     '</div>';// row
-        out +=     '<input id="pined-'+setIdx+'-'+index+'" type="hidden" data-initial-value="" value="0" name="rz[a][a][0]['+setIdx+'][elements]['+index+'][pined]">'
-                   +'<input id="disabled-'+setIdx+'-'+index+'" type="hidden" data-initial-value="" value="0" name="rz[a][a][0]['+setIdx+'][elements]['+index+'][disabled]">';
+        out += '</div>';// row
+        out += '<input id="pined-' + setIdx + '-' + index + '" class="pined" type="hidden" data-initial-value="" value="' + (pined ? '1' : '0') + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][pined]">'
+        + '<input id="disabled-' + setIdx + '-' + index + '" class="pined" type="hidden" data-initial-value="" value="' + (disabled ? '1' : '0') + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][disabled]">';
         out += '</div>'; //element-control
 
         return out;
