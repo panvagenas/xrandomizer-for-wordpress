@@ -10,9 +10,8 @@
 
 namespace randomizer {
 
-    if (!defined('WPINC')) {
-        die;
-    }
+	if(!defined('WPINC'))
+		exit('Do NOT access this file directly: '.basename(__FILE__));
 
     /**
      *
@@ -28,7 +27,7 @@ namespace randomizer {
          */
         public function after_setup_theme_hooks(){
             $this->add_action('widgets_init', '©initializer.register_widgets');
-            $this->addShortCode('rz', array($this, '©shortcodes__shortcode.display'));
+            $this->addShortCode($this->instance->plugin_var_ns, array($this, '©shortcodes__shortcode.display'));
         }
 
         /**

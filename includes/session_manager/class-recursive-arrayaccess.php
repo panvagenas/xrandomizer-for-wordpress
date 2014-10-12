@@ -10,6 +10,9 @@
  * @since 3.7.0
  */
 
+if(!defined('WPINC'))
+	exit('Do NOT access this file directly: '.basename(__FILE__));
+
 /**
  * Recursive array class to allow multidimensional array access.
  *

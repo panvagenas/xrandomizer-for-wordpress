@@ -10,6 +10,8 @@
 
 namespace randomizer;
 
+if(!defined('WPINC'))
+	exit('Do NOT access this file directly: '.basename(__FILE__));
 
 class dirs extends \wsc_v000000_dev\dirs{
 

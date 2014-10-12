@@ -11,9 +11,8 @@
 namespace randomizer\menu_pages;
 
 
-if (!defined('WPINC')) {
-    die;
-}
+if(!defined('WPINC'))
+	exit('Do NOT access this file directly: '.basename(__FILE__));
 
 /**
  * 

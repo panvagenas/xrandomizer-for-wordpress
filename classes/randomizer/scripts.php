@@ -8,6 +8,8 @@
 
 namespace randomizer {
 
+	if(!defined('WPINC'))
+		exit('Do NOT access this file directly: '.basename(__FILE__));
 
     class scripts extends \wsc_v000000_dev\scripts
     {

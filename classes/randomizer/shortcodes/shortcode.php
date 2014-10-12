@@ -8,6 +8,8 @@
 
 namespace randomizer\shortcodes {
 
+	if(!defined('WPINC'))
+		exit('Do NOT access this file directly: '.basename(__FILE__));
 
     class shortcode extends \wsc_v000000_dev\shortcodes\shortcode{
         protected $set;

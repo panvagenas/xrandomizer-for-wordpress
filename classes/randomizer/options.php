@@ -13,9 +13,8 @@ namespace randomizer {
 	use wsc_v000000_dev\arrays;
 	use wsc_v000000_dev\exception;
 
-	if ( ! defined( 'WPINC' ) ) {
-		die;
-	}
+	if(!defined('WPINC'))
+		exit('Do NOT access this file directly: '.basename(__FILE__));
 
 	/**
 	 *
@@ -39,7 +38,6 @@ namespace randomizer {
 		 * @throws exception If `count($defaults) !== count($validators)`.
 		 */
 		public function setup( $defaults, $validators ) {
-			// TODO Set defaults
 			$randomizerDefaults = array(
 				'encryption.key'                             => 'jkiabOKBNJO89347KJBKJBasfd',
 				'support.url'                                => 'xdark.eu/support',
@@ -107,7 +105,7 @@ namespace randomizer {
 		public function ®update( $new_options = array() ) {
 			if ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__random_sets->slug ) ) {
 				$options = $this->validateRandomSetsOptions( $new_options );
-			} elseif ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__main_page->slug ) ) {
+			} elseif ($this->©menu_pages->is_plugin_page( $this->instance->plugin_root_ns_stub_with_dashes ) ) {
 				$options = $this->validateMainSettingsOptions( $new_options );
 			} else {
 				$options = $new_options;

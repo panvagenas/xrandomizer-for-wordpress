@@ -44,9 +44,8 @@ Kudos: WebSharks™ http://www.websharks-inc.com
 
 namespace randomizer {
 
-    if (!defined('WPINC')) {
-        die;
-    }
+	if(!defined('WPINC'))
+		exit('Do NOT access this file directly: '.basename(__FILE__));
 
     /* ----------------------------------------------------------------------------*
      * Session functionality
