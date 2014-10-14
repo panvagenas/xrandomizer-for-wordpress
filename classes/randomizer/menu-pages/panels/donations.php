@@ -8,8 +8,6 @@
 * @link http://xdark.eu
 */
 
-// TODO Set donations
-
 namespace randomizer\menu_pages\panels
 {
     use wsc_v000000_dev\menu_pages\panels\panel;

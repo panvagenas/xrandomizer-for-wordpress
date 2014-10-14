@@ -24,7 +24,7 @@ Requires at least PHP version: 5.3.1
 Tested up to PHP version: 5.5.12
 
 Copyright: © 2014 XDaRk.eu
-License: GNU General Public License TODO
+License: GNU General Public License V3 or later
 Contributors: XDaRk.eu
 
 Author: Panagiotis Vagenas <pan.vagenas@gmail.com>
@@ -34,12 +34,40 @@ Text Domain: randomizer
 Domain Path: /translations
 
 Plugin Name: Randomizer
-Plugin URI: http://xdark.eu TODO
+Plugin URI: http://xdark.eu
 
 Description: XDaRk.eu Core framework for WordPress® plugin development.
-Tags: TODO
 Kudos: WebSharks™ http://www.websharks-inc.com
-
+Tags: ad,
+ad rotator,
+ads
+advert,
+advertise,
+advertisement,
+advertiser,
+advertising,
+advert manager,
+adverts,
+banner,
+banner manager,
+commercial,
+content,
+custom ads,
+custom banners,
+custom rotating banners,
+export,
+image ads,
+image widget,
+plugin,
+random,
+random banners,
+random rotating banners,
+rotate,
+rotating banners,
+rotator,
+sidebar,
+widget,
+widget ads
 -- end section for WordPress®. --------------------------------------------------------------------------------------------------------- */
 
 namespace randomizer {

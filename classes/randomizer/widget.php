@@ -35,7 +35,7 @@ namespace randomizer {
 		 * @var array Options for this widget.
 		 * @note Set options for this widget.
 		 */
-		public $options = array( 'description' => 'Randomizer Widget Description' ); // TODO Widget description
+		public $options = array( 'description' => 'Displays Randomizer Sets in Any Widget Area' );
 
 		/**
 		 * @var array Options for this widget.

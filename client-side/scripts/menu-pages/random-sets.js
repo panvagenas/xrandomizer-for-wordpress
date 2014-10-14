@@ -2,7 +2,7 @@
  * Random sets pages script
  *
  * Copyright: © 2014
- * {@link http://TODO WebSharks™}
+ * {@link http://xdark.eu}
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @package Randomizer
@@ -220,6 +220,7 @@
      * Set Manager
      * @param setIdx
      * @constructor
+     * @param $selector
      */
     function SetManager(setIdx, $selector) {
         this.setIdx = setIdx;
