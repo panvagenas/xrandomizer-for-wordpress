@@ -5,8 +5,9 @@
  * Date: 10/10/2014
  * Time: 7:39 πμ
  */
+if(!defined('WPINC'))
+	exit('Do NOT access this file directly: '.basename(__FILE__));
 
-//var_dump($callee->menu_page->option_form_fields);
 // TODO Delete this file
 $customCSSFieldProps = array(
     'required'    => false,

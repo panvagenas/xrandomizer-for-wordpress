@@ -20,12 +20,12 @@ namespace randomizer {
 	 */
 	class views extends framework {
 
-		public function view(&$callee, $file, Array $viewData = null, $echo = false ) {
+		public function view(&$callee, $filePath, Array $viewData = null, $echo = false ) {
 			( $viewData ) ? extract( $viewData ) : null;
 
 
 			ob_start();
-			require $this->©dirs_files->view( $file );
+			require $this->©dirs_files->view( $filePath );
 			$content = ob_get_clean();
 			if ( ! $echo ) {
 				return $content;

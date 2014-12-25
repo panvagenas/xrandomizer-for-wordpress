@@ -62,6 +62,11 @@ namespace randomizer {
      * @method \randomizer\dirs                                                 ©dirs()
      * @method \randomizer\dirs                                                 ©dir()
      *
+     * @property \randomizer\dirs_files                                         $©dirs_files
+     * @property \randomizer\dirs_files                                         $©dir_file
+     * @method \randomizer\dirs_files                                           ©dirs_files()
+     * @method \randomizer\dirs_files                                           ©dir_file()
+     *
      * @property \randomizer\shortcodes\shortcode                               $©shortcodes__shortcode
      * @method \randomizer\shortcodes\shortcode                                 ©shortcodes__shortcode()
      */
