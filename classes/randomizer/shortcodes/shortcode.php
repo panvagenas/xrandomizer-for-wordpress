@@ -23,7 +23,8 @@ namespace randomizer\shortcodes {
          */
         public function attr_defaults()
         {
-            return array($this->©options->get('sets', true)[0]);
+            $sets = $this->©options->get('sets', true);
+            return array(isset($sets[0]) ? $sets[0] : array());
         }
 
         /**
@@ -40,13 +41,10 @@ namespace randomizer\shortcodes {
 
         public function display($attrs){
             if(!isset($attrs['set'])){
-                return null;
+                return '';
             }
             $this->initialize($attrs['set']);
-            if(empty($this->content)){
-                return null;
-            }
-            echo $this->content;
+            return $this->content;
         }
 
         public function initialize($setName){
