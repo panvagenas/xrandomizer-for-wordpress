@@ -1,7 +1,7 @@
-=== WebSharks™ Core ===
+=== XDaRk Core ===
 
-Version: 000000-dev
-Stable tag: 000000-dev
+Version: 141226-dev
+Stable tag: 141226-dev
 Tested up to: 3.9.1
 Requires at least: 3.5.1
 
@@ -18,27 +18,27 @@ Contributors: WebSharks, JasWSInc
 Author: WebSharks, Inc.
 Author URI: http://www.websharks-inc.com
 
-Text Domain: wsc
+Text Domain: xd
 Domain Path: /translations
 
-Plugin Name: WebSharks™ Core
+Plugin Name: XDaRk Core
 Plugin URI: http://github.com/WebSharks/Core
 
-Description: WebSharks™ Core framework for WordPress® plugin development.
+Description: XDaRk Core framework for WordPress® plugin development.
 Tags: websharks, websharks core, framework, plugin framework, development, developers
 
-WebSharks™ Core framework for WordPress® plugin development.
+XDaRk Core framework for WordPress® plugin development.
 
 == Description ==
 
-You can learn more about the WebSharks™ Core at [GitHub®](http://github.com/websharks/core).
+You can learn more about the XDaRk Core at [GitHub®](http://github.com/websharks/core).
 
 == Installation ==
 
-The WebSharks™ Core is used as a framework on which to build a plugin of your own; it's not an installable plugin itself. You can learn more about the WebSharks™ Core at [GitHub®](http://github.com/websharks/core).
+The XDaRk Core is used as a framework on which to build a plugin of your own; it's not an installable plugin itself. You can learn more about the XDaRk Core at [GitHub®](http://github.com/websharks/core).
 
 == Changelog ==
 
-= v000000-dev =
+= v141226-dev =
 
-* (WebSharks™ Core) **Initial beta release**.
+* (XDaRk Core) **Initial beta release**.

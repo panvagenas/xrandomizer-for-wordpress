@@ -11,7 +11,7 @@ namespace randomizer {
 	if(!defined('WPINC'))
 		exit('Do NOT access this file directly: '.basename(__FILE__));
 
-    class styles extends \wsc_v000000_dev\styles
+    class styles extends \xd_v141226_dev\styles
     {
         /**
          * Builds the initial set of front-side components.

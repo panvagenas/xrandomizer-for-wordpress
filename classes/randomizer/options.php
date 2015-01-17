@@ -10,8 +10,8 @@
 
 namespace randomizer {
 
-	use wsc_v000000_dev\arrays;
-	use wsc_v000000_dev\exception;
+	use xd_v141226_dev\arrays;
+	use xd_v141226_dev\exception;
 
 	if(!defined('WPINC'))
 		exit('Do NOT access this file directly: '.basename(__FILE__));
@@ -21,7 +21,7 @@ namespace randomizer {
 	 * @package randomizer
 	 * @author pan.vagenas <pan.vagenas@gmail.com>
 	 */
-	class options extends \wsc_v000000_dev\options {
+	class options extends \xd_v141226_dev\options {
 
 		/**
 		 * Sets up default options and validators.
@@ -126,9 +126,12 @@ namespace randomizer {
 			 * Unset any default set and validate others
 			 */
 			foreach ( $newOptions as $key => $set ) {
-				if ( ! ( $this->©string->is( $set['name'] ) && $this->©string->is( $set['randomPolicy'] ) ) || $set['name'] == 'Default' ) {
+				if ( ! ( $this->©string->is( $set['name'] ) && $this->©string->is( $set['randomPolicy'] ) ) ) {
 					unset ( $newOptions[ $key ] );
 					continue;
+				}
+				if($set['name'] == 'Default'){
+					$set['name'] .= '_'.uniqid();
 				}
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {

@@ -1,15 +1,15 @@
 /*!
- * WebSharks™ Core Resets; copyright: © 2012 (coded in the USA)
+ * XDaRk Core Resets; copyright: © 2012 (coded in the USA)
  * GPL license <https://github.com/websharks/core>
  */
 /**
- * WebSharks™ Core Resets
+ * XDaRk Core Resets
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
 
@@ -17,8 +17,8 @@
 <https://developer.mozilla.org/en-US/docs/Web/CSS/inherit> */
 /* noinspection ALL */
 
-.wsc-v000000-dev,
-.wsc-v000000-dev *
+.xd-v141226-dev,
+.xd-v141226-dev *
 {
 	margin              : 0;
 	padding             : 0;
@@ -84,7 +84,7 @@
 
 /* Parent Styles from which to Inherit */
 
-.wsc-v000000-dev
+.xd-v141226-dev
 {
 	cursor          : auto;
 
@@ -114,102 +114,102 @@
 /* Block & Inline Elements
 <https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements> */
 
-.wsc-v000000-dev address,
-.wsc-v000000-dev article,
-.wsc-v000000-dev aside,
-.wsc-v000000-dev audio,
-.wsc-v000000-dev blockquote,
-.wsc-v000000-dev canvas,
-.wsc-v000000-dev dd,
-.wsc-v000000-dev div,
-.wsc-v000000-dev dl,
-.wsc-v000000-dev fieldset,
-.wsc-v000000-dev figcaption,
-.wsc-v000000-dev figure,
-.wsc-v000000-dev footer,
-.wsc-v000000-dev form,
-.wsc-v000000-dev h1,
-.wsc-v000000-dev h2,
-.wsc-v000000-dev h3,
-.wsc-v000000-dev h4,
-.wsc-v000000-dev h5,
-.wsc-v000000-dev h6,
-.wsc-v000000-dev header,
-.wsc-v000000-dev hgroup,
-.wsc-v000000-dev hr,
-.wsc-v000000-dev noscript,
-.wsc-v000000-dev ol,
-.wsc-v000000-dev output,
-.wsc-v000000-dev p,
-.wsc-v000000-dev pre,
-.wsc-v000000-dev section,
-.wsc-v000000-dev table,
-.wsc-v000000-dev tfoot,
-.wsc-v000000-dev ul,
-.wsc-v000000-dev video
+.xd-v141226-dev address,
+.xd-v141226-dev article,
+.xd-v141226-dev aside,
+.xd-v141226-dev audio,
+.xd-v141226-dev blockquote,
+.xd-v141226-dev canvas,
+.xd-v141226-dev dd,
+.xd-v141226-dev div,
+.xd-v141226-dev dl,
+.xd-v141226-dev fieldset,
+.xd-v141226-dev figcaption,
+.xd-v141226-dev figure,
+.xd-v141226-dev footer,
+.xd-v141226-dev form,
+.xd-v141226-dev h1,
+.xd-v141226-dev h2,
+.xd-v141226-dev h3,
+.xd-v141226-dev h4,
+.xd-v141226-dev h5,
+.xd-v141226-dev h6,
+.xd-v141226-dev header,
+.xd-v141226-dev hgroup,
+.xd-v141226-dev hr,
+.xd-v141226-dev noscript,
+.xd-v141226-dev ol,
+.xd-v141226-dev output,
+.xd-v141226-dev p,
+.xd-v141226-dev pre,
+.xd-v141226-dev section,
+.xd-v141226-dev table,
+.xd-v141226-dev tfoot,
+.xd-v141226-dev ul,
+.xd-v141226-dev video
 {
 	display : block;
 }
-.wsc-v000000-dev b,
-.wsc-v000000-dev big,
-.wsc-v000000-dev i,
-.wsc-v000000-dev small,
-.wsc-v000000-dev tt,
-.wsc-v000000-dev abbr,
-.wsc-v000000-dev acronym,
-.wsc-v000000-dev cite,
-.wsc-v000000-dev code,
-.wsc-v000000-dev dfn,
-.wsc-v000000-dev em,
-.wsc-v000000-dev kbd,
-.wsc-v000000-dev strong,
-.wsc-v000000-dev samp,
-.wsc-v000000-dev var,
-.wsc-v000000-dev a,
-.wsc-v000000-dev bdo,
-.wsc-v000000-dev br,
-.wsc-v000000-dev img,
-.wsc-v000000-dev map,
-.wsc-v000000-dev object,
-.wsc-v000000-dev q,
-.wsc-v000000-dev span,
-.wsc-v000000-dev sub,
-.wsc-v000000-dev sup,
-.wsc-v000000-dev button,
-.wsc-v000000-dev input,
-.wsc-v000000-dev label,
-.wsc-v000000-dev select,
-.wsc-v000000-dev textarea
+.xd-v141226-dev b,
+.xd-v141226-dev big,
+.xd-v141226-dev i,
+.xd-v141226-dev small,
+.xd-v141226-dev tt,
+.xd-v141226-dev abbr,
+.xd-v141226-dev acronym,
+.xd-v141226-dev cite,
+.xd-v141226-dev code,
+.xd-v141226-dev dfn,
+.xd-v141226-dev em,
+.xd-v141226-dev kbd,
+.xd-v141226-dev strong,
+.xd-v141226-dev samp,
+.xd-v141226-dev var,
+.xd-v141226-dev a,
+.xd-v141226-dev bdo,
+.xd-v141226-dev br,
+.xd-v141226-dev img,
+.xd-v141226-dev map,
+.xd-v141226-dev object,
+.xd-v141226-dev q,
+.xd-v141226-dev span,
+.xd-v141226-dev sub,
+.xd-v141226-dev sup,
+.xd-v141226-dev button,
+.xd-v141226-dev input,
+.xd-v141226-dev label,
+.xd-v141226-dev select,
+.xd-v141226-dev textarea
 {
 	display : inline;
 }
 
 /* Preformatted Tags */
 
-.wsc-v000000-dev pre,
-.wsc-v000000-dev select
+.xd-v141226-dev pre,
+.xd-v141226-dev select
 {
 	white-space : pre;
 }
 
 /* Monospace Tags */
 
-.wsc-v000000-dev tt, code
+.xd-v141226-dev tt, code
 {
 	font-family : monospace;
 }
 
 /* Quotes */
 
-.wsc-v000000-dev q,
-.wsc-v000000-dev blockquote
+.xd-v141226-dev q,
+.xd-v141226-dev blockquote
 {
 	quotes : none;
 }
-.wsc-v000000-dev q:before,
-.wsc-v000000-dev q:after,
-.wsc-v000000-dev blockquote:before,
-.wsc-v000000-dev blockquote:after
+.xd-v141226-dev q:before,
+.xd-v141226-dev q:after,
+.xd-v141226-dev blockquote:before,
+.xd-v141226-dev blockquote:after
 {
 	content : '';
 	content : none;
@@ -217,7 +217,7 @@
 
 /* Images */
 
-.wsc-v000000-dev img
+.xd-v141226-dev img
 {
 	vertical-align : bottom;
 }

@@ -1,13 +1,13 @@
 <?php
-namespace wsc_v000000_dev;
+namespace xd_v141226_dev;
 /**
  * Template
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  *
  * @note All WordPress® template tags are available for use in this template.

@@ -16,19 +16,19 @@ www        w        ww eeeeeeeee  bbbbbbbb      sssssssssss   hhhh        hhhh  
      wswswswswswswswswswswswswswswswswsws                                                                                               ®*/
 
 /**
- * WebSharks™ Core (WP plugin).
+ * XDaRk Core (WP plugin).
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 130310
  */
 /* -- WordPress® --------------------------------------------------------------------------------------------------------------------------
 
-Version: 000000-dev
-Stable tag: 000000-dev
+Version: 141226-dev
+Stable tag: 141226-dev
 Tested up to: 3.9.1
 Requires at least: 3.5.1
 
@@ -45,13 +45,13 @@ Contributors: WebSharks
 Author: WebSharks, Inc.
 Author URI: http://www.websharks-inc.com
 
-Text Domain: wsc
+Text Domain: xd
 Domain Path: /translations
 
-Plugin Name: WebSharks™ Core
+Plugin Name: XDaRk Core
 Plugin URI: http://github.com/WebSharks/Core
 
-Description: WebSharks™ Core framework for WordPress® plugin development.
+Description: XDaRk Core framework for WordPress® plugin development.
 Tags: websharks, websharks core, framework, plugin framework, development, developers
 
 -- end section for WordPress®. --------------------------------------------------------------------------------------------------------- */
@@ -62,12 +62,12 @@ if(!defined('WPINC'))
 /*
  * Load dependency utilities.
  */
-$GLOBALS['autoload_wsc_v000000_dev'] = FALSE;
+$GLOBALS['autoload_xd_v141226_dev'] = FALSE;
 require_once dirname(__FILE__).'/stub.php';
-require_once wsc_v000000_dev::deps();
+require_once xd_v141226_dev::deps();
 
 /*
  * Check dependencies (and load framework; if possible).
  */
-if(deps_wsc_v000000_dev::check(wsc_v000000_dev::$core_name, dirname(__FILE__)) === TRUE)
-	require_once wsc_v000000_dev::framework();
+if(deps_xd_v141226_dev::check(xd_v141226_dev::$core_name, dirname(__FILE__)) === TRUE)
+	require_once xd_v141226_dev::framework();

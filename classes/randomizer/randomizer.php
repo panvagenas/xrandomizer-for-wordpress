@@ -12,7 +12,7 @@ namespace randomizer {
 		exit('Do NOT access this file directly: '.basename(__FILE__));
 
     use WP_Query;
-    use wsc_v000000_dev\arrays;
+    use xd_v141226_dev\arrays;
 
     class randomizer extends framework
     {

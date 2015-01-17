@@ -2,10 +2,10 @@
  * Menu Pages Extension
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
 
@@ -13,15 +13,19 @@
 {
 	'use strict'; // Strict standards.
 
-	var $wsc = $wsc_v000000_dev;
-	if($wsc.___did_menu_pages)
+    $('.documentation-btn').click(function(e){
+        e.preventDefault();
+    });
+
+	var $xd = $xd_v141226_dev;
+	if($xd.___did_menu_pages)
 		return; // Already did these.
 
-	$.each($wsc.$.___plugin_root_namespaces,
+	$.each($xd.$.___plugin_root_namespaces,
 	       function(plugin_root_ns_index, plugin_root_ns)
 	       {
 		       var extension // Extension definition.
-			       = $wsc.$.extension_class(plugin_root_ns, 'menu_pages');
+			       = $xd.$.extension_class(plugin_root_ns, 'menu_pages');
 		       window['$' + plugin_root_ns].$menu_pages = new extension();
 		       var _ = window['$' + plugin_root_ns].$menu_pages;
 
@@ -78,6 +82,7 @@
 				                            });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_content_panels_state',
 				              _.___private_type, [panels_active, panels_inactive]);
+				       console.log('Updating content panels state.');
 			       };
 			       $content_panels.find('> .panel-collapse')
 				       .on('shown.' + _.core('-bs') + '.collapse', update_content_panels_state)
@@ -99,6 +104,7 @@
 				                            });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_sidebar_panels_state',
 				              _.___private_type, [panels_active, panels_inactive]);
+				       console.log('Updating sidebar panels state.');
 			       };
 			       $sidebar_panels.find('> .panel-collapse')
 				       .on('shown.' + _.core('-bs') + '.collapse', update_sidebar_panels_state)
@@ -116,6 +122,7 @@
 					             });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_content_panels_order',
 				              _.___private_type, [panels_order]);
+				       console.log('Updating content panels order.');
 			       };
 			       $menu_page.find('.content-panels')
 				       [_.core('->sortable')]({
@@ -138,6 +145,7 @@
 					             });
 				       _.post('©menu_pages__' + _.is_plugin_menu_page('', true) + '.®update_sidebar_panels_order',
 				              _.___private_type, [panels_order]);
+				       console.log('Updating sidebar panels order.');
 			       };
 			       $menu_page.find('.sidebar-panels')
 				       [_.core('->sortable')]({
@@ -147,6 +155,57 @@
 					                              handle: '> .panel-heading > .panel-title .cursor-move'
 				                              });
 			       $menu_page.find('.sidebar-panels').on('sortupdate', update_sidebar_panels_order);
+
+				   $menu_page.find('.activate-lic').click(function () {
+					   var license = $('#license').val();
+					   $.ajax({
+						   url: ajaxurl,
+						   dataType: 'json',
+						   type: 'POST',
+						   data: {
+							   'action': 'activateEddLicense',
+							   'license': license
+						   },
+						   complete: function(response){
+							   location.reload();
+						   },
+						   error: function(response){
+								alert('License activation failed');
+						   },
+						   beforeSend: function(){
+							   if(license.length == 0){
+								   alert('Please enter a valid license key');
+								   return false;
+							   }
+							   return true;
+						   }
+					   });
+				   });
+				   $menu_page.find('.deactivate-lic').click(function () {
+					   var license = $('#license').val();
+					   $.ajax({
+						   url: ajaxurl,
+						   dataType: 'json',
+						   type: 'POST',
+						   data: {
+							   'action': 'deactivateEddLicense',
+							   'license': license
+						   },
+						   complete: function(response){
+							   location.reload();
+						   },
+						   error: function(response){
+							   alert('License activation failed');
+						   },
+						   beforeSend: function(){
+							   if(license.length == 0){
+								   alert('Please enter a valid license key');
+								   return false;
+							   }
+							   return true;
+						   }
+					   });
+				   });
 		       };
 
 		       _.on_win_load = function()
@@ -220,6 +279,6 @@
 
 		       $(document).on('ready', _.on_dom_ready), $(window).on('load', _.on_win_load);
 	       });
-	$wsc.___did_menu_pages = true;
+	$xd.___did_menu_pages = true;
 
 })(jQuery); // End extension closure.

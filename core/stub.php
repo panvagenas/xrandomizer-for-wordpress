@@ -15,56 +15,56 @@ www        w        ww eeeeeeeee  bbbbbbbb      sssssssssss   hhhh        hhhh  
                                                  ssssssss     hhhh        hhhh aa               aa rrrr      rrrr kkkk     kkkk   sssssss
      wswswswswswswswswswswswswswswswswsws                                                                                               ®*/
 /**
- * Stub: WebSharks™ Core
+ * Stub: XDaRk Core
  *
  * @note MUST remain PHP v5.2 compatible.
  *
  * Copyright: © 2013 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 130302
  */
 # -----------------------------------------------------------------------------------------------------------------------------------------
 # Version/namespace for this stub file.
 # -----------------------------------------------------------------------------------------------------------------------------------------
-$GLOBALS[__FILE__]['version'] = '000000-dev'; #!version!#
-$GLOBALS[__FILE__]['core_ns'] = 'wsc_v000000_dev';
+$GLOBALS[__FILE__]['version'] = '141226-dev'; #!version!#
+$GLOBALS[__FILE__]['core_ns'] = 'xd_v141226_dev';
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
-# Only if the WebSharks™ Core stub class does NOT exist yet; (we don't care about WordPress® here yet).
+# Only if the XDaRk Core stub class does NOT exist yet; (we don't care about WordPress® here yet).
 # -----------------------------------------------------------------------------------------------------------------------------------------
-if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
+if(!class_exists('xd_v141226_dev')) // Core stub class (for this verison).
 {
 	# -----------------------------------------------------------------------------------------------------------------------------------
-	# WebSharks™ Core stub class definition.
+	# XDaRk Core stub class definition.
 	# -----------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Stub: WebSharks™ Core class.
+	 * Stub: XDaRk Core class.
 	 *
 	 * @note MUST remain PHP v5.2 compatible.
 	 *
-	 * @package WebSharks\Core
+	 * @package XDaRk\Core
 	 * @since 130302
 	 */
-	final class wsc_v000000_dev // Static properties/methods only please.
+	final class xd_v141226_dev // Static properties/methods only please.
 	{
 		# --------------------------------------------------------------------------------------------------------------------------------
 		# Public properties (see also: bottom of this file).
 		# --------------------------------------------------------------------------------------------------------------------------------
 
 		/**
-		 * WebSharks™ Core name.
+		 * XDaRk Core name.
 		 *
-		 * @var string WebSharks™ Core name.
+		 * @var string XDaRk Core name.
 		 */
-		public static $core_name = 'WebSharks™ Core';
+		public static $core_name = 'XDaRk Core';
 
 		/**
-		 * WebSharks™ Core site.
+		 * XDaRk Core site.
 		 *
-		 * @var string WebSharks™ Core site.
+		 * @var string XDaRk Core site.
 		 */
 		public static $core_site = 'http://www.websharks-inc.com';
 
@@ -78,111 +78,111 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		public static $local_wp_dev_dir = '%%$_SERVER[WEBSHARK_HOME]%%/Apache/wordpress.loc';
 
 		/**
-		 * Local WebSharks™ Core repo directory.
+		 * Local XDaRk Core repo directory.
 		 *
-		 * @var string Local WebSharks™ Core repo directory.
+		 * @var string Local XDaRk Core repo directory.
 		 *
 		 * @note For internal/development use only.
 		 */
 		public static $local_core_repo_dir = '%%$_SERVER[WEBSHARK_HOME]%%/WebSharks/core';
 
 		/**
-		 * WebSharks™ Core prefix.
+		 * XDaRk Core prefix.
 		 *
-		 * @var string WebSharks™ Core prefix.
+		 * @var string XDaRk Core prefix.
 		 */
-		public static $core_prefix = 'wsc_';
+		public static $core_prefix = 'xd_';
 
 		/**
-		 * WebSharks™ Core prefix w/ dashes.
+		 * XDaRk Core prefix w/ dashes.
 		 *
-		 * @var string WebSharks™ Core prefix w/ dashes.
+		 * @var string XDaRk Core prefix w/ dashes.
 		 */
-		public static $core_prefix_with_dashes = 'wsc-';
+		public static $core_prefix_with_dashes = 'xd-';
 
 		/**
-		 * WebSharks™ Core capability requirement.
+		 * XDaRk Core capability requirement.
 		 *
-		 * @var string WebSharks™ Core capability.
+		 * @var string XDaRk Core capability.
 		 */
 		public static $core_cap = 'administrator';
 
 		/**
-		 * WebSharks™ Core prefix capability requirement.
+		 * XDaRk Core prefix capability requirement.
 		 *
-		 * @var string WebSharks™ Core capability w/ dashes.
+		 * @var string XDaRk Core capability w/ dashes.
 		 */
 		public static $core_cap_with_dashes = 'administrator';
 
 		/**
-		 * WebSharks™ Core stub.
+		 * XDaRk Core stub.
 		 *
-		 * @var string WebSharks™ Core stub.
+		 * @var string XDaRk Core stub.
 		 */
-		public static $core_ns_stub = 'wsc';
+		public static $core_ns_stub = 'xd';
 
 		/**
-		 * WebSharks™ Core stub w/ dashes.
+		 * XDaRk Core stub w/ dashes.
 		 *
-		 * @var string WebSharks™ Core stub w/ dashes.
+		 * @var string XDaRk Core stub w/ dashes.
 		 */
-		public static $core_ns_stub_with_dashes = 'wsc';
+		public static $core_ns_stub_with_dashes = 'xd';
 
 		/**
-		 * WebSharks™ Core stub_v.
+		 * XDaRk Core stub_v.
 		 *
-		 * @var string WebSharks™ Core stub_v.
+		 * @var string XDaRk Core stub_v.
 		 */
-		public static $core_ns_stub_v = 'wsc_v';
+		public static $core_ns_stub_v = 'xd_v';
 
 		/**
-		 * WebSharks™ Core stub-v w/ dashes.
+		 * XDaRk Core stub-v w/ dashes.
 		 *
-		 * @var string WebSharks™ Core stub-v w/ dashes.
+		 * @var string XDaRk Core stub-v w/ dashes.
 		 */
-		public static $core_ns_stub_v_with_dashes = 'wsc-v';
+		public static $core_ns_stub_v_with_dashes = 'xd-v';
 
 		/**
-		 * WebSharks™ Core namespace.
+		 * XDaRk Core namespace.
 		 *
-		 * @var string WebSharks™ Core namespace.
+		 * @var string XDaRk Core namespace.
 		 */
-		public static $core_ns = 'wsc_v000000_dev';
+		public static $core_ns = 'xd_v141226_dev';
 
 		/**
-		 * WebSharks™ Core namespace w/ prefix.
+		 * XDaRk Core namespace w/ prefix.
 		 *
-		 * @var string WebSharks™ Core namespace w/ prefix.
+		 * @var string XDaRk Core namespace w/ prefix.
 		 */
-		public static $core_ns_prefix = '\\wsc_v000000_dev';
+		public static $core_ns_prefix = '\\xd_v141226_dev';
 
 		/**
-		 * WebSharks™ Core namespace w/ dashes.
+		 * XDaRk Core namespace w/ dashes.
 		 *
-		 * @var string WebSharks™ Core namespace w/ dashes.
+		 * @var string XDaRk Core namespace w/ dashes.
 		 */
-		public static $core_ns_with_dashes = 'wsc-v000000-dev';
+		public static $core_ns_with_dashes = 'xd-v141226-dev';
 
 		/**
-		 * WebSharks™ Core version string.
+		 * XDaRk Core version string.
 		 *
-		 * @var string WebSharks™ Core version string.
+		 * @var string XDaRk Core version string.
 		 */
-		public static $core_version = '000000-dev'; #!version!#
+		public static $core_version = '141226-dev'; #!version!#
 
 		/**
-		 * WebSharks™ Core namespace version (with underscores).
+		 * XDaRk Core namespace version (with underscores).
 		 *
-		 * @var string WebSharks™ Core namespace version (with underscores).
+		 * @var string XDaRk Core namespace version (with underscores).
 		 */
-		public static $core_version_with_underscores = '000000_dev'; #!version-with-underscores!#
+		public static $core_version_with_underscores = '141226_dev'; #!version-with-underscores!#
 
 		/**
-		 * WebSharks™ Core namespace version (with dashes).
+		 * XDaRk Core namespace version (with dashes).
 		 *
-		 * @var string WebSharks™ Core namespace version (with dashes).
+		 * @var string XDaRk Core namespace version (with dashes).
 		 */
-		public static $core_version_with_dashes = '000000-dev'; #!version-with-dashes!#
+		public static $core_version_with_dashes = '141226-dev'; #!version-with-dashes!#
 
 		# --------------------------------------------------------------------------------------------------------------------------------
 		# Protected properties (see also: bottom of this file).
@@ -203,15 +203,15 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		protected static $static = array();
 
 		# --------------------------------------------------------------------------------------------------------------------------------
-		# Initializes WebSharks™ Core stub (see also: bottom of this file).
+		# Initializes XDaRk Core stub (see also: bottom of this file).
 		# --------------------------------------------------------------------------------------------------------------------------------
 
 		/**
-		 * Initializes WebSharks™ Core stub.
+		 * Initializes XDaRk Core stub.
 		 *
 		 * @return boolean Returns the `$initialized` property w/ a TRUE value.
 		 *
-		 * @throws exception If attempting to run the WebSharks™ Core from a root directory.
+		 * @throws exception If attempting to run the XDaRk Core from a root directory.
 		 */
 		public static function initialize()
 		{
@@ -246,9 +246,9 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		# --------------------------------------------------------------------------------------------------------------------------------
 
 		/**
-		 * Global PHAR variable for the WebSharks™ Core.
+		 * Global PHAR variable for the XDaRk Core.
 		 *
-		 * @return string The PHAR variable for the WebSharks™ Core.
+		 * @return string The PHAR variable for the XDaRk Core.
 		 */
 		public static function is_phar_var()
 		{
@@ -256,9 +256,9 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		}
 
 		/**
-		 * Global autoload var for the WebSharks™ Core.
+		 * Global autoload var for the XDaRk Core.
 		 *
-		 * @return string Autoload var for the WebSharks™ Core.
+		 * @return string Autoload var for the XDaRk Core.
 		 */
 		public static function autoload_var()
 		{
@@ -319,9 +319,9 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		}
 
 		/**
-		 * Autoload WebSharks™ Core?
+		 * Autoload XDaRk Core?
 		 *
-		 * @return boolean Autoload WebSharks™ Core?
+		 * @return boolean Autoload XDaRk Core?
 		 */
 		public static function is_autoload()
 		{
@@ -358,7 +358,7 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		 *    • If TRUE, and WordPress® cannot be located anywhere else;
 		 *       automatically fallback on a local development copy.
 		 *
-		 *    • If NULL|TRUE, we'll look inside: `self::$local_wp_dev_dir` (a default WebSharks™ Core location).
+		 *    • If NULL|TRUE, we'll look inside: `self::$local_wp_dev_dir` (a default XDaRk Core location).
 		 *       If STRING, we'll look inside the directory path defined by the string value.
 		 *
 		 *    • If FALSE — we will NOT fallback under any circumstance.
@@ -404,7 +404,7 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		# --------------------------------------------------------------------------------------------------------------------------------
 
 		/**
-		 * Gets WebSharks™ Core `deps.php` class file path.
+		 * Gets XDaRk Core `deps.php` class file path.
 		 *
 		 * @param boolean $enable_display_errors This is TRUE by default.
 		 *    If TRUE, we will make sure any exceptions are displayed on-screen.
@@ -416,9 +416,9 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		 *    Dependency utilities are what we use to address common issues. If they CANNOT be loaded up;
 		 *    we have a BIG problem here; and the site owner MUST be made aware of that issue.
 		 *
-		 * @return string Absolute path to WebSharks™ Core `deps.php` class file.
+		 * @return string Absolute path to XDaRk Core `deps.php` class file.
 		 *
-		 * @throws exception If unable to locate the WebSharks™ Core `deps.php` class file.
+		 * @throws exception If unable to locate the XDaRk Core `deps.php` class file.
 		 */
 		public static function deps($enable_display_errors = TRUE)
 		{
@@ -442,11 +442,11 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		}
 
 		/**
-		 * Gets WebSharks™ Core `framework.php` class file path.
+		 * Gets XDaRk Core `framework.php` class file path.
 		 *
-		 * @return string Absolute path to WebSharks™ Core `framework.php` class file.
+		 * @return string Absolute path to XDaRk Core `framework.php` class file.
 		 *
-		 * @throws exception If unable to locate the WebSharks™ Core `framework.php` class file.
+		 * @throws exception If unable to locate the XDaRk Core `framework.php` class file.
 		 */
 		public static function framework()
 		{
@@ -454,7 +454,7 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		}
 
 		/**
-		 * Gets a WebSharks™ Core class file (absolute path).
+		 * Gets a XDaRk Core class file (absolute path).
 		 *
 		 * @param string $class_file_basename Class file (basename only please).
 		 *    Ex: `class.php`; or `sub-namespace/class.php` is OK too.
@@ -463,10 +463,10 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		 *
 		 * @throws exception If invalid types are passed through arguments list.
 		 * @throws exception If `$class_file_basename` is empty; or it is NOT a string value.
-		 * @throws exception If unable to locate the WebSharks™ Core `$class_file_basename`.
+		 * @throws exception If unable to locate the XDaRk Core `$class_file_basename`.
 		 *
-		 * @note It's VERY important that we obtain class file paths for THIS version of the WebSharks™ Core.
-		 *    This is accomplished by looking for classes along a path which includes this WebSharks™ Core namespace.
+		 * @note It's VERY important that we obtain class file paths for THIS version of the XDaRk Core.
+		 *    This is accomplished by looking for classes along a path which includes this XDaRk Core namespace.
 		 */
 		public static function locate_core_ns_class_file($class_file_basename)
 		{
@@ -488,13 +488,13 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 				return $class_path; // We first check this directory.
 
 			if(($class_path = self::locate($locate_core_dir.'/'.$relative_class_path)))
-				return $class_path; // Sitewide (or nearest) WebSharks™ Core.
+				return $class_path; // Sitewide (or nearest) XDaRk Core.
 
 			if($is_phar && self::can_phar() && is_file($class_path = $this_phar.'/'.$relative_class_path))
 				return $class_path; // If this is a PHAR (and PHAR is possible); we can use this archive.
 
 			if(self::can_phar() && ($class_path = self::locate($locate_core_phar.'/'.$relative_class_path, 'phar://')))
-				return $class_path; // Sitewide (or nearest) WebSharks™ Core archive (if possible).
+				return $class_path; // Sitewide (or nearest) XDaRk Core archive (if possible).
 
 			if(defined('___DEV_KEY_OK') && ($class_path = self::locate($locate_core_dev_dir.'/'.$relative_class_path)))
 				return $class_path; // Development copy (for authenticated developers).
@@ -521,7 +521,7 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		# --------------------------------------------------------------------------------------------------------------------------------
 
 		/**
-		 * WebSharks™ Core webPhar rewriter.
+		 * XDaRk Core webPhar rewriter.
 		 *
 		 * @param string $uri_or_path_info Passed in by webPhar.
 		 *    The `$uri` is either `$_SERVER['REQUEST_URI']` or `$_SERVER['PATH_INFO']`.
@@ -1314,8 +1314,8 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 					sprintf(self::__('Inappropriate call to: `%1$s`'), __METHOD__)
 				);
 			$temp_deps          = self::get_temp_dir().'/wp-temp-deps.tmp';
-			$temp_deps_contents = base64_decode(self::$wp_temp_deps); // This uses version `000000_dev`.
-			$temp_deps_contents = str_ireplace(self::$core_ns_stub_v.'000000_dev', self::$core_ns, $temp_deps_contents);
+			$temp_deps_contents = base64_decode(self::$wp_temp_deps); // This uses version `141226_dev`.
+			$temp_deps_contents = str_ireplace(self::$core_ns_stub_v.'141226_dev', self::$core_ns, $temp_deps_contents);
 			$temp_deps_contents = str_ireplace('%%notice%%', str_replace("'", "\\'", self::cant_phar_msg(TRUE)), $temp_deps_contents);
 
 			if(!is_file($temp_deps) || (is_writable($temp_deps) && unlink($temp_deps)))
@@ -1370,9 +1370,9 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		/**
 		 * Regarding a lack of support for Php Archives.
 		 *
-		 * WebSharks™ temporary WP deps class (base64 encoded).
+		 * XDaRk temporary WP deps class (base64 encoded).
 		 *
-		 * @var string Base64 encoded version of `/includes/deps.tmp` in WebSharks™ Core.
+		 * @var string Base64 encoded version of `/includes/deps.tmp` in XDaRk Core.
 		 *
 		 * @see cant_phar_msg_notice_in_wp_temp_deps()
 		 */
@@ -1396,7 +1396,7 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		public static $regex_valid_userland_name = '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/';
 
 		/**
-		 * @var string WebSharks™ Core namespace (w/ version) validation pattern.
+		 * @var string XDaRk Core namespace (w/ version) validation pattern.
 		 *
 		 * @note Requirements are as follows:
 		 *
@@ -1414,7 +1414,7 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 		public static $regex_valid_core_ns_version = '/^%%self::$core_ns_stub_v%%[0-9]{6}(?:_(?:[a-z](?:[a-z0-9]|_(?!_))*[a-z0-9]|[a-z]))?(?:_(?:[0-9](?:[a-z0-9]|_(?!_))*[a-z0-9]|[0-9]))?$/';
 
 		/**
-		 * @var string WebSharks™ Core namespace (w/ version) validation pattern (dashed variation).
+		 * @var string XDaRk Core namespace (w/ version) validation pattern (dashed variation).
 		 *
 		 * @note Requirements are as follows:
 		 *
@@ -1605,28 +1605,28 @@ if(!class_exists('wsc_v000000_dev')) // Core stub class (for this verison).
 	}
 
 	# -----------------------------------------------------------------------------------------------------------------------------------
-	# Initialize the WebSharks™ Core stub.
+	# Initialize the XDaRk Core stub.
 	# -----------------------------------------------------------------------------------------------------------------------------------
 
-	wsc_v000000_dev::initialize(); // Also creates class alias.
+	xd_v141226_dev::initialize(); // Also creates class alias.
 }
 # -----------------------------------------------------------------------------------------------------------------------------------------
 # Inline webPhar handler.
 # -----------------------------------------------------------------------------------------------------------------------------------------
 /*
- * A WebSharks™ Core webPhar instance?
+ * A XDaRk Core webPhar instance?
  * This serves files straight from a PHP Archive.
  */
-if(wsc_v000000_dev::is_webphar())
+if(xd_v141226_dev::is_webphar())
 {
-	unset($GLOBALS[wsc_v000000_dev::autoload_var()]);
+	unset($GLOBALS[xd_v141226_dev::autoload_var()]);
 
-	if(!wsc_v000000_dev::can_phar())
-		throw new exception(wsc_v000000_dev::cant_phar_msg());
+	if(!xd_v141226_dev::can_phar())
+		throw new exception(xd_v141226_dev::cant_phar_msg());
 
-	Phar::webPhar('wsc-v000000-dev', 'index.php', '',
-	              wsc_v000000_dev::web_phar_mime_types(),
-	              'wsc_v000000_dev::web_phar_rewriter');
+	Phar::webPhar('xd-v141226-dev', 'index.php', '',
+	              xd_v141226_dev::web_phar_mime_types(),
+	              'xd_v141226_dev::web_phar_rewriter');
 
 	return; // We can stop here.
 }
@@ -1634,24 +1634,24 @@ if(wsc_v000000_dev::is_webphar())
 # Inline autoload handler.
 # -----------------------------------------------------------------------------------------------------------------------------------------
 /*
- * A WebSharks™ Core autoload instance?
+ * A XDaRk Core autoload instance?
  * On by default (disable w/ global var as necessary).
  */
-if(wsc_v000000_dev::is_autoload())
+if(xd_v141226_dev::is_autoload())
 {
-	unset($GLOBALS[wsc_v000000_dev::autoload_var()]);
+	unset($GLOBALS[xd_v141226_dev::autoload_var()]);
 
-	if(!defined('WPINC') && !wsc_v000000_dev::wp_load())
-		throw new exception(wsc_v000000_dev::no_wp_msg());
+	if(!defined('WPINC') && !xd_v141226_dev::wp_load())
+		throw new exception(xd_v141226_dev::no_wp_msg());
 
 	if(!defined('WPINC')) // Need to load WordPress?
-		require_once wsc_v000000_dev::wp_load(TRUE);
+		require_once xd_v141226_dev::wp_load(TRUE);
 
-	if(!class_exists('deps_wsc_v000000_dev'))
-		require_once wsc_v000000_dev::deps(FALSE);
+	if(!class_exists('deps_xd_v141226_dev'))
+		require_once xd_v141226_dev::deps(FALSE);
 
-	if(!class_exists('\\wsc_v000000_dev\\framework'))
-		require_once wsc_v000000_dev::framework();
+	if(!class_exists('\\xd_v141226_dev\\framework'))
+		require_once xd_v141226_dev::framework();
 
 	return; // We can stop here.
 }
@@ -1659,11 +1659,11 @@ if(wsc_v000000_dev::is_autoload())
 # Default inline handlers.
 # -----------------------------------------------------------------------------------------------------------------------------------------
 /*
- * Always unset WebSharks™ Core autoload var.
+ * Always unset XDaRk Core autoload var.
  */
-unset($GLOBALS[wsc_v000000_dev::autoload_var()]);
+unset($GLOBALS[xd_v141226_dev::autoload_var()]);
 /*
- * The WebSharks™ Core is in WordPress?
+ * The XDaRk Core is in WordPress?
  * If we're in WordPress®; it is NOT direct access.
  */
 if(defined('WPINC')) return; // We can stop here.

@@ -1,13 +1,13 @@
 #!/usr/bin/env php
 <?php
 /**
- * WebSharks™ Core Styles (Compiler)
+ * XDaRk Core Styles (Compiler)
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  *
  * @note This compiler requires that you have SASS installed.
@@ -16,7 +16,7 @@
  * @note This compiler requires that you have the YUI Compressor installed also.
  *    e.g. `brew install yuicompressor`
  */
-namespace wsc_dev_utilities
+namespace xd_dev_utilities
 {
 	require_once dirname(dirname(dirname(dirname(__FILE__)))).'/.dev-utilities/core.php';
 	compile(!empty($GLOBALS['argv'][1]) && $GLOBALS['argv'][1] === 'all');
@@ -46,7 +46,7 @@ namespace wsc_dev_utilities
 	 */
 	function compile_font_awesome()
 	{
-		$core                = core(); // WebSharks™ Core.
+		$core                = core(); // XDaRk Core.
 		$core_ns_with_dashes = $core->instance->core_ns_with_dashes;
 
 		$file     = $core->©dir->n_seps_up(__FILE__).'/core-fa.css';
@@ -114,7 +114,7 @@ namespace wsc_dev_utilities
 		);
 		foreach($themes as $theme => $url)
 		{
-			$core                = core(); // WebSharks™ Core.
+			$core                = core(); // XDaRk Core.
 			$core_ns_with_dashes = $core->___instancinstancewith_dashes;
 
 			$file     = $core->©dir->n_seps_up(__FILE__, 3).'/templates/client-side/styles/themes/'.$theme.'/theme.css';
@@ -203,7 +203,7 @@ namespace wsc_dev_utilities
 		}
 		else // Else we need to tokenize (default behavior).
 		{
-			$core                = core(); // WebSharks™ Core.
+			$core                = core(); // XDaRk Core.
 			$tokens              = array(); // Initialize tokens.
 			$animations          = array(); // Initialize CSS animations.
 			$core_ns_with_dashes = $core->instance->core_ns_with_dashes;

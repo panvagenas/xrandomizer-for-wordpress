@@ -11,7 +11,7 @@
 // TODO Set other plugins
 
 namespace randomizer\menu_pages\panels {
-    use wsc_v000000_dev\menu_pages\panels\panel;
+    use xd_v141226_dev\menu_pages\panels\panel;
 
     if (!defined('WPINC'))
         exit('Do NOT access this file directly: ' . basename(__FILE__));
@@ -33,7 +33,7 @@ namespace randomizer\menu_pages\panels {
          *    A parent object instance, which contains the parent's ``$instance``,
          *    or a new ``$instance`` array.
          *
-         * @param \wsc_v000000_dev\menu_pages\menu_page
+         * @param \xd_v141226_dev\menu_pages\menu_page
          *    $menu_page A menu page class instance.
          */
         public function __construct($instance, $menu_page)

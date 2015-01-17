@@ -1,16 +1,16 @@
 #!/usr/bin/env php
 <?php
 /**
- * WebSharks™ Core Scripts (Compiler)
+ * XDaRk Core Scripts (Compiler)
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
-namespace wsc_dev_utilities
+namespace xd_dev_utilities
 {
 	require_once dirname(dirname(dirname(dirname(__FILE__)))).'/.dev-utilities/core.php';
 	compile(!empty($GLOBALS['argv'][1]) && $GLOBALS['argv'][1] === 'all');

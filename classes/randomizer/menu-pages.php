@@ -18,7 +18,7 @@ namespace randomizer {
      * @package randomizer
      * @author pan.vagenas <pan.vagenas@gmail.com>
      */
-    class menu_pages extends \wsc_v000000_dev\menu_pages{
+    class menu_pages extends \xd_v141226_dev\menu_pages{
 
         /**
          * Handles WordPress® `admin_menu` hook.

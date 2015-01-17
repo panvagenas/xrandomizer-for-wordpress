@@ -2,10 +2,10 @@
  * Menu Page CSS/Styles
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
 
@@ -14,7 +14,7 @@ html
 	overflow-y : scroll;
 }
 
-.wsc-v000000-dev.menu-page
+.xd-v141226-dev.menu-page
 {
 	margin : 20px 0 0 -15px;
 }

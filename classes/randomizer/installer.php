@@ -19,7 +19,7 @@ if(!defined('WPINC'))
  * @package randomizer
  * @author pan.vagenas <pan.vagenas@gmail.com>
  */
-class installer extends \wsc_v000000_dev\installer {
+class installer extends \xd_v141226_dev\installer {
 
     /**
      * Any additional activation routines.

@@ -1,15 +1,15 @@
 /*!
- * WebSharks™ Core Utilities; copyright: © 2012 (coded in the USA)
+ * XDaRk Core Utilities; copyright: © 2012 (coded in the USA)
  * GPL license <https://github.com/websharks/core>
  */
 /**
- * WebSharks™ Core Utility Styles
+ * XDaRk Core Utility Styles
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
 
@@ -18,28 +18,28 @@ Responsive inline helpers.
 */
 @media (max-width : 767px)
 {
-	.wsc-v000000-dev .i-hidden-xs
+	.xd-v141226-dev .i-hidden-xs
 	{
 		display : none !important;
 	}
 }
 @media (min-width : 768px) and (max-width : 991px)
 {
-	.wsc-v000000-dev .i-hidden-sm
+	.xd-v141226-dev .i-hidden-sm
 	{
 		display : none !important;
 	}
 }
 @media (min-width : 992px) and (max-width : 1199px)
 {
-	.wsc-v000000-dev .i-hidden-md
+	.xd-v141226-dev .i-hidden-md
 	{
 		display : none !important;
 	}
 }
 @media (min-width : 1200px)
 {
-	.wsc-v000000-dev .i-hidden-lg
+	.xd-v141226-dev .i-hidden-lg
 	{
 		display : none !important;
 	}
@@ -48,7 +48,7 @@ Responsive inline helpers.
 /*
 Color utility classes.
 */
-.wsc-v000000-dev .color-inherit
+.xd-v141226-dev .color-inherit
 {
 	color : inherit !important;
 }
@@ -56,7 +56,7 @@ Color utility classes.
 /*
 Background utility classes.
 */
-.wsc-v000000-dev .no-bg
+.xd-v141226-dev .no-bg
 {
 	background : none !important;
 }
@@ -64,23 +64,23 @@ Background utility classes.
 /*
 Border utility classes.
 */
-.wsc-v000000-dev .no-border
+.xd-v141226-dev .no-border
 {
 	border : 0 !important;
 }
-.wsc-v000000-dev .dotted-border
+.xd-v141226-dev .dotted-border
 {
 	border-style : dotted !important;
 }
-.wsc-v000000-dev .dashed-border
+.xd-v141226-dev .dashed-border
 {
 	border-style : dashed !important;
 }
-.wsc-v000000-dev .border-radius
+.xd-v141226-dev .border-radius
 {
 	border-radius : 4px !important;
 }
-.wsc-v000000-dev .border-radius-circular
+.xd-v141226-dev .border-radius-circular
 {
 	border-radius : 50% !important;
 }
@@ -88,19 +88,19 @@ Border utility classes.
 /*
 Shadow utility classes.
 */
-.wsc-v000000-dev .box-shadow
+.xd-v141226-dev .box-shadow
 {
 	box-shadow : 0 0 2px 0 rgba(0, 0, 0, 0.5) !important;
 }
-.wsc-v000000-dev .perspective-box-shadow
+.xd-v141226-dev .perspective-box-shadow
 {
 	box-shadow : 0 6px 2px -4px rgba(0, 0, 0, 0.7) !important;
 }
-.wsc-v000000-dev .perspective-box-shadows
+.xd-v141226-dev .perspective-box-shadows
 {
 	box-shadow : 0 0 2px 0 rgba(0, 0, 0, 0.5), 0 6px 2px -4px rgba(0, 0, 0, 0.7) !important;
 }
-.wsc-v000000-dev .text-shadow
+.xd-v141226-dev .text-shadow
 {
 	text-shadow : 0 1px 1px rgba(0, 0, 0, 0.5) !important;
 }
@@ -108,48 +108,48 @@ Shadow utility classes.
 /*
 Text utility classes.
 */
-.wsc-v000000-dev .text-wrap
+.xd-v141226-dev .text-wrap
 {
 	white-space : normal !important;
 	word-wrap   : normal !important;
 	word-break  : normal !important;
 }
-.wsc-v000000-dev .text-wrap-break
+.xd-v141226-dev .text-wrap-break
 {
 	white-space : normal !important;
 	word-wrap   : break-word !important;
 	word-break  : break-all !important;
 }
-.wsc-v000000-dev .text-no-wrap
+.xd-v141226-dev .text-no-wrap
 {
 	white-space : pre !important;
 	word-wrap   : normal !important;
 	word-break  : normal !important;
 }
-.wsc-v000000-dev .text-ellipsis
+.xd-v141226-dev .text-ellipsis
 {
 	overflow      : hidden !important;
 	white-space   : nowrap !important;
 	text-overflow : ellipsis !important;
 }
-.wsc-v000000-dev .no-text-decor
+.xd-v141226-dev .no-text-decor
 {
 	text-decoration : none !important;
 }
-.wsc-v000000-dev .dotted-text-decor
+.xd-v141226-dev .dotted-text-decor
 {
 	text-decoration : none !important;
 	border-bottom   : dotted 1px !important;
 }
-.wsc-v000000-dev .text-upper
+.xd-v141226-dev .text-upper
 {
 	text-transform : uppercase !important;
 }
-.wsc-v000000-dev .text-lower
+.xd-v141226-dev .text-lower
 {
 	text-transform : lowercase !important;
 }
-.wsc-v000000-dev .text-small-caps
+.xd-v141226-dev .text-small-caps
 {
 	font-variant : small-caps !important;
 }
@@ -157,13 +157,13 @@ Text utility classes.
 /*
 Alignment utility classes.
 */
-.wsc-v000000-dev .center
+.xd-v141226-dev .center
 {
 	display      : block !important;
 	margin-left  : auto !important;
 	margin-right : auto !important;
 }
-.wsc-v000000-dev .va-middle
+.xd-v141226-dev .va-middle
 {
 	vertical-align : middle !important;
 }
@@ -171,23 +171,23 @@ Alignment utility classes.
 /*
 Position utility classes.
 */
-.wsc-v000000-dev .pos-absolute
+.xd-v141226-dev .pos-absolute
 {
 	position : absolute !important;
 }
-.wsc-v000000-dev .pos-relative
+.xd-v141226-dev .pos-relative
 {
 	position : relative !important;
 }
-.wsc-v000000-dev .z-index-1
+.xd-v141226-dev .z-index-1
 {
 	z-index : 1 !important;
 }
-.wsc-v000000-dev .z-index-2
+.xd-v141226-dev .z-index-2
 {
 	z-index : 2 !important;
 }
-.wsc-v000000-dev .z-index-top
+.xd-v141226-dev .z-index-top
 {
 	z-index : 1032 !important;
 }
@@ -195,23 +195,23 @@ Position utility classes.
 /*
 Display utility classes.
 */
-.wsc-v000000-dev .block-display
+.xd-v141226-dev .block-display
 {
 	display : block !important;
 }
-.wsc-v000000-dev .inline-display
+.xd-v141226-dev .inline-display
 {
 	display : inline !important;
 }
-.wsc-v000000-dev .inline-block
+.xd-v141226-dev .inline-block
 {
 	display : inline-block !important;
 }
-.wsc-v000000-dev .table-display
+.xd-v141226-dev .table-display
 {
 	display : table !important;
 }
-.wsc-v000000-dev .no-initial-display
+.xd-v141226-dev .no-initial-display
 {
 	display : none;
 }
@@ -219,11 +219,11 @@ Display utility classes.
 /*
 Width/height utility classes.
 */
-.wsc-v000000-dev .width-100
+.xd-v141226-dev .width-100
 {
 	width : 100% !important;
 }
-.wsc-v000000-dev .height-100
+.xd-v141226-dev .height-100
 {
 	height : 100% !important;
 }
@@ -231,39 +231,39 @@ Width/height utility classes.
 /*
 Opacity utility classes.
 */
-.wsc-v000000-dev .transparent
+.xd-v141226-dev .transparent
 {
 	opacity : 0.1 !important;
 }
-.wsc-v000000-dev .transparent-hover
+.xd-v141226-dev .transparent-hover
 {
 	opacity : 0.1 !important;
 }
-.wsc-v000000-dev .transparent-hover:hover
+.xd-v141226-dev .transparent-hover:hover
 {
 	opacity : 1.0 !important;
 }
-.wsc-v000000-dev .translucent
+.xd-v141226-dev .translucent
 {
 	opacity : 0.5 !important;
 }
-.wsc-v000000-dev .translucent-hover
+.xd-v141226-dev .translucent-hover
 {
 	opacity : 0.5 !important;
 }
-.wsc-v000000-dev .translucent-hover:hover
+.xd-v141226-dev .translucent-hover:hover
 {
 	opacity : 1.0 !important;
 }
-.wsc-v000000-dev .opacity-fade
+.xd-v141226-dev .opacity-fade
 {
 	opacity : 0.7 !important;
 }
-.wsc-v000000-dev .opacity-fade-hover
+.xd-v141226-dev .opacity-fade-hover
 {
 	opacity : 0.7 !important;
 }
-.wsc-v000000-dev .opacity-fade-hover:hover
+.xd-v141226-dev .opacity-fade-hover:hover
 {
 	opacity : 1.0 !important;
 }
@@ -271,32 +271,32 @@ Opacity utility classes.
 /*
 Overflow utility classes.
 */
-.wsc-v000000-dev .no-overflow
+.xd-v141226-dev .no-overflow
 {
 	max-width : 100% !important;
 	overflow  : hidden !important;
 }
-.wsc-v000000-dev .no-x-overflow
+.xd-v141226-dev .no-x-overflow
 {
 	max-width  : 100% !important;
 	overflow-x : hidden !important;
 }
-.wsc-v000000-dev .auto-y-overflow
+.xd-v141226-dev .auto-y-overflow
 {
 	max-height : 100% !important;
 	overflow-y : auto !important;
 }
-.wsc-v000000-dev .scroll-y-overflow-200-max
+.xd-v141226-dev .scroll-y-overflow-200-max
 {
 	max-height : 200px !important;
 	overflow-y : auto !important;
 }
-.wsc-v000000-dev .scroll-y-overflow-300-max
+.xd-v141226-dev .scroll-y-overflow-300-max
 {
 	max-height : 300px !important;
 	overflow-y : auto !important;
 }
-.wsc-v000000-dev .scroll-y-overflow-400-max
+.xd-v141226-dev .scroll-y-overflow-400-max
 {
 	max-height : 400px !important;
 	overflow-y : auto !important;
@@ -305,7 +305,7 @@ Overflow utility classes.
 /*
 Outline utility classes.
 */
-.wsc-v000000-dev .no-outline
+.xd-v141226-dev .no-outline
 {
 	outline : none !important;
 }
@@ -313,11 +313,11 @@ Outline utility classes.
 /*
 Cursor utility classes.
 */
-.wsc-v000000-dev .cursor-pointer
+.xd-v141226-dev .cursor-pointer
 {
 	cursor : pointer !important;
 }
-.wsc-v000000-dev .cursor-move
+.xd-v141226-dev .cursor-move
 {
 	cursor : move !important;
 }
@@ -325,7 +325,7 @@ Cursor utility classes.
 /*
 Selection utility classes.
 */
-.wsc-v000000-dev .no-select
+.xd-v141226-dev .no-select
 {
 	-webkit-user-select : none !important;
 	-moz-user-select    : none !important;
@@ -335,7 +335,7 @@ Selection utility classes.
 /*
 Spacer utility classes.
 */
-.wsc-v000000-dev .spacer
+.xd-v141226-dev .spacer
 {
 	display : inline-block !important;
 	margin  : 0 10px 0 10px !important;
@@ -344,15 +344,15 @@ Spacer utility classes.
 /*
 Clearing utility classes.
 */
-.wsc-v000000-dev .clear
+.xd-v141226-dev .clear
 {
 	clear : both !important;
 }
-.wsc-v000000-dev .clear-r
+.xd-v141226-dev .clear-r
 {
 	clear : right !important;
 }
-.wsc-v000000-dev .clear-l
+.xd-v141226-dev .clear-l
 {
 	clear : left !important;
 }
@@ -360,95 +360,95 @@ Clearing utility classes.
 /*
 Font size utility classes.
 */
-.wsc-v000000-dev .font-10
+.xd-v141226-dev .font-10
 {
 	font-size : 10% !important;
 }
-.wsc-v000000-dev .font-20
+.xd-v141226-dev .font-20
 {
 	font-size : 20% !important;
 }
-.wsc-v000000-dev .font-30
+.xd-v141226-dev .font-30
 {
 	font-size : 30% !important;
 }
-.wsc-v000000-dev .font-40
+.xd-v141226-dev .font-40
 {
 	font-size : 40% !important;
 }
-.wsc-v000000-dev .font-50
+.xd-v141226-dev .font-50
 {
 	font-size : 50% !important;
 }
-.wsc-v000000-dev .font-60
+.xd-v141226-dev .font-60
 {
 	font-size : 60% !important;
 }
-.wsc-v000000-dev .font-70
+.xd-v141226-dev .font-70
 {
 	font-size : 70% !important;
 }
-.wsc-v000000-dev .font-80
+.xd-v141226-dev .font-80
 {
 	font-size : 80% !important;
 }
-.wsc-v000000-dev .font-90
+.xd-v141226-dev .font-90
 {
 	font-size : 90% !important;
 }
-.wsc-v000000-dev .font-100
+.xd-v141226-dev .font-100
 {
 	font-size : 100% !important;
 }
-.wsc-v000000-dev .font-110
+.xd-v141226-dev .font-110
 {
 	font-size : 110% !important;
 }
-.wsc-v000000-dev .font-120
+.xd-v141226-dev .font-120
 {
 	font-size : 120% !important;
 }
-.wsc-v000000-dev .font-130
+.xd-v141226-dev .font-130
 {
 	font-size : 130% !important;
 }
-.wsc-v000000-dev .font-140
+.xd-v141226-dev .font-140
 {
 	font-size : 140% !important;
 }
-.wsc-v000000-dev .font-150
+.xd-v141226-dev .font-150
 {
 	font-size : 150% !important;
 }
-.wsc-v000000-dev .font-160
+.xd-v141226-dev .font-160
 {
 	font-size : 160% !important;
 }
-.wsc-v000000-dev .font-170
+.xd-v141226-dev .font-170
 {
 	font-size : 170% !important;
 }
-.wsc-v000000-dev .font-180
+.xd-v141226-dev .font-180
 {
 	font-size : 180% !important;
 }
-.wsc-v000000-dev .font-190
+.xd-v141226-dev .font-190
 {
 	font-size : 190% !important;
 }
-.wsc-v000000-dev .font-200
+.xd-v141226-dev .font-200
 {
 	font-size : 200% !important;
 }
-.wsc-v000000-dev .font-300
+.xd-v141226-dev .font-300
 {
 	font-size : 300% !important;
 }
-.wsc-v000000-dev .font-400
+.xd-v141226-dev .font-400
 {
 	font-size : 400% !important;
 }
-.wsc-v000000-dev .font-500
+.xd-v141226-dev .font-500
 {
 	font-size : 500% !important;
 }
@@ -456,47 +456,47 @@ Font size utility classes.
 /*
 Font weight utility classes.
 */
-.wsc-v000000-dev .font-weight-lighter
+.xd-v141226-dev .font-weight-lighter
 {
 	font-weight : lighter !important;
 }
-.wsc-v000000-dev .font-weight-100
+.xd-v141226-dev .font-weight-100
 {
 	font-weight : 100 !important;
 }
-.wsc-v000000-dev .font-weight-200
+.xd-v141226-dev .font-weight-200
 {
 	font-weight : 200 !important;
 }
-.wsc-v000000-dev .font-weight-300
+.xd-v141226-dev .font-weight-300
 {
 	font-weight : 300 !important;
 }
-.wsc-v000000-dev .font-weight-400, .wsc-v000000-dev .font-weight-normal
+.xd-v141226-dev .font-weight-400, .xd-v141226-dev .font-weight-normal
 {
 	font-weight : 400 !important;
 }
-.wsc-v000000-dev .font-weight-500
+.xd-v141226-dev .font-weight-500
 {
 	font-weight : 500 !important;
 }
-.wsc-v000000-dev .font-weight-600
+.xd-v141226-dev .font-weight-600
 {
 	font-weight : 600 !important;
 }
-.wsc-v000000-dev .font-weight-700, .wsc-v000000-dev .font-weight-bold
+.xd-v141226-dev .font-weight-700, .xd-v141226-dev .font-weight-bold
 {
 	font-weight : 700 !important;
 }
-.wsc-v000000-dev .font-weight-800
+.xd-v141226-dev .font-weight-800
 {
 	font-weight : 800 !important;
 }
-.wsc-v000000-dev .font-weight-900
+.xd-v141226-dev .font-weight-900
 {
 	font-weight : 900 !important;
 }
-.wsc-v000000-dev .font-weight-bolder
+.xd-v141226-dev .font-weight-bolder
 {
 	font-weight : bolder !important;
 }
@@ -504,122 +504,122 @@ Font weight utility classes.
 /*
 Margin utility classes.
 */
-.wsc-v000000-dev .margin
+.xd-v141226-dev .margin
 {
 	margin : 15px !important;
 }
-.wsc-v000000-dev .margin-sm
+.xd-v141226-dev .margin-sm
 {
 	margin : 10px !important;
 }
-.wsc-v000000-dev .em-margin
+.xd-v141226-dev .em-margin
 {
 	margin : 0.5em !important;
 }
-.wsc-v000000-dev .no-margin
+.xd-v141226-dev .no-margin
 {
 	margin : 0 !important;
 }
-.wsc-v000000-dev .t-margin
+.xd-v141226-dev .t-margin
 {
 	margin-top : 15px !important;
 }
-.wsc-v000000-dev .t-margin-sm
+.xd-v141226-dev .t-margin-sm
 {
 	margin-top : 10px !important;
 }
-.wsc-v000000-dev .em-t-margin
+.xd-v141226-dev .em-t-margin
 {
 	margin-top : 0.5em !important;
 }
-.wsc-v000000-dev .no-t-margin
+.xd-v141226-dev .no-t-margin
 {
 	margin-top : 0 !important;
 }
-.wsc-v000000-dev .r-margin
+.xd-v141226-dev .r-margin
 {
 	margin-right : 15px !important;
 }
-.wsc-v000000-dev .r-margin-sm
+.xd-v141226-dev .r-margin-sm
 {
 	margin-right : 10px !important;
 }
-.wsc-v000000-dev .em-r-margin
+.xd-v141226-dev .em-r-margin
 {
 	margin-right : 0.5em !important;
 }
-.wsc-v000000-dev .no-r-margin
+.xd-v141226-dev .no-r-margin
 {
 	margin-right : 0 !important;
 }
-.wsc-v000000-dev .b-margin
+.xd-v141226-dev .b-margin
 {
 	margin-bottom : 15px !important;
 }
-.wsc-v000000-dev .b-margin-sm
+.xd-v141226-dev .b-margin-sm
 {
 	margin-bottom : 10px !important;
 }
-.wsc-v000000-dev .em-b-margin
+.xd-v141226-dev .em-b-margin
 {
 	margin-bottom : 0.5em !important;
 }
-.wsc-v000000-dev .no-b-margin
+.xd-v141226-dev .no-b-margin
 {
 	margin-bottom : 0 !important;
 }
-.wsc-v000000-dev .l-margin
+.xd-v141226-dev .l-margin
 {
 	margin-left : 15px !important;
 }
-.wsc-v000000-dev .l-margin-sm
+.xd-v141226-dev .l-margin-sm
 {
 	margin-left : 10px !important;
 }
-.wsc-v000000-dev .em-l-margin
+.xd-v141226-dev .em-l-margin
 {
 	margin-left : 0.5em !important;
 }
-.wsc-v000000-dev .no-l-margin
+.xd-v141226-dev .no-l-margin
 {
 	margin-left : 0 !important;
 }
-.wsc-v000000-dev .x-margin
+.xd-v141226-dev .x-margin
 {
 	margin-left  : 15px !important;
 	margin-right : 15px !important;
 }
-.wsc-v000000-dev .x-margin-sm
+.xd-v141226-dev .x-margin-sm
 {
 	margin-left  : 10px !important;
 	margin-right : 10px !important;
 }
-.wsc-v000000-dev .em-x-margin
+.xd-v141226-dev .em-x-margin
 {
 	margin-left  : 0.5em !important;
 	margin-right : 0.5em !important;
 }
-.wsc-v000000-dev .no-x-margin
+.xd-v141226-dev .no-x-margin
 {
 	margin-left  : 0 !important;
 	margin-right : 0 !important;
 }
-.wsc-v000000-dev .y-margin, .wsc-v000000-dev .y-margin-lis li
+.xd-v141226-dev .y-margin, .xd-v141226-dev .y-margin-lis li
 {
 	margin-top    : 15px !important;
 	margin-bottom : 15px !important;
 }
-.wsc-v000000-dev .y-margin-sm, .wsc-v000000-dev .y-margin-lis-sm li
+.xd-v141226-dev .y-margin-sm, .xd-v141226-dev .y-margin-lis-sm li
 {
 	margin-top    : 10px !important;
 	margin-bottom : 10px !important;
 }
-.wsc-v000000-dev .em-y-margin, .wsc-v000000-dev .em-y-margin-lis li
+.xd-v141226-dev .em-y-margin, .xd-v141226-dev .em-y-margin-lis li
 {
 	margin-top    : 0.5em !important;
 	margin-bottom : 0.5em !important;
 }
-.wsc-v000000-dev .no-y-margin
+.xd-v141226-dev .no-y-margin
 {
 	margin-top    : 0 !important;
 	margin-bottom : 0 !important;
@@ -628,122 +628,122 @@ Margin utility classes.
 /*
 Padding utility classes.
 */
-.wsc-v000000-dev .padding
+.xd-v141226-dev .padding
 {
 	padding : 15px !important;
 }
-.wsc-v000000-dev .padding-sm
+.xd-v141226-dev .padding-sm
 {
 	padding : 10px !important;
 }
-.wsc-v000000-dev .em-padding
+.xd-v141226-dev .em-padding
 {
 	padding : 0.5em !important;
 }
-.wsc-v000000-dev .no-padding
+.xd-v141226-dev .no-padding
 {
 	padding : 0 !important;
 }
-.wsc-v000000-dev .t-padding
+.xd-v141226-dev .t-padding
 {
 	padding-top : 15px !important;
 }
-.wsc-v000000-dev .t-padding-sm
+.xd-v141226-dev .t-padding-sm
 {
 	padding-top : 10px !important;
 }
-.wsc-v000000-dev .em-t-padding
+.xd-v141226-dev .em-t-padding
 {
 	padding-top : 0.5em !important;
 }
-.wsc-v000000-dev .no-t-padding
+.xd-v141226-dev .no-t-padding
 {
 	padding-top : 0 !important;
 }
-.wsc-v000000-dev .r-padding
+.xd-v141226-dev .r-padding
 {
 	padding-right : 15px !important;
 }
-.wsc-v000000-dev .r-padding-sm
+.xd-v141226-dev .r-padding-sm
 {
 	padding-right : 10px !important;
 }
-.wsc-v000000-dev .em-r-padding
+.xd-v141226-dev .em-r-padding
 {
 	padding-right : 0.5em !important;
 }
-.wsc-v000000-dev .no-r-padding
+.xd-v141226-dev .no-r-padding
 {
 	padding-right : 0 !important;
 }
-.wsc-v000000-dev .b-padding
+.xd-v141226-dev .b-padding
 {
 	padding-bottom : 15px !important;
 }
-.wsc-v000000-dev .b-padding-sm
+.xd-v141226-dev .b-padding-sm
 {
 	padding-bottom : 10px !important;
 }
-.wsc-v000000-dev .em-b-padding
+.xd-v141226-dev .em-b-padding
 {
 	padding-bottom : 0.5em !important;
 }
-.wsc-v000000-dev .no-b-padding
+.xd-v141226-dev .no-b-padding
 {
 	padding-bottom : 0 !important;
 }
-.wsc-v000000-dev .l-padding
+.xd-v141226-dev .l-padding
 {
 	padding-left : 15px !important;
 }
-.wsc-v000000-dev .l-padding-sm
+.xd-v141226-dev .l-padding-sm
 {
 	padding-left : 10px !important;
 }
-.wsc-v000000-dev .em-l-padding
+.xd-v141226-dev .em-l-padding
 {
 	padding-left : 0.5em !important;
 }
-.wsc-v000000-dev .no-l-padding
+.xd-v141226-dev .no-l-padding
 {
 	padding-left : 0 !important;
 }
-.wsc-v000000-dev .x-padding
+.xd-v141226-dev .x-padding
 {
 	padding-left  : 15px !important;
 	padding-right : 15px !important;
 }
-.wsc-v000000-dev .x-padding-sm
+.xd-v141226-dev .x-padding-sm
 {
 	padding-left  : 10px !important;
 	padding-right : 10px !important;
 }
-.wsc-v000000-dev .em-x-padding
+.xd-v141226-dev .em-x-padding
 {
 	padding-left  : 0.5em !important;
 	padding-right : 0.5em !important;
 }
-.wsc-v000000-dev .no-x-padding
+.xd-v141226-dev .no-x-padding
 {
 	padding-left  : 0 !important;
 	padding-right : 0 !important;
 }
-.wsc-v000000-dev .y-padding
+.xd-v141226-dev .y-padding
 {
 	padding-top    : 15px !important;
 	padding-bottom : 15px !important;
 }
-.wsc-v000000-dev .y-padding-sm
+.xd-v141226-dev .y-padding-sm
 {
 	padding-top    : 10px !important;
 	padding-bottom : 10px !important;
 }
-.wsc-v000000-dev .em-y-padding
+.xd-v141226-dev .em-y-padding
 {
 	padding-top    : 0.5em !important;
 	padding-bottom : 0.5em !important;
 }
-.wsc-v000000-dev .no-y-padding
+.xd-v141226-dev .no-y-padding
 {
 	padding-top    : 0 !important;
 	padding-bottom : 0 !important;

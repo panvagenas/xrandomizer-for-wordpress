@@ -19,7 +19,7 @@ if(!defined('WPINC'))
  * @package randomizer\menu_pages
  * @author pan.vagenas <pan.vagenas@gmail.com>
  */
-class menu_page extends \wsc_v000000_dev\menu_pages\menu_page {
+class menu_page extends \xd_v141226_dev\menu_pages\menu_page {
 
     /**
      * @var string Heading/title for this menu page.
@@ -102,8 +102,9 @@ class menu_page extends \wsc_v000000_dev\menu_pages\menu_page {
 	 */
 	public function display_header_controls()
 	{
-		$this->display_header_control__restore_default_options();
-		$this->display_header_control__import_export_options();
-		$this->display_header_control__toggle_all_panels();
+        $this->display_header_control__restore_default_options();
+        $this->display_header_control__import_export_options();
+        $this->display_header_control__update_theme();
+        $this->display_header_control__toggle_all_panels();
 	}
 }

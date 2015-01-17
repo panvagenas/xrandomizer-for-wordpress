@@ -18,7 +18,7 @@ namespace randomizer {
      * @package randomizer
      * @author pan.vagenas <pan.vagenas@gmail.com>
      */
-    class initializer extends \wsc_v000000_dev\initializer{
+    class initializer extends \xd_v141226_dev\initializer{
 
         /**
          * Add any additional hooks/filters needed by an extender.

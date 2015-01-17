@@ -54,23 +54,10 @@ namespace randomizer {
      * @method \randomizer\options                                              ©options()
      * @method \randomizer\options                                              ©option()
      *
-     * @property \randomizer\views                                              $©views
-     * @method \randomizer\views                                                ©views()
-     *
-     * @property \randomizer\dirs                                               $©dirs
-     * @property \randomizer\dirs                                               $©dir
-     * @method \randomizer\dirs                                                 ©dirs()
-     * @method \randomizer\dirs                                                 ©dir()
-     *
-     * @property \randomizer\dirs_files                                         $©dirs_files
-     * @property \randomizer\dirs_files                                         $©dir_file
-     * @method \randomizer\dirs_files                                           ©dirs_files()
-     * @method \randomizer\dirs_files                                           ©dir_file()
-     *
      * @property \randomizer\shortcodes\shortcode                               $©shortcodes__shortcode
      * @method \randomizer\shortcodes\shortcode                                 ©shortcodes__shortcode()
      */
-    class framework extends \wsc__framework
+    class framework extends \xd__framework
     {
 
 

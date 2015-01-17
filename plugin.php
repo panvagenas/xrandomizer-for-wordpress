@@ -38,36 +38,7 @@ Plugin URI: http://xdark.eu
 
 Description: XDaRk.eu Core framework for WordPress® plugin development.
 Kudos: WebSharks™ http://www.websharks-inc.com
-Tags: ad,
-ad rotator,
-ads
-advert,
-advertise,
-advertisement,
-advertiser,
-advertising,
-advert manager,
-adverts,
-banner,
-banner manager,
-commercial,
-content,
-custom ads,
-custom banners,
-custom rotating banners,
-export,
-image ads,
-image widget,
-plugin,
-random,
-random banners,
-random rotating banners,
-rotate,
-rotating banners,
-rotator,
-sidebar,
-widget,
-widget ads
+Tags: ad,ad rotators,ads,advert,advertise,advertisement,advertiser,advertising,advert manager,adverts,banner,banner manager,commercial,content,custom ads,custom banners,custom rotating banners,export,image ads,image widget,plugin,random,random banners,random rotating banners,rotate,rotating banners,rotator,sidebar,widget,widget ads
 -- end section for WordPress®. --------------------------------------------------------------------------------------------------------- */
 
 namespace randomizer {

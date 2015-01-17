@@ -3,36 +3,36 @@
  * GPL license <https://github.com/websharks/core>
  */
 /**
- * WebSharks™ Core Scripts
+ * XDaRk Core Scripts
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------
- * This is phase one; WebSharks™ Core class definition.
+ * This is phase one; XDaRk Core class definition.
  * ------------------------------------------------------------------------------------------------------------------------------------- */
 
-(function($) // Begin WebSharks™ Core closure.
+(function($) // Begin XDaRk Core closure.
 {
 	'use strict'; // Strict standards.
 
 	/**
 	 * @type {Object} Core class definition.
 	 */
-	window.$$wsc_v000000_dev = window.$$wsc_v000000_dev || {};
-	var $$wsc = window.$$wsc_v000000_dev;
-	if(typeof $$wsc.$$ === 'function')
+	window.$$xd_v141226_dev = window.$$xd_v141226_dev || {};
+	var $$xd = window.$$xd_v141226_dev;
+	if(typeof $$xd.$$ === 'function')
 		return; // Core already exists.
 
 	/**
-	 * @constructor WebSharks™ Core constructor.
+	 * @constructor XDaRk Core constructor.
 	 *
-	 * @note This is called by the WebSharks™ Core constructor.
+	 * @note This is called by the XDaRk Core constructor.
 	 *    It sets up dynamic property values available only at runtime.
 	 *
 	 * @param {String} [plugin_root_ns] Plugin's root namespace.
@@ -41,11 +41,11 @@
 	 * @param {String} [extension] The name of the extension to generate.
 	 *    Optional; defaults to a value of `$`; i.e. the default extension namespace.
 	 *
-	 * @class $$wsc.$$
+	 * @class $$xd.$$
 	 */
-	$$wsc.$$ = function(plugin_root_ns, extension)
+	$$xd.$$ = function(plugin_root_ns, extension)
 	{
-		var core_ns = 'wsc_v000000_dev'; // Must hard code.
+		var core_ns = 'xd_v141226_dev'; // Must hard code.
 		if(typeof plugin_root_ns !== 'string' || !plugin_root_ns)
 			plugin_root_ns = core_ns; // The core itself.
 
@@ -198,17 +198,17 @@
 	 *
 	 * @param {String} extension The name of the extension to generate (required).
 	 *
-	 * @return $$wsc.$$ Extension class (required); extends core prototype.
+	 * @return $$xd.$$ Extension class (required); extends core prototype.
 	 *    The class will NOT be instantiated here. That's for the caller to handle.
 	 *
 	 * ``` // Example usage.
-	 * var extension = $wsc.$.extension('plugin_root_ns', 'extension');
+	 * var extension = $xd.$.extension('plugin_root_ns', 'extension');
 	 * $plugin_root_ns.$extension = new extension();
 	 * ```
 	 * @note Class for a plugin extension is stored as follows: `$$plugin.$$extension`.
-	 * @note Class for a core extension is stored as follows: `$$wsc.$$extension`.
+	 * @note Class for a core extension is stored as follows: `$$xd.$$extension`.
 	 */
-	$$wsc.$$.prototype.extension_class = function(plugin_root_ns, extension)
+	$$xd.$$.prototype.extension_class = function(plugin_root_ns, extension)
 	{
 		this.check_arg_types('string', 'string:!empty', arguments, 2);
 
@@ -219,18 +219,18 @@
 		{
 			window['$$' + plugin_root_ns] = window['$$' + plugin_root_ns] || {};
 			window['$$' + plugin_root_ns]['$$' + extension] = function(){}; // Class constructor.
-			window['$$' + plugin_root_ns]['$$' + extension].prototype = new $$wsc.$$(plugin_root_ns, extension);
+			window['$$' + plugin_root_ns]['$$' + extension].prototype = new $$xd.$$(plugin_root_ns, extension);
 			window['$$' + plugin_root_ns]['$$' + extension].prototype.constructor = window['$$' + plugin_root_ns]['$$' + extension];
 
 			return window['$$' + plugin_root_ns]['$$' + extension]; // e.g. `$$plugin.$$extension`.
 		}
 		else if(extension !== '$') // The core itself. No need for another global variable in this case.
 		{
-			$$wsc['$$' + extension] = function(){}; // Class constructor.
-			$$wsc['$$' + extension].prototype = new $$wsc.$$('', extension);
-			$$wsc['$$' + extension].prototype.constructor = $$wsc['$$' + extension];
+			$$xd['$$' + extension] = function(){}; // Class constructor.
+			$$xd['$$' + extension].prototype = new $$xd.$$('', extension);
+			$$xd['$$' + extension].prototype.constructor = $$xd['$$' + extension];
 
-			return $$wsc['$$' + extension]; // e.g. `$$wsc.$$extension`.
+			return $$xd['$$' + extension]; // e.g. `$$xd.$$extension`.
 		}
 		throw 'extension === $'; // This should not happen.
 	};
@@ -242,7 +242,7 @@
 	 *
 	 * @return {String|Array|Object|Number|Boolean}
 	 */
-	$$wsc.$$.prototype.instance = function(key)
+	$$xd.$$.prototype.instance = function(key)
 	{
 		if(typeof this.___instance[key] === 'string')
 			return this.___instance[key];
@@ -257,7 +257,7 @@
 	 *
 	 * @return {String} Prefixed string.
 	 */
-	$$wsc.$$.prototype.core = function(string)
+	$$xd.$$.prototype.core = function(string)
 	{
 		if(!this.cache.core_ns_with_dashes) // Prevent a 2nd function call each time.
 			this.cache.core_ns_with_dashes = this.instance('core_ns_with_dashes');
@@ -271,7 +271,7 @@
 	 *
 	 * @returns {String}
 	 */
-	$$wsc.$$.prototype.sprintf = function()
+	$$xd.$$.prototype.sprintf = function()
 	{
 		return window[this.core('->sprintf')].apply(window, arguments);
 	};
@@ -283,7 +283,7 @@
 	 *
 	 * @returns {String}
 	 */
-	$$wsc.$$.prototype.vsprintf = function()
+	$$xd.$$.prototype.vsprintf = function()
 	{
 		return window[this.core('->vsprintf')].apply(window, arguments);
 	};
@@ -295,7 +295,7 @@
 	 *
 	 * @return {String}
 	 */
-	$$wsc.$$.prototype.verifier = function(key)
+	$$xd.$$.prototype.verifier = function(key)
 	{
 		if(typeof this.___verifiers[key] === 'string')
 			return this.___verifiers[key];
@@ -310,7 +310,7 @@
 	 *
 	 * @return {String}
 	 */
-	$$wsc.$$.prototype.__ = function(key)
+	$$xd.$$.prototype.__ = function(key)
 	{
 		if(typeof this.___i18n[key] === 'string')
 			return this.___i18n[key];
@@ -325,7 +325,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_string = function(v)
+	$$xd.$$.prototype.is_string = function(v)
 	{
 		return (typeof v === 'string');
 	};
@@ -337,7 +337,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_boolean = function(v)
+	$$xd.$$.prototype.is_boolean = function(v)
 	{
 		return (typeof v === 'boolean');
 	};
@@ -349,7 +349,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_integer = function(v)
+	$$xd.$$.prototype.is_integer = function(v)
 	{
 		return (typeof v === 'number' && !isNaN(v) && String(v).indexOf('.') === -1);
 	};
@@ -361,7 +361,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_float = function(v)
+	$$xd.$$.prototype.is_float = function(v)
 	{
 		return (typeof v === 'number' && !isNaN(v) && String(v).indexOf('.') !== -1);
 	};
@@ -373,7 +373,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_number = function(v)
+	$$xd.$$.prototype.is_number = function(v)
 	{
 		return (typeof v === 'number' && !isNaN(v));
 	};
@@ -385,7 +385,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_numeric = function(v)
+	$$xd.$$.prototype.is_numeric = function(v)
 	{
 		return ((typeof(v) === 'number' || typeof(v) === 'string') && v !== '' && !isNaN(v));
 	};
@@ -397,7 +397,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_array = function(v)
+	$$xd.$$.prototype.is_array = function(v)
 	{
 		return (v instanceof Array);
 	};
@@ -409,7 +409,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_function = function(v)
+	$$xd.$$.prototype.is_function = function(v)
 	{
 		return (typeof v === 'function');
 	};
@@ -421,7 +421,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_xml = function(v)
+	$$xd.$$.prototype.is_xml = function(v)
 	{
 		return (typeof v === 'xml');
 	};
@@ -433,7 +433,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_object = function(v)
+	$$xd.$$.prototype.is_object = function(v)
 	{
 		return (typeof v === 'object');
 	};
@@ -445,7 +445,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_null = function(v)
+	$$xd.$$.prototype.is_null = function(v)
 	{
 		return (typeof v === 'null');
 	};
@@ -457,7 +457,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.is_undefined = function(v)
+	$$xd.$$.prototype.is_undefined = function(v)
 	{
 		return (typeof v === 'undefined');
 	};
@@ -470,7 +470,7 @@
 	 * @return {Boolean} False if any of the arguments are `undefined` or `null`.
 	 *    i.e. Only returns true if all of the arguments ARE set.
 	 */
-	$$wsc.$$.prototype.isset = function()
+	$$xd.$$.prototype.isset = function()
 	{
 		for(var _i = 0; _i < arguments.length; _i++)
 			if(arguments[_i] === undefined || arguments[_i] === null)
@@ -490,7 +490,7 @@
 	 * @return {Boolean} True if any of the arguments are empty.
 	 *    i.e. False if all arguments are NOT empty.
 	 */
-	$$wsc.$$.prototype.empty = function()
+	$$xd.$$.prototype.empty = function()
 	{
 		empty: // Main iteration loop.
 			for(var _i = 0, _p; _i < arguments.length; _i++)
@@ -516,11 +516,11 @@
 	};
 
 	/**
-	 * The default WebSharks™ Core extension?
+	 * The default XDaRk Core extension?
 	 *
-	 * @return {Boolean} True if this is the default WebSharks™ Core extension.
+	 * @return {Boolean} True if this is the default XDaRk Core extension.
 	 */
-	$$wsc.$$.prototype.is_default_core_extension = function()
+	$$xd.$$.prototype.is_default_core_extension = function()
 	{
 		return (this.instance('plugin_root_ns') === this.instance('core_ns')
 		        && this.instance('plugin_js_extension_ns') === '$');
@@ -534,7 +534,7 @@
 	 *
 	 * @return {String}
 	 */
-	$$wsc.$$.prototype.preg_quote = function(string, delimiter)
+	$$xd.$$.prototype.preg_quote = function(string, delimiter)
 	{
 		this.check_arg_types('string', 'string', arguments, 1);
 
@@ -549,7 +549,7 @@
 	 *
 	 * @return {String}
 	 */
-	$$wsc.$$.prototype.esc_html = $$wsc.$$.prototype.esc_attr = function(string)
+	$$xd.$$.prototype.esc_html = $$xd.$$.prototype.esc_attr = function(string)
 	{
 		this.check_arg_types('string', arguments, 1);
 
@@ -569,7 +569,7 @@
 	 *
 	 * @return {String}
 	 */
-	$$wsc.$$.prototype.esc_jq_attr = function(string)
+	$$xd.$$.prototype.esc_jq_attr = function(string)
 	{
 		this.check_arg_types('string', arguments, 1);
 
@@ -584,7 +584,7 @@
 	 * @return {String} Dashes replace non-alphanumeric chars.
 	 *    Escape characters `\` are converted into double dashes.
 	 */
-	$$wsc.$$.prototype.with_dashes = function(string)
+	$$xd.$$.prototype.with_dashes = function(string)
 	{
 		this.check_arg_types('string', arguments, 1);
 
@@ -602,7 +602,7 @@
 	 * @return {String} Underscores replace non-alphanumeric chars.
 	 *    Escape characters `\` are converted into double underscores.
 	 */
-	$$wsc.$$.prototype.with_underscores = function(string)
+	$$xd.$$.prototype.with_underscores = function(string)
 	{
 		this.check_arg_types('string', arguments, 1);
 
@@ -618,7 +618,7 @@
 	 * @returns {Object} An object with a possible property matching one or more
 	 *    of the following user agents: `chrome`, `webkit`, `opera`, `msie`, and/or `mozilla`.
 	 */
-	$$wsc.$$.prototype.browser = function()
+	$$xd.$$.prototype.browser = function()
 	{
 		if(this.cache.browser)
 			return this.cache.browser;
@@ -657,7 +657,7 @@
 	 *
 	 * @return {String} CSS class name. The full class name; including the plugin's root namespace.
 	 */
-	$$wsc.$$.prototype.closest_theme_class_to = function(object)
+	$$xd.$$.prototype.closest_theme_class_to = function(object)
 	{
 		this.check_arg_types(['object', 'string:!empty'], arguments, 1);
 
@@ -684,7 +684,7 @@
 	/**
 	 * Prepare forms; i.e. add a few JS enhancements.
 	 */
-	$$wsc.$$.prototype.enhance_forms = function()
+	$$xd.$$.prototype.enhance_forms = function()
 	{
 		var _ = this, // Initialize working variables.
 			$forms = $('.' + _.instance('plugin_root_ns_with_dashes') + ' form');
@@ -845,13 +845,13 @@
 	 * @note This function may ONLY be called upon the core itself.
 	 *
 	 * @note This is an EXTREMELY COMPLEX routine that should NOT be modified without serious consideration.
-	 *    See standards here: \wsc_v000000_dev\form_fields in the WebSharks™ Core.
+	 *    See standards here: \xd_v141226_dev\form_fields in the XDaRk Core.
 	 *
 	 * @param {Node|Object|String} context
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.validate_form = function(context)
+	$$xd.$$.prototype.validate_form = function(context)
 	{
 		this.check_arg_types(['object', 'string:!empty'], arguments, 1);
 
@@ -1492,7 +1492,7 @@
 	 *
 	 * @return {String} Query var value; else an empty string.
 	 */
-	$$wsc.$$.prototype.get_query_var = function(query_var)
+	$$xd.$$.prototype.get_query_var = function(query_var)
 	{
 		this.check_arg_types('string:!empty', arguments, 1);
 
@@ -1517,7 +1517,7 @@
 	 *
 	 * @return {Boolean} True if we are in an administrative area of the site.
 	 */
-	$$wsc.$$.prototype.is_admin = function()
+	$$xd.$$.prototype.is_admin = function()
 	{
 		return /\/wp\-admin(?:[\/?#]|$)/.test(location.href);
 	};
@@ -1534,9 +1534,9 @@
 	 *
 	 * @return {String} An empty string if NOT a plugin menu page.
 	 *
-	 * @see-php See \wsc_v000000_dev\menu_pages\is_plugin_page
+	 * @see-php See \xd_v141226_dev\menu_pages\is_plugin_page
 	 */
-	$$wsc.$$.prototype.is_plugin_menu_page = function(slugs, return_slug_class_basename)
+	$$xd.$$.prototype.is_plugin_menu_page = function(slugs, return_slug_class_basename)
 	{
 		this.check_arg_types(['string', 'array'], 'boolean', arguments, 0);
 
@@ -1570,7 +1570,7 @@
 	 *
 	 * @param {Node|Object|String} object
 	 */
-	$$wsc.$$.prototype.expand_collapsible_parents_of = function(object)
+	$$xd.$$.prototype.expand_collapsible_parents_of = function(object)
 	{
 		this.check_arg_types(['object', 'string:!empty'], arguments, 1);
 
@@ -1584,7 +1584,7 @@
 	 *
 	 * @param {Node|Object|String} object
 	 */
-	$$wsc.$$.prototype.select_all = function(object)
+	$$xd.$$.prototype.select_all = function(object)
 	{
 		this.check_arg_types(['object', 'string:!empty'], arguments, 1);
 
@@ -1602,7 +1602,7 @@
 	 *
 	 * @param {Node|Object|String} object
 	 */
-	$$wsc.$$.prototype.view_source = function(object)
+	$$xd.$$.prototype.view_source = function(object)
 	{
 		this.check_arg_types(['object', 'string:!empty'], arguments, 1);
 
@@ -1637,7 +1637,7 @@
 	 *
 	 * @return {Object}|null A window handle on success.
 	 */
-	$$wsc.$$.prototype.win_open = function(url, width, height, name)
+	$$xd.$$.prototype.win_open = function(url, width, height, name)
 	{
 		this.check_arg_types('string', 'integer', 'integer', 'string', arguments, 1);
 
@@ -1659,7 +1659,7 @@
 	 *
 	 * @return {Number} Random number.
 	 */
-	$$wsc.$$.prototype.mt_rand = function(min, max)
+	$$xd.$$.prototype.mt_rand = function(min, max)
 	{
 		this.check_arg_types('integer', 'integer', arguments, 0);
 
@@ -1677,7 +1677,7 @@
 	 *
 	 * @return {String} URL w/ query arg appended onto it.
 	 */
-	$$wsc.$$.prototype.add_query_arg = function(name, value, url)
+	$$xd.$$.prototype.add_query_arg = function(name, value, url)
 	{
 		this.check_arg_types('string:!empty', 'string', 'string', arguments, 3);
 
@@ -1695,7 +1695,7 @@
 	 *
 	 * @return {String} Verifier for the call action.
 	 */
-	$$wsc.$$.prototype.get_call_verifier = function(call, type)
+	$$xd.$$.prototype.get_call_verifier = function(call, type)
 	{
 		this.check_arg_types('string:!empty', 'string:!empty', arguments, 2);
 
@@ -1711,7 +1711,7 @@
 	 * @param {Array} [args] Call action arguments.
 	 * @param {Object} [ajax] Any additional AJAX args.
 	 */
-	$$wsc.$$.prototype.ajax = function(method, call, type, args, ajax)
+	$$xd.$$.prototype.ajax = function(method, call, type, args, ajax)
 	{
 		this.check_arg_types('string:!empty', 'string:!empty', 'string:!empty', 'array', 'object', arguments, 3);
 
@@ -1746,7 +1746,7 @@
 	 * @param {Array} [args] Call action arguments.
 	 * @param {Object} [ajax] Any additional AJAX args.
 	 */
-	$$wsc.$$.prototype.get = function(call, type, args, ajax)
+	$$xd.$$.prototype.get = function(call, type, args, ajax)
 	{
 		this.check_arg_types('string:!empty', 'string:!empty', 'array', 'object', arguments, 2);
 
@@ -1762,7 +1762,7 @@
 	 * @param {Array} [args] Call action arguments.
 	 * @param {Object} [ajax] Any additional AJAX args.
 	 */
-	$$wsc.$$.prototype.post = function(call, type, args, ajax)
+	$$xd.$$.prototype.post = function(call, type, args, ajax)
 	{
 		this.check_arg_types('string:!empty', 'string:!empty', 'array', 'object', arguments, 2);
 
@@ -1781,7 +1781,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-	$$wsc.$$.prototype.check_arg_types = function()
+	$$xd.$$.prototype.check_arg_types = function()
 	{
 		var _arg_type_hints__args__required_args = $.makeArray(arguments);
 
@@ -2024,57 +2024,57 @@
 		}
 		return true; // Default return value (no problem).
 	};
-})(jQuery); // End WebSharks™ Core closure.
+})(jQuery); // End XDaRk Core closure.
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------
  * This is phase two; the core initializes itself here.
  * ------------------------------------------------------------------------------------------------------------------------------------- */
 
-(function($) // Begin WebSharks™ Core closure.
+(function($) // Begin XDaRk Core closure.
 {
 	'use strict'; // Strict standards.
 
 	/**
 	 * @type {Object} Core class instance.
 	 */
-	window.$wsc_v000000_dev = window.$wsc_v000000_dev || {};
-	var $$wsc = $$wsc_v000000_dev;
-	var $wsc = $wsc_v000000_dev;
-	if(typeof $wsc.$ === 'object')
+	window.$xd_v141226_dev = window.$xd_v141226_dev || {};
+	var $$xd = $$xd_v141226_dev;
+	var $xd = $xd_v141226_dev;
+	if(typeof $xd.$ === 'object')
 		return; // Core already exists.
 
 	/**
-	 * @type {$$wsc.$$} Core.
+	 * @type {$$xd.$$} Core.
 	 */
-	$wsc.$ = new $$wsc.$$();
+	$xd.$ = new $$xd.$$();
 
 	/*
 	 * Globals for each plugin; i.e. object containers.
 	 */
-	if(!$wsc.___did_globals) // Only if not done already.
+	if(!$xd.___did_globals) // Only if not done already.
 	{
-		$.each($wsc.$.___plugin_root_namespaces,
+		$.each($xd.$.___plugin_root_namespaces,
 		       function(plugin_root_ns_index, plugin_root_ns)
 		       {
 			       window['$' + plugin_root_ns] = window['$' + plugin_root_ns] || {};
 		       });
-		$wsc.___did_globals = true;
+		$xd.___did_globals = true;
 	}
 	/*
 	 * Core enhances forms for all plugins; one time only.
 	 */
-	if(!$wsc.___did_enhance_forms) // Only if not done already.
+	if(!$xd.___did_enhance_forms) // Only if not done already.
 	{
-		$.each($wsc.$.___plugin_root_namespaces,
+		$.each($xd.$.___plugin_root_namespaces,
 		       function(plugin_root_ns_index, plugin_root_ns)
 		       {
 			       var extension // Extension definition.
-				       = $wsc.$.extension_class(plugin_root_ns, 'enhance_forms');
+				       = $xd.$.extension_class(plugin_root_ns, 'enhance_forms');
 			       window['$' + plugin_root_ns].$enhance_forms = new extension();
 			       var _ = window['$' + plugin_root_ns].$enhance_forms;
 
 			       $(document).on('ready', _.enhance_forms.bind(_));
 		       });
-		$wsc.___did_enhance_forms = true;
+		$xd.___did_enhance_forms = true;
 	}
-})(jQuery); // End WebSharks™ Core closure.
+})(jQuery); // End XDaRk Core closure.

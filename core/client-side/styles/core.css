@@ -1,22 +1,22 @@
 /*!
- * WebSharks™ Core; copyright: © 2012 (coded in the USA)
+ * XDaRk Core; copyright: © 2012 (coded in the USA)
  * GPL license <https://github.com/websharks/core>
  */
 /**
- * WebSharks™ Core Styles
+ * XDaRk Core Styles
  *
  * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com WebSharks™}
+ * {@link http://www.websharks-inc.com XDaRk}
  *
  * @author JasWSInc
- * @package WebSharks\Core
+ * @package XDaRk\Core
  * @since 120318
  */
 
 /*
 Wrapper styles.
 */
-.wsc-v000000-dev.wrapper
+.xd-v141226-dev.wrapper
 {
 	background : none;
 }
@@ -24,11 +24,11 @@ Wrapper styles.
 /*
 Bootstrap tweaks/enhancements.
 */
-.wsc-v000000-dev .modal .modal-dialog
+.xd-v141226-dev .modal .modal-dialog
 {
 	margin-top : 50px;
 }
-.wsc-v000000-dev li > p:last-child
+.xd-v141226-dev li > p:last-child
 {
 	margin-bottom : 0;
 }
@@ -36,11 +36,11 @@ Bootstrap tweaks/enhancements.
 /*
 Confirmation input groups.
 */
-.wsc-v000000-dev .input-group.confirm-input-group .form-control[data-confirm]
+.xd-v141226-dev .input-group.confirm-input-group .form-control[data-confirm]
 {
 	border-radius : 0 4px 0 0 !important;
 }
-.wsc-v000000-dev .input-group.confirm-input-group .form-control:not([data-confirm])
+.xd-v141226-dev .input-group.confirm-input-group .form-control:not([data-confirm])
 {
 	border-top    : 0 !important;
 	border-radius : 0 0 4px 0 !important;
@@ -51,15 +51,15 @@ Fix <select> fields inside input groups on WebKit.
 */
 @media (-webkit-min-device-pixel-ratio : 0)
 {
-	.wsc-v000000-dev .input-group.select-input-group
+	.xd-v141226-dev .input-group.select-input-group
 	{
 		position : relative;
 	}
-	.wsc-v000000-dev .input-group.select-input-group:after
+	.xd-v141226-dev .input-group.select-input-group:after
 	{
 		font-size   : 1.2em;
 		content     : "\f0d7";
-		font-family : wsc-v000000-dev-FontAwesome;
+		font-family : xd-v141226-dev-FontAwesome;
 		cursor      : pointer;
 
 		z-index     : 2;
@@ -67,7 +67,7 @@ Fix <select> fields inside input groups on WebKit.
 		right       : .5em;
 		position    : absolute;
 	}
-	.wsc-v000000-dev .input-group.select-input-group select
+	.xd-v141226-dev .input-group.select-input-group select
 	{
 		-webkit-appearance : none;
 		cursor             : pointer;
@@ -77,7 +77,7 @@ Fix <select> fields inside input groups on WebKit.
 /*
 Fix <input type="file"> fields inside input groups.
 */
-.wsc-v000000-dev .input-group > input[type='file']
+.xd-v141226-dev .input-group > input[type='file']
 {
 	padding-top  : .5em;
 	padding-left : .5em;
@@ -86,7 +86,7 @@ Fix <input type="file"> fields inside input groups.
 /*
 Validation errors.
 */
-.wsc-v000000-dev .form-group .validation-errors
+.xd-v141226-dev .form-group .validation-errors
 {
 	border-top              : 0 !important;
 	border-top-left-radius  : 0 !important;
@@ -96,7 +96,7 @@ Validation errors.
 /*
 Sortable placeholders.
 */
-.wsc-v000000-dev .sortable-placeholder
+.xd-v141226-dev .sortable-placeholder
 {
 	height        : 35px;
 	opacity       : 0.5;

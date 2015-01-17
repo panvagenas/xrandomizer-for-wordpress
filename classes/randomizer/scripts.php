@@ -11,7 +11,7 @@ namespace randomizer {
 	if(!defined('WPINC'))
 		exit('Do NOT access this file directly: '.basename(__FILE__));
 
-    class scripts extends \wsc_v000000_dev\scripts
+    class scripts extends \xd_v141226_dev\scripts
     {
         /**
          * Builds the initial set of front-side components.

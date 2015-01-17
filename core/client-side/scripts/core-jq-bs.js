@@ -1795,4 +1795,4 @@
 
 		}(jQuery);
 	}
-})(jQuery, 'wsc-v000000-dev');
+})(jQuery, 'xd-v141226-dev');

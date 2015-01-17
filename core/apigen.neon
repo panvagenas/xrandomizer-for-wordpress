@@ -1,7 +1,7 @@
 source: .
 destination: codex
 extensions: [php,phar]
-title: WebSharks™ Core
+title: XDaRk Core
 exclude: [*/externals/*,*/unit-tests/*]
 accessLevels: [public,protected,private]
 deprecated: yes
