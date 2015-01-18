@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 17/1/2015
  * Time: 10:16 μμ
- * Since: TODO ${VERSION}
+ * Since: 140914
  * Copyright: 2015 Panagiotis Vagenas
  */
 if ( ! defined( 'WPINC' ) ) {

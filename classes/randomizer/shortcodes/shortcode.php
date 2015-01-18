@@ -12,7 +12,6 @@ namespace randomizer\shortcodes {
 		exit('Do NOT access this file directly: '.basename(__FILE__));
 
     class shortcode extends \xd_v141226_dev\shortcodes\shortcode{
-        protected $set;
         protected $content;
         /**
          * Gets default shortcode attributes.
@@ -48,8 +47,6 @@ namespace randomizer\shortcodes {
         }
 
         public function initialize($setName){
-            // TODO Do we need this?
-            $this->set = $this->attr_defaults();
             $this->content = $this->©randomizer->getRandomSetMarkUp($this->©options->getSetIdFromSetName($setName));
             return $this;
         }

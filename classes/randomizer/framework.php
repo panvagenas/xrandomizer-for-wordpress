@@ -79,7 +79,7 @@ namespace randomizer {
             //
             'plugin_version' => '140914',
             // The current version of plugin (must be in `YYMMDD` format).
-            'plugin_site' => 'http://xdark.eu', // TODO URL to site about your plugin.
+            'plugin_site' => 'http://erp.xdark.eu',
             'plugin_dir' => dirname(dirname(dirname(__FILE__))) // Your plugin directory.
         )
     );
