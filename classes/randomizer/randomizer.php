@@ -42,15 +42,9 @@ namespace randomizer {
             $randomized = $this->randomizeArray();
             $before = $this->©options->get('before_element');
             $after = $this->©options->get('after_element');
-            $css = $this->©options->get('custom_css');
             $out = '';
             foreach ($randomized as $element) {
                 $out .= $before . $element['content'] . $after;
-            }
-
-            // TODO This shouldn't be here, it includes style everytime
-            if (!empty($css)) {
-                $out .= '<style type="text/css" class="rz-apply-inline">' . $css . '</style>';
             }
 
 			return $out;

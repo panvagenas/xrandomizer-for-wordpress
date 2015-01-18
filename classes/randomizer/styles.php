@@ -57,5 +57,12 @@ namespace randomizer {
                 $this->instance->ns_with_dashes . '--menu-pages-random-sets'
             );
         }
+
+        public function customCSS(){
+            $css = $this->©options->get('custom_css');
+            if (!empty($css)) {
+                echo '<style type="text/css" class="rz-apply-inline">' . $css . '</style>';
+            }
+        }
     }
 }

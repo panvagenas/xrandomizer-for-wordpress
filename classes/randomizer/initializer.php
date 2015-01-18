@@ -27,6 +27,7 @@ namespace randomizer {
          */
         public function after_setup_theme_hooks(){
             $this->add_action('widgets_init', '©initializer.register_widgets');
+            $this->add_action('wp_head', '©styles.customCSS');
             $this->addShortCode($this->©string->with_underscores($this->instance->plugin_root_ns_stub), array($this, '©shortcodes__shortcode.display'));
         }
 
