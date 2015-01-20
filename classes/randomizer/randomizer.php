@@ -55,7 +55,7 @@ namespace randomizer {
             $this->setId = $setId;
             $this->isDefault = true;
             $sets = $this->©options->get('sets');
-            $set = $this->©options->get('sets', true)[0];
+            $set = $sets[0];
             foreach ($sets as $s) {
                 if ($s['id'] === $this->setId) {
                     $set = $s;
@@ -65,7 +65,8 @@ namespace randomizer {
             }
             $this->randomized = $this->original = &$set['elements'];
             $this->setOptions = &$set;
-            $this->setOptions = $this->setOptions + $this->©options->get('sets', true)[0];
+            $defSets = $this->©options->get('sets', true);
+            $this->setOptions = $this->setOptions + $defSets[0];
             return $this->isDefault;
         }
 

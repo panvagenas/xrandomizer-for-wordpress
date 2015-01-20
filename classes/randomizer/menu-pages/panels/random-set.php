@@ -74,7 +74,8 @@ namespace randomizer\menu_pages\panels {
             $this->defaultOptions = $this->©options->get('sets', true);
             $this->heading_title .= '<strong>' . $this->getOption('name') . '</strong>';
 
-            $dif = $this->©arrays->array_dif_assoc_deep($options, $this->©options->get('sets', true)[0]);// array_diff_assoc($options, $this->©options->get( 'sets', true )[0]);
+            $sets = $this->©options->get('sets', true);
+            $dif = $this->©arrays->array_dif_assoc_deep($options, $sets[0]);// array_diff_assoc($options, $this->©options->get( 'sets', true )[0]);
             $this->isDefault = empty($dif);
 
             /**

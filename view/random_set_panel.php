@@ -44,7 +44,7 @@ $nameFieldProps   = array(
 			<label class="control-label col-sm-3"
 			       for="name-<?php echo $callee->setIdx; ?>"><?php echo $this->__( 'Name' ); ?></label>
 
-			<div class="col-sm-9">'
+			<div class="col-sm-9">
 				<?php
 				echo $optionFormFields->markup( $optionFormFields->value( $name ), $nameFieldProps );
 				?>

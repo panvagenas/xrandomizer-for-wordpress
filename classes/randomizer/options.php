@@ -150,7 +150,8 @@ namespace randomizer {
 				}
 			}
 
-			array_push( $newOptions, $this->get( 'sets', true )[0] );
+			$sets = $this->get( 'sets', true );
+			array_push( $newOptions, $sets[0] );
 
 			return array( 'sets' => $newOptions );
 		}
