@@ -69,8 +69,8 @@ $nameFieldProps   = array(
 					'value' => 'random'
 				),
 				array(
-					'label' => $this->__( 'Cyclic' ),
-					'value' => 'cyclic'
+					'label' => $this->__( 'Rotate' ),
+					'value' => 'rotate'
 				),
 			)
 		);

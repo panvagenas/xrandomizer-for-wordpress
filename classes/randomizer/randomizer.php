@@ -75,13 +75,13 @@ namespace randomizer {
          */
         protected function randomizeArray()
         {
-            $isCyclic = $this->setOptions['randomPolicy'] == 'cyclic';
+            $rotateThem = $this->setOptions['randomPolicy'] == 'rotate';
             // Remove disabled elements all the times and before any other action
             $this->removeDisabled();
             $pined = $this->countGetAndRemovePined();
 
-            if ($isCyclic) {
-                $cookieName = 'rzCyclicIndex' . $this->setOptions['id'];
+            if ($rotateThem) {
+                $cookieName = 'rzRotateIndex' . $this->setOptions['id'];
                 $cookie = \WP_Session::get_instance();
 
                 $index = isset($cookie[$cookieName]) && !empty($cookie[$cookieName]) ? (int)$cookie[$cookieName] : 0;
