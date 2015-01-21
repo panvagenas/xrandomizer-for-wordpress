@@ -68,19 +68,41 @@ namespace randomizer {
          */
         public function menu_page_components()
         {
-            $this->register(array(
+            $scripts = array(
+                $this->instance->ns_with_dashes . '--menu-pages-ace' => array(
+                    'deps' => array('jquery'),
+                    'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/ace/ace.js'),
+                    'ver' => $this->instance->plugin_version_with_dashes,
+                ),
+//                $this->instance->ns_with_dashes . '--menu-pages-ace-mode-html' => array(
+//                    'deps' => array($this->instance->ns_with_dashes . '--menu-pages-ace'),
+//                    'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/ace/mode-html.min.js'),
+//                    'ver' => $this->instance->plugin_version_with_dashes,
+//                ),
+//                $this->instance->ns_with_dashes . '--menu-pages-ace-theme-github' => array(
+//                    'deps' => array($this->instance->ns_with_dashes . '--menu-pages-ace'),
+//                    'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/ace/theme-github.min.js'),
+//                    'ver' => $this->instance->plugin_version_with_dashes,
+//                ),
+//                $this->instance->ns_with_dashes . '--menu-pages-ace-worker-html' => array(
+//                    'deps' => array($this->instance->ns_with_dashes . '--menu-pages-ace-theme-github'),
+//                    'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/ace/worker-html.js'),
+//                    'ver' => $this->instance->plugin_version_with_dashes,
+//                ),
                 $this->instance->ns_with_dashes . '--menu-pages-random-sets' => array(
-                    'deps' => array('jquery', $this->instance->plugin_root_ns_with_dashes . '--stand-alone'),
+                    'deps' => array(
+                        'jquery',
+                        $this->instance->plugin_root_ns_with_dashes . '--stand-alone',
+                        $this->instance->ns_with_dashes . '--menu-pages-ace'
+                    ),
                     'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/random-sets.min.js'),
                     'ver' => $this->instance->plugin_version_with_dashes,
                 )
-            ));
+            );
 
-            $scripts = array(
-                $this->instance->ns_with_dashes . '--menu-pages-random-sets'
-            ); // Not implemented by core.
+            $this->register($scripts);
 
-            return $scripts;
+            return array_keys($scripts);
         }
     }
 }

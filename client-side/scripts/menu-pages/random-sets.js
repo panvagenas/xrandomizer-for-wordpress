@@ -290,4 +290,30 @@
 
     RandomElement.prototype.bindClickEvent();
 
+    /***********************************************
+    * Code Editor Binding
+    ***********************************************/
+    var $txtArea;
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/github");
+    editor.getSession().setMode("ace/mode/html");
+
+    $('.element-text-area').focus(function(){
+        $('#launch-modal').trigger('click');
+        editor.setValue(' ');
+        editor.setValue($(this).val());
+        editor.gotoLine(editor.session.getLength());
+        editor.focus();
+        $txtArea = $(this);
+    });
+
+    $('#modal-btn-update').click(function(){
+        $txtArea.val(editor.getValue());
+        editor.setValue(' ');
+    });
+
+    $('#modal-btn-close').click(function(){
+        editor.setValue(' ');
+    });
+
 })(jQuery); // End extension closure.

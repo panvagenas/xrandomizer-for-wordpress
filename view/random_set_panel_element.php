@@ -25,7 +25,7 @@ $elementFieldProps = array(
 	'title'       => $this->__( 'Add some text or HTML markup to this element' ),
 	'placeholder' => $this->__( 'Add some text or HTML markup to this element' ),
 	'name_prefix' => $callee->fieldNamePrefix,
-	'classes'     => 'text-area form-control',
+	'classes'     => 'text-area form-control element-text-area',
 	'id'          => 'elements-' . $callee->setIdx . '-' . $index,
 	'rows'        => 4
 );
