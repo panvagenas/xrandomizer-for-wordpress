@@ -46,6 +46,7 @@
         this.updateNextElements();
         this.addAfterOld();
         this.bindClickEvent();
+        SetManager.prototype.bindEditor(this.newElement.$wrapper.textArea);
     };
 
     RandomElement.prototype.formNewElement = function (textAreaContent) {
@@ -235,6 +236,29 @@
             0: true
         },
 
+        $txtArea: {},
+
+        initialized: false,
+
+        init: function(){
+            if(this.initialized) return true;
+
+            this.editor = ace.edit("editor");
+            this.editor.setTheme("ace/theme/github");
+            this.editor.getSession().setMode("ace/mode/html");
+
+            $('#modal-btn-update').click(function(){
+                SetManager.prototype.$txtArea.val(SetManager.prototype.editor.getValue());
+                SetManager.prototype.editor.setValue(' ');
+            });
+
+            $('#modal-btn-close').click(function(){
+                SetManager.prototype.editor.setValue(' ');
+            });
+
+            this.initialized = true;
+        },
+
         bindDeleteEvent: function () {
             $('.set-delete').unbind('click').click(function () {
                 var r = confirm("Are you sure you want to delete this set?");
@@ -254,6 +278,17 @@
                 var selector = $('#' + $(this).attr('data-setselector'));
                 var newSet = new SetManager(setIdx, selector);
                 newSet.addNewSet();
+            });
+        },
+
+        bindEditor: function($inputArea){
+            $inputArea.focus(function(){
+                $('#launch-modal').trigger('click');
+                SetManager.prototype.editor.setValue(' ');
+                SetManager.prototype.editor.setValue($(this).val());
+                SetManager.prototype.editor.gotoLine(SetManager.prototype.editor.session.getLength());
+                SetManager.prototype.editor.focus();
+                SetManager.prototype.$txtArea = $(this);
             });
         },
 
@@ -293,27 +328,8 @@
     /***********************************************
     * Code Editor Binding
     ***********************************************/
-    var $txtArea;
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/github");
-    editor.getSession().setMode("ace/mode/html");
+    SetManager.prototype.init();
 
-    $('.element-text-area').focus(function(){
-        $('#launch-modal').trigger('click');
-        editor.setValue(' ');
-        editor.setValue($(this).val());
-        editor.gotoLine(editor.session.getLength());
-        editor.focus();
-        $txtArea = $(this);
-    });
-
-    $('#modal-btn-update').click(function(){
-        $txtArea.val(editor.getValue());
-        editor.setValue(' ');
-    });
-
-    $('#modal-btn-close').click(function(){
-        editor.setValue(' ');
-    });
+    SetManager.prototype.bindEditor($('.element-text-area'));
 
 })(jQuery); // End extension closure.

@@ -36,7 +36,7 @@ Domain Path: /translations
 Plugin Name: Randomizer
 Plugin URI: http://xdark.eu
 
-Description: XDaRk.eu Core framework for WordPress® plugin development.
+Description: Display content through a widget or shortcode
 Kudos: WebSharks™ http://www.websharks-inc.com
 Tags: ad,ad rotators,ads,advert,advertise,advertisement,advertiser,advertising,advert manager,adverts,banner,banner manager,commercial,content,custom ads,custom banners,custom rotating banners,export,image ads,image widget,plugin,random,random banners,random rotating banners,rotate,rotating banners,rotator,sidebar,widget,widget ads
 -- end section for WordPress®. --------------------------------------------------------------------------------------------------------- */
