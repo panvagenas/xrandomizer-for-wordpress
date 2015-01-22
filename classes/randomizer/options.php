@@ -13,8 +13,9 @@ namespace randomizer {
 	use xd_v141226_dev\arrays;
 	use xd_v141226_dev\exception;
 
-	if(!defined('WPINC'))
-		exit('Do NOT access this file directly: '.basename(__FILE__));
+	if ( ! defined( 'WPINC' ) ) {
+		exit( 'Do NOT access this file directly: ' . basename( __FILE__ ) );
+	}
 
 	/**
 	 *
@@ -40,7 +41,7 @@ namespace randomizer {
 		public function setup( $defaults, $validators ) {
 			$randomizerDefaults = array(
 				'encryption.key'                             => 'jkiabOKBNJO89347KJBKJBasfd',
-				'support.url'                                => 'xdark.eu/support',
+				'support.url'                                => 'erp.xdark.eu/documentation/get-help/',
 				'styles.front_side.theme'                    => 'yeti',
 				'crons.config'                               => array(),
 				'menu_pages.theme'                           => 'yeti',
@@ -53,24 +54,26 @@ namespace randomizer {
 				'menu_pages.panels.community_forum.feed_url' => '',
 				'menu_pages.panels.news_kb.feed_url'         => '',
 				'menu_pages.panels.videos.yt_playlist'       => '',
+				'edd.update'                                 => 1,
+				'edd.store_url'                              => 'https://erp.xdark.eu',
 				'sets'                                       => array(
 					array(
 						'name'            => 'Default',
 						'id'              => 'default',
 						'randomPolicy'    => 'random',
 						'elements'        => array(
-                            array(
-                                'content'   => '',
-                                'pined'     => false,
-                                'disabled'  => false
-                            )
-                        ),
+							array(
+								'content'  => '',
+								'pined'    => false,
+								'disabled' => false
+							)
+						),
 						'numOfElmsToDspl' => 0
 					)
 				),
 				'custom_css'                                 => '',
-				'before_element'                            => '',
-				'after_element'                             => '',
+				'before_element'                             => '',
+				'after_element'                              => '',
 				'widget'                                     => array(
 					'name' => 'Randomizer',
 					'set'  => 'Default'
@@ -82,12 +85,12 @@ namespace randomizer {
 			);
 
 			$randomizerDefaultsValidators = array(
-				'sets'            => array( 'array:!empty' ),
-				'widget'          => array( 'array:!empty' ),
-				'shortcode'       => array( 'array:!empty' ),
-				'custom_css'      => array('string'),
-				'before_element' => array('string'),
-				'after_element'  => array('string'),
+				'sets'           => array( 'array:!empty' ),
+				'widget'         => array( 'array:!empty' ),
+				'shortcode'      => array( 'array:!empty' ),
+				'custom_css'     => array( 'string' ),
+				'before_element' => array( 'string' ),
+				'after_element'  => array( 'string' ),
 			);
 
 			$defaults   = array_merge( $defaults, $randomizerDefaults );
@@ -105,7 +108,7 @@ namespace randomizer {
 		public function ®update( $new_options = array() ) {
 			if ( $this->©menu_pages->is_plugin_page( $this->©menu_pages__random_sets->slug ) ) {
 				$options = $this->validateRandomSetsOptions( $new_options );
-			} elseif ($this->©menu_pages->is_plugin_page( $this->instance->plugin_root_ns_stub_with_dashes ) ) {
+			} elseif ( $this->©menu_pages->is_plugin_page( $this->instance->plugin_root_ns_stub_with_dashes ) ) {
 				$options = $this->validateMainSettingsOptions( $new_options );
 			} else {
 				$options = $new_options;
@@ -130,8 +133,8 @@ namespace randomizer {
 					unset ( $newOptions[ $key ] );
 					continue;
 				}
-				if($set['name'] == 'Default'){
-					$set['name'] .= '_'.uniqid();
+				if ( $set['name'] == 'Default' ) {
+					$set['name'] .= '_' . uniqid();
 				}
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {
@@ -139,9 +142,9 @@ namespace randomizer {
 					if ( empty( $element['content'] ) ) {
 						unset( $newOptions[ $key ]["elements"][ $k ] );
 					} else {
-                        $newOptions[ $key ]["elements"][ $k ]['pined'] = isset($newOptions[ $key ]["elements"][ $k ]['pined']) && (bool)$newOptions[ $key ]["elements"][ $k ]['pined'];
-                        $newOptions[ $key ]["elements"][ $k ]['disabled'] = isset($newOptions[ $key ]["elements"][ $k ]['disabled']) && (bool)$newOptions[ $key ]["elements"][ $k ]['disabled'];
-                    }
+						$newOptions[ $key ]["elements"][ $k ]['pined']    = isset( $newOptions[ $key ]["elements"][ $k ]['pined'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['pined'];
+						$newOptions[ $key ]["elements"][ $k ]['disabled'] = isset( $newOptions[ $key ]["elements"][ $k ]['disabled'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['disabled'];
+					}
 				}
 				if ( $allEmpty ) {
 					unset( $newOptions[ $key ] );
@@ -167,8 +170,8 @@ namespace randomizer {
 			return $newOptions;
 		}
 
-        public function getSetIdFromSetName($setName){
-            return $this->©string->with_underscores( $setName );
-        }
+		public function getSetIdFromSetName( $setName ) {
+			return $this->©string->with_underscores( $setName );
+		}
 	}
 }

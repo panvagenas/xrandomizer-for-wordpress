@@ -34,7 +34,7 @@ class edd_updater extends framework{
 		$this->add_filter('plugins_api', '©edd_updater.plugins_api_filter', 10, 3);
 		$this->add_filter('http_request_args', '©edd_updater.http_request_args', 10, 2);
 
-		$this->api_url  = trailingslashit($this->©option->get('edd.store_url'));
+		$this->api_url  = trailingslashit($this->©option->get('edd.store_url', true));
 		$this->api_data = urlencode_deep(array(
 				'version'   => $this->instance->plugin_version, // current version number
 				'license'   => $this->getLicense(), // license key (used get_option above to retrieve from DB)
@@ -47,8 +47,8 @@ class edd_updater extends framework{
 	}
 
 	public function isEDD(){
-		$storeUrl = $this->©option->get('edd.store_url');
-		return $this->©option->get('edd.update') && $this->©string->is_not_empty($storeUrl);
+		$storeUrl = $this->©option->get('edd.store_url', true);
+		return $this->©option->get('edd.update', true) && $this->©string->is_not_empty($storeUrl);
 	}
 
 	public function getLicense(){
@@ -147,7 +147,7 @@ class edd_updater extends framework{
 		);
 
 		// Call the custom API.
-		$response = wp_remote_get(add_query_arg($api_params, $this->©option->get('edd.store_url')), array('timeout' => 15, 'sslverify' => false));
+		$response = wp_remote_get(add_query_arg($api_params, $this->©option->get('edd.store_url', true)), array('timeout' => 15, 'sslverify' => false));
 
 		if (is_wp_error($response)) {
 			return 2;

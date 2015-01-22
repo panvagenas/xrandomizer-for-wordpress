@@ -92,6 +92,7 @@ class menu_page extends \xd_v141226_dev\menu_pages\menu_page {
 //            $this->add_sidebar_panel($this->©menu_pages__panels__pro_upgrade($this), TRUE);
 
 	    $this->add_sidebar_panel( $this->©menu_pages__panels__donations( $this ) );
+        $this->add_sidebar_panel($this->©menu_pages__panels__edd_license($this));
 //	    $this->add_sidebar_panel( $this->©menu_pages__panels__other_plugins( $this ) );
 
         $this->display_sidebar_panels_in_order();

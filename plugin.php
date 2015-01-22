@@ -12,9 +12,9 @@
 
 /* -- WordPress® --------------------------------------------------------------------------------------------------------------------------
 
-Version: 140914
+Version: 150120
 Stable tag: 140914
-Tested up to: 4.0
+Tested up to: 4.1
 Requires at least: 3.5.1
 
 Requires at least Apache version: 2.1
@@ -28,13 +28,13 @@ License: GNU General Public License V3 or later
 Contributors: XDaRk.eu
 
 Author: Panagiotis Vagenas <pan.vagenas@gmail.com>
-Author URI: http://xdark.eu
+Author URI: http://erp.xdark.eu
 
 Text Domain: randomizer
 Domain Path: /translations
 
-Plugin Name: Randomizer
-Plugin URI: http://xdark.eu
+Plugin Name: XRandomizer
+Plugin URI: http://erp.xdark.eu
 
 Description: Display content through a widget or shortcode
 Kudos: WebSharks™ http://www.websharks-inc.com
