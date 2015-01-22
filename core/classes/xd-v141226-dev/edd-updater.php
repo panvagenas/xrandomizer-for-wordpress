@@ -30,9 +30,11 @@ class edd_updater extends framework{
 	}
 
 	function init(){
-		$this->add_filter('pre_set_site_transient_update_plugins', '©edd_updater.pre_set_site_transient_update_plugins_filter');
-		$this->add_filter('plugins_api', '©edd_updater.plugins_api_filter', 10, 3);
-		$this->add_filter('http_request_args', '©edd_updater.http_request_args', 10, 2);
+		if($this->©option->get('edd.update', true)){
+			$this->add_filter('pre_set_site_transient_update_plugins', '©edd_updater.pre_set_site_transient_update_plugins_filter');
+			$this->add_filter('plugins_api', '©edd_updater.plugins_api_filter', 10, 3);
+			$this->add_filter('http_request_args', '©edd_updater.http_request_args', 10, 2);
+		}
 
 		$this->api_url  = trailingslashit($this->©option->get('edd.store_url', true));
 		$this->api_data = urlencode_deep(array(
