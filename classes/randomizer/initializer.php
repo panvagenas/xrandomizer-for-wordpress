@@ -26,9 +26,12 @@ namespace randomizer {
          * @extenders This should be overwritten by class extenders (when/if needed).
          */
         public function after_setup_theme_hooks(){
-            $this->add_action('widgets_init', '©initializer.register_widgets');
+            if($this->©edd_updater->getLicenseStatus()){
+                $this->add_action('widgets_init', '©initializer.register_widgets');
+                $this->addShortCode($this->©string->with_underscores($this->instance->plugin_root_ns_stub), array($this, '©shortcodes__shortcode.display'));
+            }
             $this->add_action('wp_head', '©styles.customCSS');
-            $this->addShortCode($this->©string->with_underscores($this->instance->plugin_root_ns_stub), array($this, '©shortcodes__shortcode.display'));
+
         }
 
         /**
@@ -37,6 +40,9 @@ namespace randomizer {
          * @extenders Overwrite this to register your widgets
          */
         public function register_widgets(){
+            if(!$this->©edd_updater->getLicenseStatus()){
+                return '';
+            }
             register_widget('\randomizer\widget');
         }
 
