@@ -29,13 +29,13 @@ namespace randomizer {
 		 * @var string Name for this widget.
 		 * @note Set to the name of the widget w/ dashes.
 		 */
-		public $name = 'Randomizer Widget';
+		public $name = 'XRandomizer Widget';
 
 		/**
 		 * @var array Options for this widget.
 		 * @note Set options for this widget.
 		 */
-		public $options = array( 'description' => 'Displays Randomizer Sets in Any Widget Area' );
+		public $options = array( 'description' => 'Displays XRandomizer Sets in Any Widget Area' );
 
 		/**
 		 * @var array Options for this widget.

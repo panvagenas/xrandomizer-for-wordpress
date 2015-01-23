@@ -27,7 +27,8 @@ $elementFieldProps = array(
 	'name_prefix' => $callee->fieldNamePrefix,
 	'classes'     => 'text-area form-control element-text-area',
 	'id'          => 'elements-' . $callee->setIdx . '-' . $index,
-	'rows'        => 4
+	'rows'        => 5,
+	'attrs'       => 'data-editor="html"'
 );
 ?>
 <div id="element-row-<?php echo $callee->slug . '-' . $index; ?>" class="form-group" data-index="<?php echo $index; ?>">
@@ -49,11 +50,22 @@ $elementFieldProps = array(
 					<i class="fa <?php echo $pinedClass; ?>"></i>
 				</button>
 			</div>
-			<div class="col-sm-6">
-				<button type="button" <?php echo $btnCtrlAttr; ?> style="font-size: 1em;" type="button"
-				        class="btn btn-success element-add" title="Add new element">
+			<div class="col-sm-6 btn-group">
+				<button <?php echo $btnCtrlAttr; ?>
+					data-toggle="xd-v141226-dev-dropdown"
+					style="font-size: 1em; float: none;"
+					title="Add new element"
+					class="btn btn-success element-add dropdown-toggle"
+					type="button">
 					<i class="fa fa-plus"></i>
 				</button>
+				<ul class="dropdown-menu" <?php echo $btnCtrlAttr; ?>>
+					<li data-mode="html"><a href="#">HTML</a></li>
+					<li data-mode="php"><a href="#">PHP</a></li>
+					<li data-mode="markdown"><a href="#">Markdown</a></li>
+					<li data-mode="javascript"><a href="#">Javascript</a></li>
+					<li data-mode="text"><a href="#">Text</a></li>
+				</ul>
 			</div>
 		</div>
 
@@ -93,6 +105,15 @@ $elementFieldProps = array(
 			'name_prefix' => $callee->fieldNamePrefix,
 			'classes'     => 'form-control pined',
 			'id'          => 'disabled-' . $callee->setIdx . '-' . $index
+		) );
+
+		$mode = empty( $mode ) ? 'html' : $mode;
+		echo $callee->menu_page->option_form_fields->markup( $callee->menu_page->option_form_fields->value( $mode ), array(
+			'type'        => 'hidden',
+			'name'        => '[elements][' . $index . '][mode]',
+			'name_prefix' => $callee->fieldNamePrefix,
+			'classes'     => 'form-control pined',
+			'id'          => 'mode-' . $callee->setIdx . '-' . $index
 		) );
 		?>
 	</div>

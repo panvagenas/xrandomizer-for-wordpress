@@ -118,7 +118,7 @@ $nameFieldProps   = array(
 	<div class="form-horizontal">
 		<?php
 		foreach ( $callee->getOption( 'elements' ) as $k => $v ) {
-			echo $callee->element( $k, $v['content'], (bool) $v['pined'], (bool) $v['disabled'] );
+			echo $callee->element( $k, $v['content'], (bool) $v['pined'], (bool) $v['disabled'], $v['mode'] );
 		}
 
 		if ( ! count( $callee->getOption( 'elements' ) ) ) {

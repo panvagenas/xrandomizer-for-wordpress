@@ -107,7 +107,5 @@ class menu_page extends \xd_v141226_dev\menu_pages\menu_page {
         $this->display_header_control__import_export_options();
 //        $this->display_header_control__update_theme();
         $this->display_header_control__toggle_all_panels();
-
-        $this->©view->view($this, 'random_set_panel_modal.php', array(), true);
 	}
 }

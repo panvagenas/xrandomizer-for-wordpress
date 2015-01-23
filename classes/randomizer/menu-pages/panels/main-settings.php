@@ -105,7 +105,8 @@ namespace randomizer\menu_pages\panels {
 			    'placeholder' => $this->__( 'Custom CSS to be applied to elements' ),
 			    'classes'     => 'text-area form-control',
 			    'id'          => 'custom-css',
-		        'rows'        => 10
+		        'rows'        => 15,
+			    'attrs'       => 'data-editor="css"'
 		    );
 
 		    $customCSS = $this->©options->get('custom_css');

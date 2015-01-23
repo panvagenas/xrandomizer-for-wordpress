@@ -66,7 +66,8 @@ namespace randomizer {
 							array(
 								'content'  => '',
 								'pined'    => false,
-								'disabled' => false
+								'disabled' => false,
+								'mode'     => 'html'
 							)
 						),
 						'numOfElmsToDspl' => 0
@@ -76,11 +77,11 @@ namespace randomizer {
 				'before_element'                             => '',
 				'after_element'                              => '',
 				'widget'                                     => array(
-					'name' => 'Randomizer',
+					'name' => 'XRandomizer',
 					'set'  => 'Default'
 				),
 				'shortcode'                                  => array(
-					'name' => 'Randomizer',
+					'name' => 'XRandomizer',
 					'set'  => 'Default'
 				),
 			);
@@ -145,6 +146,7 @@ namespace randomizer {
 					} else {
 						$newOptions[ $key ]["elements"][ $k ]['pined']    = isset( $newOptions[ $key ]["elements"][ $k ]['pined'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['pined'];
 						$newOptions[ $key ]["elements"][ $k ]['disabled'] = isset( $newOptions[ $key ]["elements"][ $k ]['disabled'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['disabled'];
+						$newOptions[ $key ]["elements"][ $k ]['mode'] = isset( $newOptions[ $key ]["elements"][ $k ]['mode'] ) ? $newOptions[ $key ]["elements"][ $k ]['mode'] : 'html';
 					}
 				}
 				if ( $allEmpty ) {

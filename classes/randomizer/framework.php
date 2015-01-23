@@ -75,7 +75,7 @@ namespace randomizer {
             // A shorter namespace alias (or the same as `plugin_root_ns` if you like).
             'plugin_cap' => 'manage_options',
             // The WordPress capability (or role) required to manage plugin options.
-            'plugin_name' => 'Randomizer',
+            'plugin_name' => 'XRandomizer',
             //
             'plugin_version' => '140914',
             // The current version of plugin (must be in `YYMMDD` format).

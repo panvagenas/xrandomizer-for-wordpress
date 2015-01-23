@@ -89,13 +89,14 @@ namespace randomizer\menu_pages\panels {
             $this->content_body = $this->©view->view($this, 'random_set_panel.php');
         }
 
-        public function element($index, $content, $pined, $disabled)
+        public function element($index, $content, $pined = false, $disabled = false, $mode = 'html')
         {
             return $this->©view->view($this, 'random_set_panel_element.php', array(
                 'index' => $index,
                 'content' => $content,
                 'pined' => $pined,
-                'disabled' => $disabled
+                'disabled' => $disabled,
+                'mode' => $mode
             ));
 		}
 
