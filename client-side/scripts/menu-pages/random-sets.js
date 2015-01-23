@@ -313,6 +313,8 @@
             editor.getSession().on('change', function(){
                 textarea.val(editor.getSession().getValue());
             });
+
+            editor.focus();
         },
 
         addNewSet: function () {
