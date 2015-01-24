@@ -24,6 +24,14 @@ namespace randomizer {
 	 */
 	class options extends \xd_v141226_dev\options {
 
+		public $elementModes = array(
+			'html' => 'HTML',
+			'php' => 'PHP',
+			'markdown' => 'Markdown',
+			'javascript' => 'Javascript',
+			'text' => 'Text',
+		);
+
 		/**
 		 * Sets up default options and validators.
 		 *
@@ -146,7 +154,7 @@ namespace randomizer {
 					} else {
 						$newOptions[ $key ]["elements"][ $k ]['pined']    = isset( $newOptions[ $key ]["elements"][ $k ]['pined'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['pined'];
 						$newOptions[ $key ]["elements"][ $k ]['disabled'] = isset( $newOptions[ $key ]["elements"][ $k ]['disabled'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['disabled'];
-						$newOptions[ $key ]["elements"][ $k ]['mode'] = isset( $newOptions[ $key ]["elements"][ $k ]['mode'] ) ? $newOptions[ $key ]["elements"][ $k ]['mode'] : 'html';
+						$newOptions[ $key ]["elements"][ $k ]['mode'] = isset( $newOptions[ $key ]["elements"][ $k ]['mode'] ) && in_array($newOptions[ $key ]["elements"][ $k ]['mode'], array_keys($this->elementModes)) ? $newOptions[ $key ]["elements"][ $k ]['mode'] : 'html';
 					}
 				}
 				if ( $allEmpty ) {

@@ -147,3 +147,7 @@ if ( ! $callee->isDefault ) {
 	</div>
 <?php
 }
+?>
+<script type="text/javascript">
+	var elementModes = <?php echo $this->©var->to_js($this->©option->elementModes); ?>
+</script>

@@ -44,11 +44,36 @@ namespace randomizer {
             $after = $this->©options->get('after_element');
             $out = '';
             foreach ($randomized as $element) {
-                $out .= $before . $element['content'] . $after;
+                if(!isset($element['mode']) || !method_exists($this, $element['mode'])) continue;
+
+                $out .= $before . $this->{$element['mode']}($element) . $after;
             }
 
 			return $out;
 		}
+
+        protected function php($element){
+            ob_start();
+            eval($element['content']);
+            return ob_get_clean();
+        }
+
+        protected function html($element){
+            return $element['content'];
+        }
+
+        protected function javascript($element){
+            return '<script type="text/javascript">' . $element['content'] . '</script>';
+        }
+
+        protected function text($element){
+            return $element['content'];
+        }
+
+        protected function markdown($element){
+            // TODO Implement
+            return $element['content'];
+        }
 
         protected function init($setId)
         {

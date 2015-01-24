@@ -28,7 +28,7 @@ $elementFieldProps = array(
 	'classes'     => 'text-area form-control element-text-area',
 	'id'          => 'elements-' . $callee->setIdx . '-' . $index,
 	'rows'        => 5,
-	'attrs'       => 'data-editor="html"'
+	'attrs'       => 'data-editor="'.$mode.'"'
 );
 ?>
 <div id="element-row-<?php echo $callee->slug . '-' . $index; ?>" class="form-group" data-index="<?php echo $index; ?>">
@@ -60,11 +60,11 @@ $elementFieldProps = array(
 					<i class="fa fa-plus"></i>
 				</button>
 				<ul class="dropdown-menu" <?php echo $btnCtrlAttr; ?>>
-					<li data-mode="html"><a href="#">HTML</a></li>
-					<li data-mode="php"><a href="#">PHP</a></li>
-					<li data-mode="markdown"><a href="#">Markdown</a></li>
-					<li data-mode="javascript"><a href="#">Javascript</a></li>
-					<li data-mode="text"><a href="#">Text</a></li>
+					<?php
+					foreach ( $this->©option->elementModes as $k => $v ) {
+						echo '<li data-mode="'.$k.'"><a href="#">'.$v.'</a></li>';
+					}
+					?>
 				</ul>
 			</div>
 		</div>

@@ -207,13 +207,11 @@
         + 'data-toggle="xd-v141226-dev-dropdown">'
         + '<i class="fa fa-plus"></i>'
         + '</button>'
-        + '<ul class="dropdown-menu" ' + btnCtrlAttr + '>'
-        + '<li data-mode="html"><a href="#">HTML</a></li>'
-        + '<li data-mode="php"><a href="#">PHP</a></li>'
-        + '<li data-mode="markdown"><a href="#">Markdown</a></li>'
-        + '<li data-mode="javascript"><a href="#">Javascript</a></li>'
-        + '<li data-mode="text"><a href="#">Text</a></li>'
-        + '</ul>';
+        + '<ul class="dropdown-menu" ' + btnCtrlAttr + '>';
+        for (var k in SetManager.prototype.elementModes){
+            out += '<li data-mode="'+k+'"><a href="#">'+SetManager.prototype.elementModes[k]+'</a></li>';
+        }
+        out += '</ul>';
         out += '</div>';
         out += '</div>';
 
@@ -357,5 +355,7 @@
     $('textarea[data-editor]').each(function () {
         SetManager.prototype.bindEditor($(this));
     });
+
+    SetManager.prototype.elementModes = elementModes;
 
 })(jQuery); // End extension closure.
