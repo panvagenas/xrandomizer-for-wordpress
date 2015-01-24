@@ -557,3 +557,26 @@
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;
 }
 
+.text-area-wrapper[data-method="html"] .ace_editor {
+    background: url("../images/html.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
+}
+
+.text-area-wrapper[data-method="php"] .ace_editor {
+    background: url("../images/php.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
+}
+
+.text-area-wrapper[data-method="css"] .ace_editor {
+    background: url("../images/css.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
+}
+
+.text-area-wrapper[data-method="javascript"] .ace_editor {
+    background: url("../images/javascript.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
+}
+
+.text-area-wrapper[data-method="text"] .ace_editor {
+    background: url("../images/text.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
+}
+
+.text-area-wrapper[data-method="markdown"] .ace_editor {
+    background: url("../images/markdown.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
+}

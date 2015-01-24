@@ -60,6 +60,8 @@
         this.newElement.$wrapper.attr('data-index', this.newElement.elementIndex);
         this.newElement.$wrapper.attr('id', 'element-row-' + this.elementSet + '-' + this.newElement.elementIndex);
 
+        this.newElement.$wrapper.textAreaWrapper.attr('data-method', this.mode);
+
         this.newElement.$wrapper.textArea.attr('id', 'elements-' + this.elementSetId + '-' + this.newElement.elementIndex);
         this.newElement.$wrapper.textArea.attr('name', 'rz[a][a][0][' + this.elementSetId + '][elements][' + this.newElement.elementIndex + '][content]');
         this.newElement.$wrapper.textArea.val(textAreaContent);
@@ -314,7 +316,8 @@
                 showGutter: true,
                 displayIndentGuides: true,
                 fontSize: '14px',
-                fontFamily: 'mono'
+                fontFamily: 'mono',
+                highlightActiveLine: false
             });
             editor.setTheme("ace/theme/github");
 

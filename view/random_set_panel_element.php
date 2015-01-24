@@ -17,6 +17,7 @@ if ( ! defined( 'WPINC' ) ) {
 /* @var string $content */
 /* @var bool $pined */
 /* @var bool $disabled */
+/* @var string $mode */
 
 $elementFieldProps = array(
 	'required'    => ! $callee->isDefault,
@@ -32,7 +33,7 @@ $elementFieldProps = array(
 );
 ?>
 <div id="element-row-<?php echo $callee->slug . '-' . $index; ?>" class="form-group" data-index="<?php echo $index; ?>">
-	<div class="col-sm-10 text-area-wrapper">
+	<div class="col-sm-10 text-area-wrapper" data-method="<?php echo $mode; ?>">
 		<?php echo $callee->menu_page->option_form_fields->markup( $callee->menu_page->option_form_fields->value( $content ), $elementFieldProps ); ?>
 	</div>
 	<?php

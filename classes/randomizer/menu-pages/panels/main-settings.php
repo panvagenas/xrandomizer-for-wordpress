@@ -112,7 +112,7 @@ namespace randomizer\menu_pages\panels {
 		    $customCSS = $this->©options->get('custom_css');
 		    $out .= '<div class="form-group">';
 		    $out .= '<label class="control-label col-sm-3" for="custom-css">' . $this->__( 'Custom CSS to be applied to elements:' ) . '</label>';
-		    $out .= '<div class="col-sm-9 text-area-wrapper">';
+		    $out .= '<div class="col-sm-9 text-area-wrapper" data-method="css">';
 		    $out .= $this->menu_page->option_form_fields->markup( $this->menu_page->option_form_fields->value( $customCSS ),$customCSSFieldProps);
 		    $out .= '</div>';
 		    $out .= '</div>';

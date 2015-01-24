@@ -98,7 +98,7 @@ $nameFieldProps   = array(
 			'name_prefix' => $callee->fieldNamePrefix,
 			'classes'     => 'form-control',
 			'id'          => 'numOfElmsToDspl-' . $callee->setIdx,
-			'attrs'       => ' min="0" '
+			'attrs'       => ' min="0" data-toggle="tooltip"'
 		);
 		?>
 
