@@ -326,9 +326,14 @@
             });
             var $wrapper = textarea.parent().parent();
             $wrapper.find('.element-change-method').next().find('li').unbind('click').click(function (e) {
+                var index = $(this).parent().attr('data-index');
+                var elemSet = $(this).parent().attr('data-set');
+                var elemSetId = $(this).parent().attr('data-setid');
                 e.preventDefault();
                 var mode = $(this).attr('data-mode');
+                textarea.attr('data-editor', mode);
                 $wrapper.find('.text-area-wrapper').attr('data-method', mode);
+                $wrapper.find('#mode-'+elemSetId+'-'+index).val(mode);
                 editor.getSession().setMode("ace/mode/" + mode);
             });
 
