@@ -9,8 +9,7 @@
  * @since 140914
  */
 
-(function ($) // Begin extension closure.
-{
+(function ($) {
     /*******************************************************
      *
      * RandomElement Class
@@ -22,6 +21,7 @@
      * @param elementSet
      * @param elementSetId
      * @constructor
+     * @param mode
      */
     function RandomElement(elementIndex, elementSet, elementSetId, mode) {
         this.elementSet = elementSet.toString();
@@ -208,8 +208,8 @@
         + '<i class="fa fa-plus"></i>'
         + '</button>'
         + '<ul class="dropdown-menu" ' + btnCtrlAttr + '>';
-        for (var k in SetManager.prototype.elementModes){
-            out += '<li data-mode="'+k+'"><a href="#">'+SetManager.prototype.elementModes[k]+'</a></li>';
+        for (var k in SetManager.prototype.elementModes) {
+            out += '<li data-mode="' + k + '"><a href="#">' + SetManager.prototype.elementModes[k] + '</a></li>';
         }
         out += '</ul>';
         out += '</div>';
@@ -230,8 +230,8 @@
         }
         out += '</div>';// row
         out += '<input id="pined-' + setIdx + '-' + index + '" class="pined" type="hidden" data-initial-value="" value="' + (pined ? '1' : '0') + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][pined]">'
-            + '<input id="disabled-' + setIdx + '-' + index + '" class="pined" type="hidden" data-initial-value="" value="' + (disabled ? '1' : '0') + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][disabled]">'
-            + '<input id="mode-' + setIdx + '-' + index + '" class="mode" type="hidden" data-initial-value="" value="' + mode + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][mode]">';
+        + '<input id="disabled-' + setIdx + '-' + index + '" class="pined" type="hidden" data-initial-value="" value="' + (disabled ? '1' : '0') + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][disabled]">'
+        + '<input id="mode-' + setIdx + '-' + index + '" class="mode" type="hidden" data-initial-value="" value="' + mode + '" name="rz[a][a][0][' + setIdx + '][elements][' + index + '][mode]">';
         out += '</div>'; //element-control
 
         return out;
@@ -284,13 +284,13 @@
             });
         },
 
-        bindEditor: function(textarea){
+        bindEditor: function (textarea) {
             var mode = textarea.data('editor');
-            var height = parseInt(textarea.attr('rows'))*25;
+            var height = parseInt(textarea.attr('rows')) * 25;
             var editDiv = $('<div>', {
                 position: 'absolute',
                 width: '100%',
-                height: height+'px',
+                height: height + 'px',
                 'class': textarea.attr('class')
             }).insertBefore(textarea);
 
@@ -304,11 +304,21 @@
             editor.setOptions({
                 enableBasicAutocompletion: true,
                 enableSnippets: true,
-                enableLiveAutocompletion: false
+                enableLiveAutocompletion: false,
+                autoScrollEditorIntoView: true,
+                animatedScroll: true,
+                showInvisibles: false,
+                fadeFoldWidgets: true,
+                showFoldWidgets: true,
+                showLineNumbers: true,
+                showGutter: true,
+                displayIndentGuides: true,
+                fontSize: '14px',
+                fontFamily: 'mono'
             });
             editor.setTheme("ace/theme/github");
 
-            editor.getSession().on('change', function(){
+            editor.getSession().on('change', function () {
                 textarea.val(editor.getSession().getValue());
             });
 
@@ -349,8 +359,8 @@
     RandomElement.prototype.bindClickEvent();
 
     /***********************************************
-    * Code Editor Binding
-    ***********************************************/
+     * Code Editor Binding
+     ***********************************************/
     ace.require("ace/ext/language_tools");
     $('textarea[data-editor]').each(function () {
         SetManager.prototype.bindEditor($(this));

@@ -26,15 +26,31 @@ namespace randomizer {
          * @var array
          */
         protected $randomized = array();
-
+        /**
+         * @var array
+         */
         protected $setOptions = array();
-
+        /**
+         * @var bool
+         */
         protected $isDefault = true;
-
+        /**
+         * @var string
+         */
         protected $setId = 'default';
-
+        /**
+         * @var int
+         */
         protected $pinedCount = 0;
 
+        /**
+         * @param $setId
+         *
+         * @return string
+         * @throws \xd_v141226_dev\exception
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         public function getRandomSetMarkUp($setId)
         {
             $this->init($setId);
@@ -52,29 +68,75 @@ namespace randomizer {
 			return $out;
 		}
 
+        /**
+         * @param $element
+         *
+         * @return string
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function php($element){
             ob_start();
-            eval($element['content']);
+            if(is_numeric(strpos($element['content'],'<?php'))){
+                eval('?>' . $element['content'] . '<?php');
+            } else {
+                eval($element['content']);
+            }
             return ob_get_clean();
         }
 
+        /**
+         * @param $element
+         *
+         * @return mixed
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function html($element){
             return $element['content'];
         }
 
+        /**
+         * @param $element
+         *
+         * @return string
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function javascript($element){
-            return '<script type="text/javascript">' . $element['content'] . '</script>';
+            return '<script type="text/javascript" >' . $element['content'] . '</script>';
         }
 
+        /**
+         * @param $element
+         *
+         * @return mixed
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function text($element){
-            return $element['content'];
+            return esc_html($element['content']);
         }
 
+        /**
+         * @param $element
+         *
+         * @return string
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function markdown($element){
-            // TODO Implement
-            return $element['content'];
+            return $this->©markdown->parse($element['content']);
         }
 
+        /**
+         * @param $setId
+         *
+         * @return bool
+         * @throws \xd_v141226_dev\exception
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function init($setId)
         {
             $this->setId = $setId;
@@ -134,7 +196,11 @@ namespace randomizer {
             return $this->getSliced();
         }
 
-
+        /**
+         * @return array
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function countGetAndRemovePined()
         {
             $a = array();
@@ -155,6 +221,11 @@ namespace randomizer {
             return $a;
         }
 
+        /**
+         * @return $this
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function removeDisabled()
         {
             foreach ($this->randomized as $k => $element) {
@@ -163,6 +234,11 @@ namespace randomizer {
             return $this;
         }
 
+        /**
+         * @return array
+         * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+         * @since TODO ${VERSION}
+         */
         protected function getSliced()
         {
             return array_slice($this->randomized, 0, $this->setOptions['numOfElmsToDspl'] > 0 ? $this->setOptions['numOfElmsToDspl'] : null);
