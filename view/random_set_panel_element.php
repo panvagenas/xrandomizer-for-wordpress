@@ -28,8 +28,8 @@ $elementFieldProps = array(
 	'name_prefix' => $callee->fieldNamePrefix,
 	'classes'     => 'text-area form-control element-text-area',
 	'id'          => 'elements-' . $callee->setIdx . '-' . $index,
-	'rows'        => 5,
-	'attrs'       => 'data-editor="'.$mode.'"'
+	'rows'        => 7,
+	'attrs'       => 'data-editor="' . $mode . '"'
 );
 ?>
 <div id="element-row-<?php echo $callee->slug . '-' . $index; ?>" class="form-group" data-index="<?php echo $index; ?>">
@@ -63,17 +63,18 @@ $elementFieldProps = array(
 				<ul class="dropdown-menu" <?php echo $btnCtrlAttr; ?>>
 					<?php
 					foreach ( $this->©option->elementModes as $k => $v ) {
-						echo '<li data-mode="'.$k.'"><a href="#">'.$v.'</a></li>';
+						echo '<li data-mode="' . $k . '"><a href="#">' . $v . '</a></li>';
 					}
 					?>
 				</ul>
 			</div>
 		</div>
 
-		<div class="row">
-			<?php
-			if ( $index != 0 ) {
-				?>
+
+		<?php
+		if ( $index != 0 ) {
+			?>
+			<div class="row b-margin-sm">
 				<div class="col-sm-6">
 					<button type="button" <?php echo $btnCtrlAttr; ?> style="font-size: 1em;"
 					        class="btn btn-warning element-disable <?php echo $disabledActive; ?>"
@@ -87,11 +88,51 @@ $elementFieldProps = array(
 						<i class="fa fa-trash-o"></i>
 					</button>
 				</div>
-			<?php
-			}
-			?>
-		</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 btn-group">
+					<button <?php echo $btnCtrlAttr; ?>
+						data-toggle="xd-v141226-dev-dropdown"
+						style="font-size: 1em; float: none;"
+						title="Change Method"
+						class="btn btn-primary element-change-method dropdown-toggle"
+						type="button">
+						Change Method <i class="fa fa-caret-down"></i>
+					</button>
+					<ul class="dropdown-menu" <?php echo $btnCtrlAttr; ?>>
+						<?php
+						foreach ( $this->©option->elementModes as $k => $v ) {
+							echo '<li data-mode="' . $k . '"><a href="#">' . $v . '</a></li>';
+						}
+						?>
+					</ul>
+				</div>
+			</div>
 		<?php
+		} else {
+			?>
+			<div class="row">
+				<div class="col-sm-12 btn-group">
+					<button <?php echo $btnCtrlAttr; ?>
+						data-toggle="xd-v141226-dev-dropdown"
+						style="font-size: 1em; float: none;"
+						title="Change Method"
+						class="btn btn-primary element-change-method dropdown-toggle"
+						type="button">
+						Change Method <i class="fa fa-caret-down"></i>
+					</button>
+					<ul class="dropdown-menu" <?php echo $btnCtrlAttr; ?>>
+						<?php
+						foreach ( $this->©option->elementModes as $k => $v ) {
+							echo '<li data-mode="' . $k . '"><a href="#">' . $v . '</a></li>';
+						}
+						?>
+					</ul>
+				</div>
+			</div>
+		<?php
+		}
+
 		echo $callee->menu_page->option_form_fields->markup( $callee->menu_page->option_form_fields->value( $pined ), array(
 			'type'        => 'hidden',
 			'name'        => '[elements][' . $index . '][pined]',

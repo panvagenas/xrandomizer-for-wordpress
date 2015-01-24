@@ -324,6 +324,13 @@
             editor.getSession().on('change', function () {
                 textarea.val(editor.getSession().getValue());
             });
+            var $wrapper = textarea.parent().parent();
+            $wrapper.find('.element-change-method').next().find('li').unbind('click').click(function (e) {
+                e.preventDefault();
+                var mode = $(this).attr('data-mode');
+                $wrapper.find('.text-area-wrapper').attr('data-method', mode);
+                editor.getSession().setMode("ace/mode/" + mode);
+            });
 
             editor.focus();
         },
