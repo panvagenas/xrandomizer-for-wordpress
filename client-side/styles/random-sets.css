@@ -580,3 +580,7 @@
 .text-area-wrapper[data-method="markdown"] .ace_editor {
     background: url("../images/markdown.png") no-repeat scroll right top / contain rgba(0, 0, 0, 0);
 }
+
+.btn.element-change-method{
+    white-space: normal !important;
+}
