@@ -142,7 +142,7 @@ namespace randomizer {
             $this->setId = $setId;
             $this->isDefault = true;
             $sets = $this->©options->get('sets');
-            $set = $sets[0];
+            $set = reset($sets);
             foreach ($sets as $s) {
                 if ($s['id'] === $this->setId) {
                     $set = $s;
@@ -172,10 +172,14 @@ namespace randomizer {
                 $cookieName = 'rzRotateIndex' . $this->setOptions['id'];
                 $cookie = \WP_Session::get_instance();
 
-                $index = isset($cookie[$cookieName]) && !empty($cookie[$cookieName]) ? (int)$cookie[$cookieName] : 0;
+                $index = (isset($cookie[$cookieName]) && !empty($cookie[$cookieName])) ? (int)$cookie[$cookieName] : 0;
 
-                $index %= count($this->setOptions['elements']) - $this->pinedCount;
-
+                $elToRandomize = count($this->setOptions['elements']) - $this->pinedCount;
+                if($elToRandomize){
+                    $index %= $elToRandomize;
+                } else {
+                    $index = 0;
+                }
                 $cookie[$cookieName] = $index + 1;
 
                 while ($index-- > 0) {
