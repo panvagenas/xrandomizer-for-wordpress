@@ -77,7 +77,7 @@ namespace randomizer {
             // The WordPress capability (or role) required to manage plugin options.
             'plugin_name' => 'XRandomizer',
             //
-            'plugin_version' => '140914',
+            'plugin_version' => '150120',
             // The current version of plugin (must be in `YYMMDD` format).
             'plugin_site' => 'http://erp.xdark.eu',
             'plugin_dir' => dirname(dirname(dirname(__FILE__))) // Your plugin directory.
