@@ -49,7 +49,7 @@ namespace randomizer {
          * @return string
          * @throws \xd_v141226_dev\exception
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 140914
          */
         public function getRandomSetMarkUp($setId)
         {
@@ -73,7 +73,7 @@ namespace randomizer {
          *
          * @return string
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 150120
          */
         protected function php($element){
             ob_start();
@@ -90,7 +90,7 @@ namespace randomizer {
          *
          * @return mixed
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 150120
          */
         protected function html($element){
             return $element['content'];
@@ -101,7 +101,7 @@ namespace randomizer {
          *
          * @return string
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 150120
          */
         protected function javascript($element){
             return '<script type="text/javascript">' . $element['content'] . '</script>';
@@ -112,7 +112,7 @@ namespace randomizer {
          *
          * @return mixed
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 150120
          */
         protected function text($element){
             return esc_html($element['content']);
@@ -123,7 +123,7 @@ namespace randomizer {
          *
          * @return string
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 150120
          */
         protected function markdown($element){
             return $this->©markdown->parse($element['content']);
@@ -135,7 +135,7 @@ namespace randomizer {
          * @return bool
          * @throws \xd_v141226_dev\exception
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 140914
          */
         protected function init($setId)
         {
@@ -199,7 +199,7 @@ namespace randomizer {
         /**
          * @return array
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 140914
          */
         protected function countGetAndRemovePined()
         {
@@ -224,7 +224,7 @@ namespace randomizer {
         /**
          * @return $this
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 140914
          */
         protected function removeDisabled()
         {
@@ -237,7 +237,7 @@ namespace randomizer {
         /**
          * @return array
          * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-         * @since TODO ${VERSION}
+         * @since 140914
          */
         protected function getSliced()
         {
