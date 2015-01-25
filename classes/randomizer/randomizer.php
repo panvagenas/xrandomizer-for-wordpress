@@ -104,7 +104,7 @@ namespace randomizer {
          * @since TODO ${VERSION}
          */
         protected function javascript($element){
-            return '<script type="text/javascript" >' . $element['content'] . '</script>';
+            return '<script type="text/javascript">' . $element['content'] . '</script>';
         }
 
         /**
