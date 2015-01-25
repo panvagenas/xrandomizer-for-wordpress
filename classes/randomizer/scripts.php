@@ -76,7 +76,7 @@ namespace randomizer {
                 ),
                 $this->instance->ns_with_dashes . '--menu-pages-ace-language_tools' => array(
                     'deps' => array($this->instance->ns_with_dashes . '--menu-pages-ace'),
-                    'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/ace/ext-language_tools.min.js'),
+                    'url' => $this->©url->to_plugin_dir_file('/client-side/scripts/menu-pages/ace/ext-language_tools.js'),
                     'ver' => $this->instance->plugin_version_with_dashes,
                 ),
 //                $this->instance->ns_with_dashes . '--menu-pages-ace-mode-html' => array(
