@@ -85,7 +85,18 @@ class edd_updater extends framework{
 		}
 	}
 
+	public function ®ajaxActivateLicense($license) {
+		$this->check_arg_types('string', func_get_args());
+
+		$licenseData = $this->activateLicense($license);
+
+		$this->©action->set_call_data_for($this->dynamic_call(__FUNCTION__), get_defined_vars());
+		$this->©ajax->sendJSONResult($licenseData);
+	}
+
 	public function activateLicense($license) {
+		$this->check_arg_types('string', func_get_args());
+
 		$license_data = $this->getLicenseDataFromServer('activate_license', $license);
 		if(is_object($license_data)){
 			if($license_data->license === 'valid'){
@@ -119,6 +130,12 @@ class edd_updater extends framework{
 			$this->setLicenseStatus(0);
 			return false;
 		}
+	}
+
+	public function ®ajaxDeactivateLicense($license){
+		$licenseData = $this->deactivateLicense($license);
+		$this->©action->set_call_data_for($this->dynamic_call(__FUNCTION__), get_defined_vars());
+		$this->©ajax->sendJSONResult($licenseData);
 	}
 
 	public function deactivateLicense($license){
