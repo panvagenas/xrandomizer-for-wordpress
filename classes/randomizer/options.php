@@ -63,7 +63,7 @@ namespace randomizer {
 				'menu_pages.panels.news_kb.feed_url'         => '',
 				'menu_pages.panels.videos.yt_playlist'       => '',
 				'edd.update'                                 => 1,
-				'edd.store_url'                              => 'https://erp.xdark.eu',
+				'edd.store_url'                              => 'http://erp.xdark.eu',
 				'edd_license'                                => 'c9dd5a44f65a1858468cfee50a476183',
 				'sets'                                       => array(
 					array(
