@@ -5,8 +5,8 @@
  * Time: 10:47 PM
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @copyright 9/15/14 XDaRk.eu <xdark.eu@gmail.com>
- * @link http://xdark.eu
+ * @copyright 9/15/14 Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @link -*-
  */
 
 namespace randomizer {
@@ -48,7 +48,7 @@ namespace randomizer {
 		public function setup( $defaults, $validators ) {
 			$randomizerDefaults = array(
 				'encryption.key'                             => 'jkiabOKBNJO89347KJBKJBasfd',
-				'support.url'                                => 'erp.xdark.eu/documentation/get-help/',
+				'support.url'                                => 'example.com',
 				'styles.front_side.theme'                    => 'yeti',
 				'crons.config'                               => array(),
 				'menu_pages.theme'                           => 'yeti',

@@ -5,8 +5,8 @@
  * Time: 10:43 PM
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @copyright 9/14/14 XDaRk.eu <xdark.eu@gmail.com>
- * @link http://xdark.eu
+ * @copyright Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @link -*-
  */
 
 
@@ -68,7 +68,7 @@ namespace randomizer {
 			//
 			'plugin_version' => '150120',
 			// The current version of plugin (must be in `YYMMDD` format).
-			'plugin_site'    => 'http://erp.xdark.eu',
+			'plugin_site'    => 'http://example.com',
 			'plugin_dir'     => dirname( dirname( dirname( __FILE__ ) ) ) // Your plugin directory.
 		)
 	);

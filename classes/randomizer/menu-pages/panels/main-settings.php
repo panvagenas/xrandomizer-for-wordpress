@@ -5,8 +5,8 @@
  * Time: 11:30 PM
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @copyright 9/15/14 XDaRk.eu <xdark.eu@gmail.com>
- * @link http://xdark.eu
+ * @copyright 9/15/14 Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @link -*-
  */
 
 namespace randomizer\menu_pages\panels {

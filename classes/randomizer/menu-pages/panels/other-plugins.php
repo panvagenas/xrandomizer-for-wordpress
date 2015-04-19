@@ -5,11 +5,11 @@
  * Time: 11:11 PM
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @copyright 9/14/14 XDaRk.eu <xdark.eu@gmail.com>
- * @link http://xdark.eu
+ * @copyright Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @link -*-
  */
 
-// TODO Set other plugins
+// For future use
 
 namespace randomizer\menu_pages\panels {
 	use xd_v141226_dev\menu_pages\panels\panel;
@@ -38,7 +38,7 @@ namespace randomizer\menu_pages\panels {
 		public function __construct( $instance, $menu_page ) {
 			parent::__construct( $instance, $menu_page );
 
-			$this->heading_title = $this->__( 'Other Plugins From XDaRk.eu' );
+			$this->heading_title = $this->__( 'Other Plugins From Panagiotis Vagenas' );
 
 			$this->content_body =
 				'';

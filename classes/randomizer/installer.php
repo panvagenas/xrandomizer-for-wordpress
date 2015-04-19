@@ -6,8 +6,8 @@
  * Time: 11:33 PM
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @copyright 9/11/14 XDaRk.eu <xdark.eu@gmail.com>
- * @link http://xdark.eu
+ * @copyright 9/11/14 Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @link -*-
  */
 
 namespace randomizer;
