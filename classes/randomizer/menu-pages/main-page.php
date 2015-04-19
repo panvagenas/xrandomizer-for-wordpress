@@ -1,7 +1,6 @@
 <?php
 /**
  * Menu Page.
- *
  * Copyright: © 2012 (coded in the USA)
  * {@link http://www.websharks-inc.com WebSharks™}
  *
@@ -20,11 +19,10 @@ namespace randomizer\menu_pages {
 	 *
 	 * @package WebSharks\Core
 	 * @since 140914
-	 *
 	 * @assert ($GLOBALS[__NAMESPACE__])
 	 */
-	class main_page extends menu_page{
-		public $updates_options = TRUE;
+	class main_page extends menu_page {
+		public $updates_options = true;
 
 		/**
 		 * Constructor.
@@ -44,7 +42,7 @@ namespace randomizer\menu_pages {
 		 * Displays HTML markup producing content panels for this menu page.
 		 */
 		public function display_content_panels() {
-			$this->add_content_panel( $this->©menu_pages__panels__main_settings( $this ), TRUE );
+			$this->add_content_panel( $this->©menu_pages__panels__main_settings( $this ), true );
 
 			$this->display_content_panels_in_order();
 		}
@@ -61,7 +59,7 @@ namespace randomizer\menu_pages {
 
 		/**
 		 * Displays HTML markup for notices, for this menu page.
-		 *
+
 		 */
 		public function display_notices() {
 		}

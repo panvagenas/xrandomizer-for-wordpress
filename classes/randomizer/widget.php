@@ -3,6 +3,7 @@
  * User: vagenas
  * Date: 9/11/14
  * Time: 10:20 PM
+ *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @copyright 9/11/14 XDaRk.eu <xdark.eu@gmail.com>
  * @link http://xdark.eu
@@ -10,11 +11,11 @@
 
 namespace randomizer {
 
-	if(!defined('WPINC'))
-		exit('Do NOT access this file directly: '.basename(__FILE__));
+	if ( ! defined( 'WPINC' ) ) {
+		exit( 'Do NOT access this file directly: ' . basename( __FILE__ ) );
+	}
 
 	/**
-	 *
 	 * @package randomizer
 	 * @author pan.vagenas <pan.vagenas@gmail.com>
 	 */
@@ -45,6 +46,7 @@ namespace randomizer {
 
 		/**
 		 * Plugin framework
+		 *
 		 * @var framework
 		 */
 		protected $framework;
@@ -82,11 +84,11 @@ namespace randomizer {
 		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 		 */
 		public function widget( $args, $instance ) {
-			$instance = (array)$instance + (array)$this->framework->©options->get('widget', true);
+			$instance = (array) $instance + (array) $this->framework->©options->get( 'widget', true );
 
 			echo $args ['before_widget'];
 			echo $args ['before_title'] . $instance ['name'] . $args ['after_title'];
-			echo $this->framework->©randomizer->getRandomSetMarkUp($instance['set']);
+			echo $this->framework->©randomizer->getRandomSetMarkUp( $instance['set'] );
 			echo $args ['after_widget'];
 		}
 
@@ -104,15 +106,21 @@ namespace randomizer {
 		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 		 */
 		public function form( $instance ) {
-			$instance = (array)$instance + (array)$this->framework->©options->get('widget', true);
+			$instance = (array) $instance + (array) $this->framework->©options->get( 'widget', true );
 			?>
-			<input type="text" value="<?php echo $instance['name']; ?>" name="<?php echo $this->get_field_name('name'); ?>" id="<?php echo $this->get_field_id('name'); ?>">
-			<select name="<?php echo $this->get_field_name('set'); ?>" id="<?php echo $this->get_field_id('name'); ?>">
+			<input type="text" value="<?php echo $instance['name']; ?>"
+			       name="<?php echo $this->get_field_name( 'name' ); ?>"
+			       id="<?php echo $this->get_field_id( 'name' ); ?>">
+			<select name="<?php echo $this->get_field_name( 'set' ); ?>"
+			        id="<?php echo $this->get_field_id( 'name' ); ?>">
 				<?php
-				foreach($this->framework->©options->get('sets') as $set){
-					if($set['name'] == 'Default') continue;
+				foreach ( $this->framework->©options->get( 'sets' ) as $set ) {
+					if ( $set['name'] == 'Default' ) {
+						continue;
+					}
 					?>
-					<option value="<?php echo $set['id']; ?>" <?php selected($instance['set'],$set['id']); ?>><?php echo $set['name']; ?></option>
+					<option
+						value="<?php echo $set['id']; ?>" <?php selected( $instance['set'], $set['id'] ); ?>><?php echo $set['name']; ?></option>
 				<?php
 				}
 				?>
@@ -135,10 +143,10 @@ namespace randomizer {
 		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 		 */
 		public function update( $newInstance, $oldInstance ) {
-			$oldInstance = (array)$oldInstance + (array)$this->framework->©options->get('widget', true);
+			$oldInstance = (array) $oldInstance + (array) $this->framework->©options->get( 'widget', true );
 
-			$newInstance['name'] = isset($newInstance['name']) ? wp_strip_all_tags((string)$newInstance['name']) : $oldInstance['name'];
-			$newInstance['set'] = isset($newInstance['set']) ? $this->framework->©string->with_underscores($newInstance['set']) : $oldInstance['set'];
+			$newInstance['name'] = isset( $newInstance['name'] ) ? wp_strip_all_tags( (string) $newInstance['name'] ) : $oldInstance['name'];
+			$newInstance['set']  = isset( $newInstance['set'] ) ? $this->framework->©string->with_underscores( $newInstance['set'] ) : $oldInstance['set'];
 
 			return $newInstance;
 		}

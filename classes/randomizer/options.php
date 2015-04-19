@@ -3,6 +3,7 @@
  * User: vagenas
  * Date: 9/15/14
  * Time: 10:47 PM
+ *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @copyright 9/15/14 XDaRk.eu <xdark.eu@gmail.com>
  * @link http://xdark.eu
@@ -18,18 +19,17 @@ namespace randomizer {
 	}
 
 	/**
-	 *
 	 * @package randomizer
 	 * @author pan.vagenas <pan.vagenas@gmail.com>
 	 */
 	class options extends \xd_v141226_dev\options {
 
 		public $elementModes = array(
-			'html' => 'HTML',
-			'php' => 'PHP',
-			'markdown' => 'Markdown',
+			'html'       => 'HTML',
+			'php'        => 'PHP',
+			'markdown'   => 'Markdown',
 			'javascript' => 'Javascript',
-			'text' => 'Text',
+			'text'       => 'Text',
 		);
 
 		/**
@@ -42,7 +42,6 @@ namespace randomizer {
 		 * @param array $validators An array of validators (can be a combination of numeric/associative keys).
 		 *
 		 * @return array The current array of options.
-		 *
 		 * @throws exception If invalid types are passed through arguments list.
 		 * @throws exception If `count($defaults) !== count($validators)`.
 		 */
@@ -62,9 +61,6 @@ namespace randomizer {
 				'menu_pages.panels.community_forum.feed_url' => '',
 				'menu_pages.panels.news_kb.feed_url'         => '',
 				'menu_pages.panels.videos.yt_playlist'       => '',
-				'edd.update'                                 => 1,
-				'edd.store_url'                              => 'http://erp.xdark.eu',
-				'edd_license'                                => 'c9dd5a44f65a1858468cfee50a476183',
 				'sets'                                       => array(
 					array(
 						'name'            => 'Default',
@@ -144,7 +140,7 @@ namespace randomizer {
 					continue;
 				}
 				if ( $set['name'] == 'Default' ) {
-					$set['name'] .= '_' . uniqid();
+					$newOptions[ $key ]['name'] .= '_' . $key;
 				}
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {
@@ -154,7 +150,7 @@ namespace randomizer {
 					} else {
 						$newOptions[ $key ]["elements"][ $k ]['pined']    = isset( $newOptions[ $key ]["elements"][ $k ]['pined'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['pined'];
 						$newOptions[ $key ]["elements"][ $k ]['disabled'] = isset( $newOptions[ $key ]["elements"][ $k ]['disabled'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['disabled'];
-						$newOptions[ $key ]["elements"][ $k ]['mode'] = isset( $newOptions[ $key ]["elements"][ $k ]['mode'] ) && in_array($newOptions[ $key ]["elements"][ $k ]['mode'], array_keys($this->elementModes)) ? $newOptions[ $key ]["elements"][ $k ]['mode'] : 'html';
+						$newOptions[ $key ]["elements"][ $k ]['mode']     = isset( $newOptions[ $key ]["elements"][ $k ]['mode'] ) && in_array( $newOptions[ $key ]["elements"][ $k ]['mode'], array_keys( $this->elementModes ) ) ? $newOptions[ $key ]["elements"][ $k ]['mode'] : 'html';
 					}
 				}
 				if ( $allEmpty ) {

@@ -20,11 +20,10 @@ namespace randomizer\menu_pages {
 	 *
 	 * @package randomizer\menu_pages
 	 * @since 140914
-	 *
 	 * @assert ($GLOBALS[__NAMESPACE__])
 	 */
-	class random_sets extends menu_page{
-		public $updates_options = TRUE;
+	class random_sets extends menu_page {
+		public $updates_options = true;
 
 		/**
 		 * Constructor.
@@ -44,9 +43,9 @@ namespace randomizer\menu_pages {
 		 * Displays HTML markup producing content panels for this menu page.
 		 */
 		public function display_content_panels() {
-            foreach($this->©options->get('sets') as $k => $v){
-                $this->add_content_panel( $this->©menu_pages__panels__random_set( $this, $k, $v ), TRUE );
-            }
+			foreach ( $this->©options->get( 'sets' ) as $k => $v ) {
+				$this->add_content_panel( $this->©menu_pages__panels__random_set( $this, $k, $v ), true );
+			}
 
 			$this->display_content_panels_in_order();
 		}
@@ -63,7 +62,7 @@ namespace randomizer\menu_pages {
 
 		/**
 		 * Displays HTML markup for notices, for this menu page.
-		 *
+
 		 */
 		public function display_notices() {
 		}
