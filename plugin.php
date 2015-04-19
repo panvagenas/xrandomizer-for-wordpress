@@ -25,7 +25,7 @@ Tested up to PHP version: 5.5.12
 
 Copyright: © 2014 XDaRk.eu
 License: GNU General Public License V3 or later
-Contributors: XDaRk.eu
+Contributors: pan.vagenas
 
 Author: Panagiotis Vagenas <pan.vagenas@gmail.com>
 Author URI: http://erp.xdark.eu
@@ -37,8 +37,14 @@ Plugin Name: XRandomizer
 Plugin URI: http://erp.xdark.eu
 
 Description: Display content through a widget or shortcode
+
 Kudos: WebSharks™ http://www.websharks-inc.com
-Tags: ad,ad rotators,ads,advert,advertise,advertisement,advertiser,advertising,advert manager,adverts,banner,banner manager,commercial,content,custom ads,custom banners,custom rotating banners,export,image ads,image widget,plugin,random,random banners,random rotating banners,rotate,rotating banners,rotator,sidebar,widget,widget ads
+
+Tags:   ad,ad rotators,ads,advert,advertise,advertisement,advertiser,advertising,advert manager,adverts,banner,
+		banner manager,commercial,content,custom ads,custom banners,custom rotating banners,export,image ads,
+		image widget,plugin,random,random banners,random rotating banners,rotate,rotating banners,rotator,sidebar,
+		widget,widget ads
+
 -- end section for WordPress®. --------------------------------------------------------------------------------------------------------- */
 
 namespace randomizer {
