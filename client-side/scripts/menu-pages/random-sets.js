@@ -115,7 +115,7 @@
 
             var el = new RandomElement(index, elemSet, elemSetId);
             el.oldElement.$wrapper.slideUp('fast', function () {
-                $(this).remove()
+                $(this).remove();
             });
         });
 

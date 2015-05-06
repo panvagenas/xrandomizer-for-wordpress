@@ -19,22 +19,30 @@ if ( ! defined( 'WPINC' ) ) {
 /* @var bool $disabled */
 /* @var string $mode */
 
-$elementFieldProps = array(
-	'required'    => ! $callee->isDefault,
-	'type'        => 'textarea',
-	'name'        => '[elements][' . $index . '][content]',
-	'title'       => $this->__( 'Add some text or HTML markup to this element' ),
-	'placeholder' => $this->__( 'Add some text or HTML markup to this element' ),
-	'name_prefix' => $callee->fieldNamePrefix,
-	'classes'     => 'text-area form-control element-text-area',
-	'id'          => 'elements-' . $callee->setIdx . '-' . $index,
-	'rows'        => 7,
-	'attrs'       => 'data-editor="' . $mode . '"'
-);
 ?>
 <div id="element-row-<?php echo $callee->slug . '-' . $index; ?>" class="form-group" data-index="<?php echo $index; ?>">
 	<div class="col-sm-10 text-area-wrapper" data-method="<?php echo $mode; ?>">
-		<?php echo $callee->menu_page->option_form_fields->markup( $callee->menu_page->option_form_fields->value( $content ), $elementFieldProps ); ?>
+		<?php
+		if(in_array($mode, array('banner', 'post_category', 'post_type'), true)){
+			$type = 'hidden';
+			$scValues = $this->©shortcodes__shortcode->getAttsValues($content);
+		} else {
+			$type = 'textarea';
+		}
+		$elementFieldProps = array(
+			'required'    => ! $callee->isDefault,
+			'type'        => $type,
+			'name'        => '[elements][' . $index . '][content]',
+			'title'       => $this->__( 'Add some text or HTML markup to this element' ),
+			'placeholder' => $this->__( 'Add some text or HTML markup to this element' ),
+			'name_prefix' => $callee->fieldNamePrefix,
+			'classes'     => 'text-area form-control element-text-area',
+			'id'          => 'elements-' . $callee->setIdx . '-' . $index,
+			'rows'        => 7,
+			'attrs'       => 'data-editor="' . $mode . '"'
+		);
+		echo $callee->menu_page->option_form_fields->markup( $callee->menu_page->option_form_fields->value( $content ), $elementFieldProps );
+		?>
 	</div>
 	<?php
 	$btnCtrlAttr = ' data-setid="' . $callee->setIdx . '" data-set="' . $callee->slug . '" data-index="' . $index . '" ';

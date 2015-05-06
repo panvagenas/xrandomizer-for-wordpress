@@ -30,6 +30,7 @@ namespace randomizer {
 			'markdown'   => 'Markdown',
 			'javascript' => 'Javascript',
 			'text'       => 'Text',
+			'banner'     => 'Banner'
 		);
 
 		/**
