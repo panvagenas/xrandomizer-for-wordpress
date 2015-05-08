@@ -696,9 +696,9 @@ namespace xd_v141226_dev
 			$user = $this->©user_utils->which($user);
 
 			$default_args = array( // Defaults.
-				'enforce_required_fields'  => TRUE,
-				'validate_readonly_fields' => TRUE,
-				'validate_disabled_fields' => FALSE
+			                       'enforce_required_fields'  => TRUE,
+			                       'validate_readonly_fields' => TRUE,
+			                       'validate_disabled_fields' => FALSE
 			); // All of these arguments are optional at all times.
 			$args         = $this->check_extension_arg_types('boolean', 'boolean', 'boolean', $default_args, $args);
 			$md5          = md5(serialize($field_values).serialize($fields).serialize($user).serialize($args));
@@ -738,17 +738,17 @@ namespace xd_v141226_dev
 							}
 							if(isset($_validation_abs_minimum) && (!is_array($_value) || count($_value) < $_validation_abs_minimum))
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									sprintf($this->_x('Please select at least %1$s options.'), $_validation_abs_minimum));
+								             sprintf($this->_x('Please select at least %1$s options.'), $_validation_abs_minimum));
 
 							else if(!is_array($_value) || count($_value) < 1)
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									$this->_x('Please select at least 1 option.'));
+								             $this->_x('Please select at least 1 option.'));
 
 							unset($_validation_pattern, $_validation_abs_minimum); // A bit of housekeeping here.
 						}
 						else if(!is_string($_value) || !isset($_value[0])) // Must have at least one char in the string.
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('This is a required field.'));
+							             $this->_x('This is a required field.'));
 
 						break; // Break switch handler.
 
@@ -765,17 +765,17 @@ namespace xd_v141226_dev
 							}
 							if(isset($_validation_abs_minimum) && (!is_array($_value) || count($_value) < $_validation_abs_minimum))
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									sprintf($this->_x('Please select at least %1$s files.'), $_validation_abs_minimum));
+								             sprintf($this->_x('Please select at least %1$s files.'), $_validation_abs_minimum));
 
 							else if(!is_array($_value) || count($_value) < 1)
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									$this->_x('Please select at least one file.'));
+								             $this->_x('Please select at least one file.'));
 
 							unset($_validation_pattern, $_validation_abs_minimum); // A bit of housekeeping here.
 						}
 						else if(!is_string($_value) || !isset($_value[0])) // Must have at least one char in the string.
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('A file MUST be selected please.'));
+							             $this->_x('A file MUST be selected please.'));
 
 						break; // Break switch handler.
 
@@ -784,7 +784,7 @@ namespace xd_v141226_dev
 
 						if(!is_string($_value) || !isset($_value[0])) // Must have at least one char in the string.
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Please choose one of the available options.'));
+							             $this->_x('Please choose one of the available options.'));
 
 						break; // Break switch handler.
 
@@ -792,7 +792,7 @@ namespace xd_v141226_dev
 
 						if(!is_string($_value) || !isset($_value[0])) // Must have at least one char in the string.
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('This box MUST be checked please.'));
+							             $this->_x('This box MUST be checked please.'));
 
 						break; // Break switch handler.
 
@@ -807,11 +807,11 @@ namespace xd_v141226_dev
 						}
 						if(isset($_validation_abs_minimum) && (!is_array($_value) || count($_value) < $_validation_abs_minimum))
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								sprintf($this->_x('Please check at least %1$s boxes.'), $_validation_abs_minimum));
+							             sprintf($this->_x('Please check at least %1$s boxes.'), $_validation_abs_minimum));
 
 						else if(!is_array($_value) || count($_value) < 1)
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Please check at least one box.'));
+							             $this->_x('Please check at least one box.'));
 
 						unset($_validation_pattern, $_validation_abs_minimum); // A bit of housekeeping here.
 
@@ -821,7 +821,7 @@ namespace xd_v141226_dev
 
 						if(!is_string($_value) || !isset($_value[0])) // Must have at least one char in the string.
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('This is a required field.'));
+							             $this->_x('This is a required field.'));
 
 						break; // Break switch handler.
 				}
@@ -852,13 +852,13 @@ namespace xd_v141226_dev
 				if(isset($_value) && ($_field['multiple'] || $_field['type'] === 'checkboxes') && !is_array($_value))
 				{
 					$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-						$this->_x('Invalid data type. Expecting an array.'));
+					             $this->_x('Invalid data type. Expecting an array.'));
 					continue; // We CANNOT validate this any further.
 				}
 				if(isset($_value) && !$_field['multiple'] && $_field['type'] !== 'checkboxes' && !is_string($_value))
 				{
 					$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-						$this->_x('Invalid data type. Expecting a string.'));
+					             $this->_x('Invalid data type. Expecting a string.'));
 					continue; // We CANNOT validate this any further.
 				}
 				// Catch readonly/disabled fields.
@@ -869,7 +869,7 @@ namespace xd_v141226_dev
 				if(isset($_value) && $_field['disabled']) // This should NOT happen (but just in case).
 				{
 					$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-						$this->_x('Invalid data. Disabled fields should NOT be submitted w/ a value.'));
+					             $this->_x('Invalid data. Disabled fields should NOT be submitted w/ a value.'));
 					continue; // We CANNOT validate this any further.
 				}
 				// Catch field types that we NEVER validate any further.
@@ -887,7 +887,7 @@ namespace xd_v141226_dev
 				{
 					if(!$errors->get_code($this->method(__FUNCTION__).'#'.$_field['code'])) // Avoid duplicate errors.
 						$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-							$this->_x('This is a required field.'));
+						             $this->_x('This is a required field.'));
 					continue; // We CANNOT validate this any further.
 				}
 				// Handle validation patterns now. This is an extremely complex routine.
@@ -909,22 +909,22 @@ namespace xd_v141226_dev
 								{
 									if(!is_array($_value)) // Invalid data type?
 										$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-											array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-											$_validation_description_prefix.' '.$_validation_pattern['description']);
+										             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+										             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 									else foreach($_value as $__key => $__value) if(!is_string($__value) || !preg_match($_validation_pattern['regex'], $__value))
 									{
 										$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-											array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-											$_validation_description_prefix.' '.$_validation_pattern['description']);
+										             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+										             $_validation_description_prefix.' '.$_validation_pattern['description']);
 										break; // No need to check any further.
 									}
 									unset($__key, $__value); // Housekeeping.
 								}
 								else if(!is_string($_value) || !preg_match($_validation_pattern['regex'], $_value))
 									$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-										array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-										$_validation_description_prefix.' '.$_validation_pattern['description']);
+									             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+									             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 								break; // Break switch handler.
 
@@ -934,8 +934,8 @@ namespace xd_v141226_dev
 								{
 									if(!is_string($_value) || !preg_match($_validation_pattern['regex'], $_value))
 										$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-											array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-											$_validation_description_prefix.' '.$_validation_pattern['description']);
+										             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+										             $_validation_description_prefix.' '.$_validation_pattern['description']);
 								}
 								break; // Break switch handler.
 						}
@@ -955,18 +955,18 @@ namespace xd_v141226_dev
 											{
 												if(!is_string($_value)) // Invalid data type?
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if(isset($_validation_pattern['minimum']) && (!is_numeric($_value) || $_value < $_validation_pattern['minimum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if(isset($_validation_pattern['maximum']) && (!is_numeric($_value) || $_value > $_validation_pattern['maximum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 											}
 											break; // Break switch handler.
 									}
@@ -982,8 +982,8 @@ namespace xd_v141226_dev
 											{
 												if(!is_array($_value)) // Invalid data type?
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if($_file_info) // We need to collect the total file size and then run validation against that value.
 												{
@@ -992,8 +992,8 @@ namespace xd_v141226_dev
 													foreach($_value as $__key => $__value) if(!is_string($__value) || !isset($_file_info[$__key]))
 													{
 														$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-															array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-															$_validation_description_prefix.' '.$_validation_pattern['description']);
+														             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+														             $_validation_description_prefix.' '.$_validation_pattern['description']);
 														break; // No need to check any further.
 													}
 													else $__size += $_file_info[$__key]['size']; // Of all files.
@@ -1003,13 +1003,13 @@ namespace xd_v141226_dev
 													)
 														if(isset($_validation_pattern['minimum']) && (!is_numeric($__size) || $__size < $_validation_pattern['minimum']))
 															$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-																array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-																$_validation_description_prefix.' '.$_validation_pattern['description']);
+															             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+															             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 														else if(isset($_validation_pattern['maximum']) && (!is_numeric($__size) || $__size > $_validation_pattern['maximum']))
 															$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-																array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-																$_validation_description_prefix.' '.$_validation_pattern['description']);
+															             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+															             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 													unset($__size, $__key, $__value); // Housekeeping.
 												}
@@ -1018,18 +1018,18 @@ namespace xd_v141226_dev
 											{
 												if(!is_string($_value)) // Invalid data type?
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if($_file_info && isset($_validation_pattern['minimum']) && (!is_numeric($_file_info['size']) || $_file_info['size'] < $_validation_pattern['minimum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if($_file_info && isset($_validation_pattern['maximum']) && (!is_numeric($_file_info['size']) || $_file_info['size'] > $_validation_pattern['maximum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 											}
 											break; // Break switch handler.
 									}
@@ -1045,18 +1045,18 @@ namespace xd_v141226_dev
 											{
 												if(!is_string($_value)) // Invalid data type?
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if(isset($_validation_pattern['minimum']) && (!is_string($_value) || strlen($_value) < $_validation_pattern['minimum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if(isset($_validation_pattern['maximum']) && (!is_string($_value) || strlen($_value) > $_validation_pattern['maximum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 											}
 											break; // Break switch handler.
 									}
@@ -1074,18 +1074,18 @@ namespace xd_v141226_dev
 											{
 												if(!is_array($_value)) // Invalid data type?
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if(isset($_validation_pattern['minimum']) && (!is_array($_value) || count($_value) < $_validation_pattern['minimum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 
 												else if(isset($_validation_pattern['maximum']) && (!is_array($_value) || count($_value) > $_validation_pattern['maximum']))
 													$errors->add($this->method(__FUNCTION__).'#vp_'.$_field['code'],
-														array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
-														$_validation_description_prefix.' '.$_validation_pattern['description']);
+													             array('form_field_code' => $_field['code'], 'validation_pattern_name' => $_validation_pattern['name']),
+													             $_validation_description_prefix.' '.$_validation_pattern['description']);
 											}
 											break; // Break switch handler.
 									}
@@ -1108,13 +1108,13 @@ namespace xd_v141226_dev
 								if(!is_string($_value)) // Invalid data type?
 								{
 									$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-										$this->_x('Invalid data type. Expecting a string.'));
+									             $this->_x('Invalid data type. Expecting a string.'));
 									continue 2; // We CANNOT validate this any further.
 								}
 								else if(strlen($_value) > $_field['maxlength'])
 								{
 									$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-										sprintf($this->_x('Too long. Max string length: `%1$s` characters.'), $_field['maxlength']));
+									             sprintf($this->_x('Too long. Max string length: `%1$s` characters.'), $_field['maxlength']));
 									continue 2; // We CANNOT validate this any further.
 								}
 							}
@@ -1130,19 +1130,19 @@ namespace xd_v141226_dev
 								if(!is_string($_value)) // Invalid data type?
 								{
 									$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-										$this->_x('Invalid data type. Expecting a string.'));
+									             $this->_x('Invalid data type. Expecting a string.'));
 									continue 2; // We CANNOT validate this any further.
 								}
 								else if(!$_field['unique_callback_php'] || !is_callable($_field['unique_callback_php']))
 								{
 									$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-										$this->_x('Unable to validate. Invalid unique callback.'));
+									             $this->_x('Unable to validate. Invalid unique callback.'));
 									continue 2; // We CANNOT validate this any further.
 								}
 								else if(!$_field['unique_callback_php']($_value, $user))
 								{
 									$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-										$this->_x('Please try again (this value MUST be unique please).'));
+									             $this->_x('Please try again (this value MUST be unique please).'));
 									continue 2; // We CANNOT validate this any further.
 								}
 							}
@@ -1157,14 +1157,14 @@ namespace xd_v141226_dev
 						if(!is_array($_value)) // Invalid data type?
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Invalid data type. Expecting an array.'));
+							             $this->_x('Invalid data type. Expecting an array.'));
 							continue; // We CANNOT validate this any further.
 						}
 						else foreach($_value as $__key => $__value)
 							if(!is_string($__value) || !isset($_file_info[$__key]) || $_file_info[$__key]['error'] !== UPLOAD_ERR_OK)
 							{
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									$this->_x('File upload failure.').' '.$this->©string->file_upload_error($_file_info[$__key]['error']));
+								             $this->_x('File upload failure.').' '.$this->©string->file_upload_error($_file_info[$__key]['error']));
 								continue 2; // We CANNOT validate this any further.
 							}
 						unset($__key, $__value); // Housekeeping.
@@ -1174,13 +1174,13 @@ namespace xd_v141226_dev
 						if(!is_string($_value)) // Invalid data type?
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Invalid data type. Expecting a string.'));
+							             $this->_x('Invalid data type. Expecting a string.'));
 							continue; // We CANNOT validate this any further.
 						}
 						else if($_file_info['error'] !== UPLOAD_ERR_OK)
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('File upload failure.').' '.$this->©string->file_upload_error($_file_info['error']));
+							             $this->_x('File upload failure.').' '.$this->©string->file_upload_error($_file_info['error']));
 							continue; // We CANNOT validate this any further.
 						}
 					}
@@ -1197,7 +1197,7 @@ namespace xd_v141226_dev
 						if(!is_array($_value)) // Invalid data type?
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Invalid data type. Expecting an array.'));
+							             $this->_x('Invalid data type. Expecting an array.'));
 							continue; // We CANNOT validate this any further.
 						}
 						else foreach($_value as $__key => $__value)
@@ -1208,7 +1208,7 @@ namespace xd_v141226_dev
 							) // Check MIME type from browser; and also MIME type as determined by the file extension.
 							{
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									sprintf($this->_x('Invalid MIME type. Expecting: `%1$s`.'), $_field['accept']));
+								             sprintf($this->_x('Invalid MIME type. Expecting: `%1$s`.'), $_field['accept']));
 								continue 2; // We CANNOT validate this any further.
 							}
 						unset($__key, $__value, $__extension); // Housekeeping.
@@ -1218,7 +1218,7 @@ namespace xd_v141226_dev
 						if(!is_string($_value)) // Invalid data type?
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Invalid data type. Expecting a string.'));
+							             $this->_x('Invalid data type. Expecting a string.'));
 							continue; // We CANNOT validate this any further.
 						}
 						else if(!$this->©string->in_wildcard_patterns($_file_info['type'], $_wildcard_patterns, TRUE)
@@ -1227,7 +1227,7 @@ namespace xd_v141226_dev
 						) // Check MIME type from browser; and also MIME type as determined by the file extension.
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								sprintf($this->_x('Invalid MIME type. Expecting: `%1$s`.'), $_field['accept']));
+							             sprintf($this->_x('Invalid MIME type. Expecting: `%1$s`.'), $_field['accept']));
 							continue; // We CANNOT validate this any further.
 						}
 						unset($__extension); // Housekeeping.
@@ -1255,8 +1255,8 @@ namespace xd_v141226_dev
 						if(!is_dir($_field['move_to_dir']) || !is_writable($_field['move_to_dir']))
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Unable to handle file upload(s). Unable to move uploaded file(s).').
-								' '.sprintf($this->_x('Move-to directory NOT writable: `%1$s`.'), $_field['move_to_dir']));
+							             $this->_x('Unable to handle file upload(s). Unable to move uploaded file(s).').
+							             ' '.sprintf($this->_x('Move-to directory NOT writable: `%1$s`.'), $_field['move_to_dir']));
 							continue; // We CANNOT validate this any further.
 						}
 					} // If we get here, the directory exists.
@@ -1266,7 +1266,7 @@ namespace xd_v141226_dev
 						if(!is_array($_value)) // Invalid data type?
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Invalid data type. Expecting an array.'));
+							             $this->_x('Invalid data type. Expecting an array.'));
 							continue; // We CANNOT validate this any further.
 						}
 						else foreach($_value as $__key => $__value)
@@ -1277,7 +1277,7 @@ namespace xd_v141226_dev
 							) // File `name` value is always unique. See {@link vars::_merge_FILES_deeply_into()}.
 							{
 								$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-									sprintf($this->_x('Unable to handle file upload. Unable to move to: `%1$s`.'), $_field['move_to_dir']));
+								             sprintf($this->_x('Unable to handle file upload. Unable to move to: `%1$s`.'), $_field['move_to_dir']));
 								continue 2; // We CANNOT validate this any further.
 							}
 							else $this->static[__FUNCTION__.'_moved_tmp_name_to'][$_file_info[$__key]['tmp_name']] = $_field['move_to_dir'];
@@ -1289,7 +1289,7 @@ namespace xd_v141226_dev
 						if(!is_string($_value)) // Invalid data type?
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								$this->_x('Invalid data type. Expecting a string.'));
+							             $this->_x('Invalid data type. Expecting a string.'));
 							continue; // We CANNOT validate this any further.
 						}
 						else if(!$_file_info['tmp_name'] || !$_file_info['name']
@@ -1298,7 +1298,7 @@ namespace xd_v141226_dev
 						) // File `name` value is always unique. See {@link vars::_merge_FILES_deeply_into()}.
 						{
 							$errors->add($this->method(__FUNCTION__).'#'.$_field['code'], array('form_field_code' => $_field['code']),
-								sprintf($this->_x('Unable to handle file upload. Unable to move to: `%1$s`.'), $_field['move_to_dir']));
+							             sprintf($this->_x('Unable to handle file upload. Unable to move to: `%1$s`.'), $_field['move_to_dir']));
 							continue; // We CANNOT validate this any further.
 						}
 						else $this->static[__FUNCTION__.'_moved_tmp_name_to'][$_file_info['tmp_name']] = $_field['move_to_dir'];
