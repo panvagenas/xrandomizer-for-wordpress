@@ -149,5 +149,6 @@ if ( ! $callee->isDefault ) {
 }
 ?>
 <script type="text/javascript">
+	// todo if we need it
 	var elementModes = <?php echo $this->©var->to_js($this->©option->elementModes); ?>
 </script>

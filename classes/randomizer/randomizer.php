@@ -130,6 +130,29 @@ namespace randomizer {
 		}
 
 		/**
+		 * @param $element
+		 *
+		 * @return string
+		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+		 * @since TODO ${VERSION}
+		 */
+		protected function banner( $element ) {
+			$con = '';
+			if ( isset( $element['content']['link'] ) && ! empty( $element['content']['link'] ) ) {
+				$con = '<a href="' . $element['content']['link'] . '"';
+				if ( isset( $element['content']['target'] ) && ! $element['content']['target'] ) {
+					$con .= ' target="_blank"';
+				}
+				$con .= '>';
+			}
+			$con .= '<img src="' . $element['content']['image'] . '" style="max-width:100%;">';
+			if ( isset( $element['content']['link'] ) && ! empty( $element['content']['link'] ) ) {
+				$con .= '</a>';
+			}
+			return $con;
+		}
+
+		/**
 		 * @param $setId
 		 *
 		 * @return bool

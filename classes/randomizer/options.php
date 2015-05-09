@@ -33,6 +33,14 @@ namespace randomizer {
 			'banner'     => 'Banner'
 		);
 
+		public $elementCodeModes = array(
+			'html'       => 'HTML',
+			'php'        => 'PHP',
+			'markdown'   => 'Markdown',
+			'javascript' => 'Javascript',
+			'text'       => 'Text',
+		);
+
 		/**
 		 * Sets up default options and validators.
 		 *
@@ -146,7 +154,9 @@ namespace randomizer {
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {
 					$allEmpty &= empty( $element['content'] );
-					if ( empty( $element['content'] ) ) {
+					if ( empty( $element['content'] )
+						|| ($newOptions[ $key ]["elements"][ $k ]['mode'] === 'banner' && empty($newOptions[ $key ]["elements"][ $k ]['content']['image']))
+					) {
 						unset( $newOptions[ $key ]["elements"][ $k ] );
 					} else {
 						$newOptions[ $key ]["elements"][ $k ]['pined']    = isset( $newOptions[ $key ]["elements"][ $k ]['pined'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['pined'];

@@ -1,12 +1,11 @@
-/**
+/*!
  * Menu Pages Extension
  *
- * Copyright: © 2012 (coded in the USA)
- * {@link http://www.websharks-inc.com XDaRk}
+ * Copyright: © 2014 <pan.vagenas@gmail.com>
  *
- * @author JasWSInc
+ * @author Panagiotis Vagenas
  * @package XDaRk\Core
- * @since 120318
+ * @since 141226
  */
 
 (function ($) // Begin extension closure.
@@ -186,10 +185,11 @@
                 $menu_page
                     .find('.input-media-wrapper').each(function(){
                         var $wrapper = $(this);
+                        var $input = $wrapper.find('.media-input');
                         $wrapper
                             .find('.input-media-btn')
                             .click(function () {
-                                _.openFileFrame($wrapper.find('.media-input'));
+                                _.openFileFrame($input);
                             }
                         )
                     });
@@ -264,8 +264,8 @@
             };
 
             _.openFileFrame = function ($input) {
-                if (undefined === _.file_frame) {
-                    _.file_frame = wp.media.frames.file_frame = wp.media({
+                if (undefined === $input.file_frame) {
+                    $input.file_frame = wp.media.frames.file_frame = wp.media({
                         title: "Insert Media", // For production, this needs i18n.
                         button: {
                             text: "Upload Image" // For production, this needs i18n.
@@ -273,15 +273,16 @@
                         multiple: false
                     });
                 } else {
-                    _.file_frame.unbind('select');
+                    $input.file_frame.open();
+                    return;
                 }
 
-                _.file_frame.on('select', function () {
-                    var image_data = _.file_frame.state().get('selection').first().toJSON();
+                $input.file_frame.on('select', function () {
+                    var image_data = $input.file_frame.state().get('selection').first().toJSON();
                     $input.val(image_data['url']);
                 });
 
-                _.file_frame.open();
+                $input.file_frame.open();
                 return true;
             };
 
