@@ -77,10 +77,10 @@ namespace randomizer {
 						'randomPolicy'    => 'random',
 						'elements'        => array(
 							array(
-								'content'  => '',
+								'content'  => array('image' => '', 'link' => '', 'target' => 1),
 								'pined'    => false,
 								'disabled' => false,
-								'mode'     => 'html'
+								'mode'     => 'banner'
 							)
 						),
 						'numOfElmsToDspl' => 0
@@ -153,12 +153,12 @@ namespace randomizer {
 				}
 				$allEmpty = true;
 				foreach ( $set["elements"] as $k => $element ) {
-					$allEmpty &= empty( $element['content'] );
 					if ( empty( $element['content'] )
-						|| ($newOptions[ $key ]["elements"][ $k ]['mode'] === 'banner' && empty($newOptions[ $key ]["elements"][ $k ]['content']['image']))
+						|| ($element['mode'] === 'banner' && empty($element['content']['image']))
 					) {
 						unset( $newOptions[ $key ]["elements"][ $k ] );
 					} else {
+						$allEmpty = false;
 						$newOptions[ $key ]["elements"][ $k ]['pined']    = isset( $newOptions[ $key ]["elements"][ $k ]['pined'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['pined'];
 						$newOptions[ $key ]["elements"][ $k ]['disabled'] = isset( $newOptions[ $key ]["elements"][ $k ]['disabled'] ) && (bool) $newOptions[ $key ]["elements"][ $k ]['disabled'];
 						$newOptions[ $key ]["elements"][ $k ]['mode']     = isset( $newOptions[ $key ]["elements"][ $k ]['mode'] ) && in_array( $newOptions[ $key ]["elements"][ $k ]['mode'], array_keys( $this->elementModes ) ) ? $newOptions[ $key ]["elements"][ $k ]['mode'] : 'html';

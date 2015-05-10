@@ -122,7 +122,7 @@ $nameFieldProps   = array(
 		}
 
 		if ( ! count( $callee->getOption( 'elements' ) ) ) {
-			echo $callee->element( 0, '', false, false );
+			echo $callee->element( 0, array('image' => '', 'link' => '', 'target' => 1), false, false, 'banner' );
 		}
 		?>
 	</div>

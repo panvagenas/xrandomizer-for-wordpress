@@ -18,7 +18,7 @@ if ( ! defined( 'WPINC' ) ) {
 /* @var bool $pined */
 /* @var bool $disabled */
 /* @var string $mode */
-$mode = empty( $mode ) ? 'html' : $mode;
+$mode = empty( $mode ) ? 'banner' : $mode;
 $elSlug = $callee->slug . '-' . $index;
 $elId = $callee->setIdx . '-' . $index;
 ?>
@@ -37,7 +37,7 @@ $elId = $callee->setIdx . '-' . $index;
 				<div class="col-sm-9">
 					<?php
 					$elementFieldProps = array(
-						'required'    => true,
+						'required'    => ! $callee->isDefault,
 						'type'        => 'media',
 						'name'        => '[elements][' . $index . '][content][image]',
 						'title'       => $this->__( 'Choose image' ),

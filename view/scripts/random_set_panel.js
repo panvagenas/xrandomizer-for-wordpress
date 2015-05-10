@@ -22,8 +22,6 @@
         );
     };
 
-    $randomizer.$ajax.getElementMarkup(25, 1, 'html', '', false, false);
-
     var setManager = function (setIdx) {
         this.setIdx = setIdx;
         this.selector = '#panel--random-set-' + this.setIdx;
@@ -289,16 +287,6 @@
         html.apply(this, arguments);
         this.mode = (mode == undefined || mode == null || html.prototype.codeModes[mode] == undefined) ? 'html' : mode;
         this.bindEditor();
-        this.textAreaMarkUp = '<div data-method="{{method}}"'
-        + 'class="col-sm-10 text-area-wrapper"><textarea data-editor="{{method}}"'
-        + 'rows="7" cols="50"'
-        + 'autocomplete="off"'
-        + 'placeholder="Add some content to this element" title="Add some content to this element"'
-        + 'data-required="{{required}}"'
-        + 'class="form-control text-area form-control element-text-area"'
-        + 'name="rz[a][a][0][{{setIdx}}][elements][{{idx}}][content]"'
-        + 'id="elements-{{setIdx}}-{{idx}}">{{content}}</textarea>'
-        + '</div>';
     };
 
     htmlCode.prototype = Object.create(html.prototype);
