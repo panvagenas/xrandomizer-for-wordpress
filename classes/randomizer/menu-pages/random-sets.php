@@ -57,7 +57,7 @@ namespace randomizer\menu_pages {
 		 *
 		 * @return random_set
 		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-		 * @since TODO ${VERSION}
+		 * @since 150501
 		 */
 		public function getRandomSetInstance($setId = null){
 			$setOptions = $this->getSetOptions($setId);
@@ -69,7 +69,7 @@ namespace randomizer\menu_pages {
 		 *
 		 * @return array
 		 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-		 * @since TODO ${VERSION}
+		 * @since 150501
 		 */
 		public function getSetOptions($setId = null){
 			if($setId !== null){

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 6/5/2015
  * Time: 10:41 μμ
- * Since: TODO ${VERSION}
+ * Since: 150501
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -18,7 +18,7 @@ use randomizer\menu_pages\random_sets;
  *
  * @package randomizer
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since TODO ${VERSION}
+ * @since 150501
  * @property \randomizer\menu_pages\panels\random_set                       $©menu_pages__panels__random_set
  * @method \randomizer\menu_pages\panels\random_set                         ©menu_pages__panels__random_set()
  * @property \randomizer\menu_pages\random_sets                             $©menu_pages__random_sets
@@ -35,7 +35,7 @@ class ajax extends \xd_v141226_dev\ajax {
 	 *
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since 150501
 	 */
 	public function ®ajaxPrivateGetElementMarkup( $setId, $elemId, $mode = 'html', $content = '', $pined = false, $disabled = false ) {
 		if ( ! $this->©user->is_super_admin() ) {

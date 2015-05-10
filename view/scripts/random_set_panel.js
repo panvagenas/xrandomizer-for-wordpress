@@ -26,7 +26,7 @@
 
     var setManager = function (setIdx) {
         this.setIdx = setIdx;
-        this.selector = '#panel--random-set-1' + this.setIdx;
+        this.selector = '#panel--random-set-' + this.setIdx;
     };
 
     setManager.prototype = {
@@ -385,7 +385,6 @@
     htmlBanner.prototype = Object.create(html.prototype);
     htmlBanner.prototype.constructor = htmlBanner;
 
-    // todo selectors not working, ids in inputs must be updated when updating indexes or set some classes instead
     htmlBanner.prototype.imageInputSelector = function () {
         return this.selector() + ' #elements-' + this.setIdx + '-' + this.idx + '-image';
     };
@@ -412,9 +411,11 @@
         $(this.selector()).find('.input-media-btn').unbind('click');
     };
 
-    htmlBanner.prototype.bindClickEvent = function(){
+    htmlBanner.prototype.bindClickEvent = function(init){
+        init = init == undefined ? false : init;
         html.prototype.bindClickEvent.call(this);
-        this.bindMediaGallery();
+        if(!init)
+            this.bindMediaGallery();
     };
 
     htmlBanner.prototype.bindMediaGallery = function(){
@@ -422,7 +423,7 @@
             .find('.input-media-wrapper')
             .each(function(){
                 var $wrapper = $(this);
-                var $input = $wrapper.find('.media-input')
+                var $input = $wrapper.find('.media-input');
                 $wrapper
                     .find('.input-media-btn')
                     .unbind('click')
@@ -451,6 +452,8 @@
 
     $('.form-group.element').each(function (i) {
         var $el = html.prototype.factory($(this));
-        $el.bindClickEvent();
+        $el.bindClickEvent(true);
     });
+
+    setManager.prototype.bindDeleteEvent();
 })(jQuery);
