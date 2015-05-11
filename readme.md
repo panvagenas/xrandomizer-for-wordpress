@@ -1,17 +1,10 @@
-=== XRandomizer ===
-Contributors: pan.vagenas
-Tags: ad,ad rotators,ads,advert,advertise,advertisement,advertiser,advertising,advert manager,adverts,banner,banner manager,commercial,content,custom ads,custom banners,custom rotating banners,export,image ads,image widget,plugin,random,random banners,random rotating banners,rotate,rotating banners,rotator,sidebar,widget,widget ads
-Requires at least: 4.0
-Tested up to: 4.1.1
-Stable tag: 150501
-License: GNU General Public License V3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.txt
+# XRandomizer for WordPress
 
 Display user specified content in random or circular order, through a widget or shortcode.
 
-== Description ==
+## Description
 
-XRandomizer displays content in random order. Content can be HTML or MarkDown markup, PHP or JS code, even plain text.
+XRandomizer displays content in random order. Content can be Banners or images, HTML or MarkDown markup, PHP or JS code, even plain text.
 
 Admin interface is as simple as possible and you'll get used to it in a couple of minutes.
 
@@ -42,16 +35,15 @@ Admin interface is as simple as possible and you'll get used to it in a couple o
 * Apache version: 2.1+
 * PHP version: 5.4+
 
-== Installation ==
+## Installation
 
 Please consult WordPress plugin [installation guide](https://codex.wordpress.org/Managing_Plugins#Installing_Plugins)
 
-== Screenshots ==
+## Changelog
 
-1. Random Sets Options
-2. Main Options
+#### 150501
 
-== Changelog ==
+* New mode: Banner
 
 #### 150120
 
